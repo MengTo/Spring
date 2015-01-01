@@ -14,6 +14,7 @@ import UIKit
         didSet {
             attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
             layoutSubviews()
+            
         }
     }
     
@@ -23,6 +24,24 @@ import UIKit
             
             leftViewMode = UITextFieldViewMode.Always
             leftView = padding
+            
+            rightViewMode = UITextFieldViewMode.Always
+            rightView = padding
+        }
+    }
+    
+    @IBInspectable var leftPadding: CGFloat = 0 {
+        didSet {
+            var padding = UIView(frame: CGRectMake(0, 0, leftPadding, 0))
+            
+            leftViewMode = UITextFieldViewMode.Always
+            leftView = padding
+        }
+    }
+    
+    @IBInspectable var rightPadding: CGFloat = 0 {
+        didSet {
+            var padding = UIView(frame: CGRectMake(0, 0, 0, rightPadding))
             
             rightViewMode = UITextFieldViewMode.Always
             rightView = padding

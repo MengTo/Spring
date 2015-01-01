@@ -13,6 +13,16 @@ var delay = 0.0
 var damping = 0.7
 var velocity = 0.7
 
+func slideLeft(view: UIView, delay: NSTimeInterval, duration: NSTimeInterval, damping: CGFloat, velocity: CGFloat) {
+    view.transform = CGAffineTransformMakeTranslation(200, 0)
+    
+    UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: damping, initialSpringVelocity: velocity, options: nil, animations: {
+        
+        view.transform = CGAffineTransformIdentity
+        
+    }, completion: nil)
+}
+
 func spring(duration: NSTimeInterval, animations: (() -> Void)!) {
     
     UIView.animateWithDuration(duration, delay: delay, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: nil, animations: {
