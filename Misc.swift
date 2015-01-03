@@ -8,6 +8,10 @@
 
 import UIKit
 
+func degreesToRadians(degrees: CGFloat) -> CGFloat {
+    return degrees * CGFloat(M_PI / 180)
+}
+
 func delay(delay:Double, closure:()->()) {
     dispatch_after(
         dispatch_time(

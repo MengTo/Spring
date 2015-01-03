@@ -15,6 +15,7 @@ import UIKit
     func animatePreset() {
         isFrom = true
         reset()
+        opacity = 0.99
         
         switch animation {
         case "slideLeft":
@@ -51,6 +52,10 @@ import UIKit
             opacity = 0
             scaleX = 2*force
             scaleY = 2*force
+        case "fall":
+            isFrom = false
+            rotate = 1
+            y = 300
         case "shake":
             let animation = CAKeyframeAnimation()
             animation.keyPath = "position.x"
@@ -62,11 +67,10 @@ import UIKit
             animation.repeatCount = 1
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "shake")
-            opacity = 0.99
         case "pop":
             let animation = CAKeyframeAnimation()
             animation.keyPath = "transform.scale"
-            animation.values = [0, 0.1*force, -0.1*force, 0.1*force, 0]
+            animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
             animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
             animation.duration = CFTimeInterval(duration)
@@ -74,11 +78,36 @@ import UIKit
             animation.repeatCount = 1
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "pop")
-            opacity = 0.99
+        case "flipX":
+            var perspective = CATransform3DIdentity
+            perspective.m34 = -1.0 / layer.frame.size.width/2
+            
+            let animation = CABasicAnimation()
+            animation.keyPath = "transform"
+            animation.fromValue = NSValue(CATransform3D:
+                CATransform3DMakeRotation(0, 0, 0, 0))
+            animation.toValue = NSValue(CATransform3D:
+                CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)))
+            animation.duration = CFTimeInterval(duration)
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            layer.addAnimation(animation, forKey: "3d")
+        case "flipY":
+            var perspective = CATransform3DIdentity
+            perspective.m34 = -1.0 / layer.frame.size.width/2
+            
+            let animation = CABasicAnimation()
+            animation.keyPath = "transform"
+            animation.fromValue = NSValue(CATransform3D:
+                CATransform3DMakeRotation(0, 0, 0, 0))
+            animation.toValue = NSValue(CATransform3D:
+                CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)))
+            animation.duration = CFTimeInterval(duration)
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            layer.addAnimation(animation, forKey: "3d")
         case "morph":
             let morphX = CAKeyframeAnimation()
             morphX.keyPath = "transform.scale.x"
-            morphX.values = [1, 1.1*force, 0.9, 1.1*force, 1]
+            morphX.values = [1, 1.3*force, 0.7, 1.3*force, 1]
             morphX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             morphX.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
             morphX.duration = CFTimeInterval(duration)
@@ -88,15 +117,13 @@ import UIKit
             
             let morphY = CAKeyframeAnimation()
             morphY.keyPath = "transform.scale.y"
-            morphY.values = [1, 0.9, 1.1*force, 0.9, 1]
+            morphY.values = [1, 0.7, 1.3*force, 0.7, 1]
             morphY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             morphY.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
             morphY.duration = CFTimeInterval(duration)
             morphY.repeatCount = 1
             morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(morphY, forKey: "morphY")
-
-            opacity = 0.99
         case "squeeze":
             let morphX = CAKeyframeAnimation()
             morphX.keyPath = "transform.scale.x"
@@ -117,8 +144,6 @@ import UIKit
             morphY.repeatCount = 1
             morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(morphY, forKey: "morphY")
-            
-            opacity = 0.99
         case "flash":
             let animation = CABasicAnimation()
             animation.keyPath = "opacity"
@@ -129,11 +154,10 @@ import UIKit
             animation.autoreverses = true
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "flash")
-            opacity = 0.99
         case "wobble":
             let animation = CAKeyframeAnimation()
             animation.keyPath = "transform.rotation"
-            animation.values = [0, 0.2*force, -0.2*force, 0.2*force, 0]
+            animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
             animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             animation.duration = CFTimeInterval(duration)
             animation.additive = true
@@ -150,12 +174,10 @@ import UIKit
             x.repeatCount = 1
             x.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(x, forKey: "x")
-            
-            opacity = 0.99
         case "swing":
             let animation = CAKeyframeAnimation()
             animation.keyPath = "transform.rotation"
-            animation.values = [0, 0.2*force, -0.2*force, 0.2*force, 0]
+            animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
             animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             animation.duration = CFTimeInterval(duration)
             animation.additive = true
@@ -233,7 +255,7 @@ import UIKit
                 
                 self.alpha = self.opacity
             }
-                
+            
         }, { finished in
             
             completion()
