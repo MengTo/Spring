@@ -30,7 +30,7 @@ import UIKit
         case "fadeOut":
             isFrom = false
             opacity = 0
-        case "fadeLeft":
+        case "fadeInLeft":
             opacity = 0
             x = 300*force
         case "fadeInRight":
