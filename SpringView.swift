@@ -13,8 +13,10 @@ import UIKit
     @IBInspectable var animation: String = ""
     
     func animatePreset() {
+        if animation == "" {
+            return
+        }
         isFrom = true
-        reset()
         opacity = 0.99
         
         switch animation {
@@ -26,6 +28,18 @@ import UIKit
             y = -300*force
         case "slideUp":
             y = 300*force
+        case "squeezeLeft":
+            x = 300
+            scaleX = 3*force
+        case "squeezeRight":
+            x = -300
+            scaleX = 3*force
+        case "squeezeDown":
+            y = -300
+            scaleY = 3*force
+        case "squeezeUp":
+            y = 300
+            scaleY = 3*force
         case "fadeIn":
             opacity = 0
         case "fadeOut":
@@ -54,8 +68,8 @@ import UIKit
             scaleY = 2*force
         case "fall":
             isFrom = false
-            rotate = 1
-            y = 300
+            rotate = 15 * CGFloat(M_PI/180)
+            y = 300*force
         case "shake":
             let animation = CAKeyframeAnimation()
             animation.keyPath = "position.x"
@@ -90,6 +104,7 @@ import UIKit
                 CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)))
             animation.duration = CFTimeInterval(duration)
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             layer.addAnimation(animation, forKey: "3d")
         case "flipY":
             var perspective = CATransform3DIdentity
@@ -103,6 +118,7 @@ import UIKit
                 CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)))
             animation.duration = CFTimeInterval(duration)
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             layer.addAnimation(animation, forKey: "3d")
         case "morph":
             let morphX = CAKeyframeAnimation()
