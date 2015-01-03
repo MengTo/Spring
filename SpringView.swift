@@ -56,9 +56,11 @@ import UIKit
             animation.keyPath = "position.x"
             animation.values = [0, 30*force, -30*force, 30*force, 0]
             animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
             animation.duration = CFTimeInterval(duration)
             animation.additive = true
+            animation.repeatCount = 1
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "shake")
             opacity = 0.99
         case "pop":
@@ -69,6 +71,8 @@ import UIKit
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
             animation.duration = CFTimeInterval(duration)
             animation.additive = true
+            animation.repeatCount = 1
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "pop")
             opacity = 0.99
         case "morph":
@@ -78,6 +82,8 @@ import UIKit
             morphX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             morphX.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
             morphX.duration = CFTimeInterval(duration)
+            morphX.repeatCount = 1
+            morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(morphX, forKey: "morphX")
             
             let morphY = CAKeyframeAnimation()
@@ -86,35 +92,91 @@ import UIKit
             morphY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             morphY.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
             morphY.duration = CFTimeInterval(duration)
+            morphY.repeatCount = 1
+            morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(morphY, forKey: "morphY")
 
             opacity = 0.99
+        case "squeeze":
+            let morphX = CAKeyframeAnimation()
+            morphX.keyPath = "transform.scale.x"
+            morphX.values = [1, 1.5*force, 0.5, 1.5*force, 1]
+            morphX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+            morphX.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            morphX.duration = CFTimeInterval(duration)
+            morphX.repeatCount = 1
+            morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            layer.addAnimation(morphX, forKey: "morphX")
+            
+            let morphY = CAKeyframeAnimation()
+            morphY.keyPath = "transform.scale.y"
+            morphY.values = [1, 0.5, 1, 0.5, 1]
+            morphY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+            morphY.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            morphY.duration = CFTimeInterval(duration)
+            morphY.repeatCount = 1
+            morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            layer.addAnimation(morphY, forKey: "morphY")
+            
+            opacity = 0.99
         case "flash":
-            let animation = CAKeyframeAnimation()
+            let animation = CABasicAnimation()
             animation.keyPath = "opacity"
-            animation.values = [1, 0, 1, 0, 1]
-            animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            animation.fromValue = 1
+            animation.toValue = 0
             animation.duration = CFTimeInterval(duration)
-            animation.additive = true
+            animation.repeatCount = 2
+            animation.autoreverses = true
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "flash")
             opacity = 0.99
+        case "wobble":
+            let animation = CAKeyframeAnimation()
+            animation.keyPath = "transform.rotation"
+            animation.values = [0, 0.2*force, -0.2*force, 0.2*force, 0]
+            animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+            animation.duration = CFTimeInterval(duration)
+            animation.additive = true
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            layer.addAnimation(animation, forKey: "wobble")
+            
+            let x = CAKeyframeAnimation()
+            x.keyPath = "position.x"
+            x.values = [0, 30*force, -30*force, 30*force, 0]
+            x.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+            x.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            x.duration = CFTimeInterval(duration)
+            x.additive = true
+            x.repeatCount = 1
+            x.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            layer.addAnimation(x, forKey: "x")
+            
+            opacity = 0.99
+        case "swing":
+            let animation = CAKeyframeAnimation()
+            animation.keyPath = "transform.rotation"
+            animation.values = [0, 0.2*force, -0.2*force, 0.2*force, 0]
+            animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+            animation.duration = CFTimeInterval(duration)
+            animation.additive = true
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            layer.addAnimation(animation, forKey: "swing")
         default:
             x = 300
         }
     }
     
     @IBInspectable var force: CGFloat = 1
+    @IBInspectable var delay: CGFloat = 0
+    @IBInspectable var duration: CGFloat = 0.7
+    @IBInspectable var damping: CGFloat = 0.7
+    @IBInspectable var velocity: CGFloat = 0.7
     @IBInspectable var x: CGFloat = 0
     @IBInspectable var y: CGFloat = 0
     @IBInspectable var scaleX: CGFloat = 1
     @IBInspectable var scaleY: CGFloat = 1
     @IBInspectable var rotate: CGFloat = 0
     @IBInspectable var opacity: CGFloat = 1
-    @IBInspectable var delay: CGFloat = 0
-    @IBInspectable var duration: CGFloat = 0.7
-    @IBInspectable var damping: CGFloat = 0.7
-    @IBInspectable var velocity: CGFloat = 0.7
     @IBInspectable var isFrom: Bool = false
     
     func animate() {
@@ -186,9 +248,5 @@ import UIKit
         scaleY = 1
         rotate = 0
         opacity = 1
-        delay = 0
-        duration = 0.7
-        damping = 0.7
-        velocity = 0.7
     }
 }
