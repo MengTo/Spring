@@ -282,9 +282,6 @@ import UIKit
     func reset() {
         x = 0
         y = 0
-        scaleX = 1
-        scaleY = 1
-        rotate = 0
         opacity = 1
     }
 }
