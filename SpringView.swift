@@ -16,7 +16,6 @@ import UIKit
         if animation == "" {
             return
         }
-        isFrom = true
         opacity = 0.99
         
         switch animation {
@@ -43,7 +42,7 @@ import UIKit
         case "fadeIn":
             opacity = 0
         case "fadeOut":
-            isFrom = false
+            animateFrom = false
             opacity = 0
         case "fadeOutIn":
             let animation = CABasicAnimation()
@@ -72,12 +71,12 @@ import UIKit
             scaleX = 2*force
             scaleY = 2*force
         case "zoomOut":
-            isFrom = false
+            animateFrom = false
             opacity = 0
             scaleX = 2*force
             scaleY = 2*force
         case "fall":
-            isFrom = false
+            animateFrom = false
             rotate = 15 * CGFloat(M_PI/180)
             y = 300*force
         case "shake":
@@ -228,7 +227,7 @@ import UIKit
     @IBInspectable var scaleY: CGFloat = 1
     @IBInspectable var rotate: CGFloat = 0
     @IBInspectable var opacity: CGFloat = 1
-    @IBInspectable var isFrom: Bool = false
+    @IBInspectable var animateFrom: Bool = false
     @IBInspectable var curve: String = ""
     
     func getTimingFunction(curve: String) -> CAMediaTimingFunction {
@@ -265,13 +264,7 @@ import UIKit
     }
     
     func animate() {
-        isFrom = false
         animatePreset()
-        setView {}
-    }
-    
-    func animateFrom() {
-        isFrom = true
         setView {}
     }
     
@@ -288,7 +281,7 @@ import UIKit
     }
     
     private func setView(completion: () -> ()) {
-        if isFrom {
+        if animateFrom {
             let translate = CGAffineTransformMakeTranslation(self.x, self.y)
             let scale = CGAffineTransformMakeScale(self.scaleX, self.scaleY)
             let rotate = CGAffineTransformMakeRotation(self.rotate)
@@ -305,7 +298,7 @@ import UIKit
             options: getAnimationOptions(curve),
             animations: {
                 
-            if self.isFrom {
+            if self.animateFrom {
                 self.transform = CGAffineTransformIdentity
                 self.alpha = 1
             }
