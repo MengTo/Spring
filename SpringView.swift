@@ -45,6 +45,16 @@ import UIKit
         case "fadeOut":
             isFrom = false
             opacity = 0
+        case "fadeOutIn":
+            let animation = CABasicAnimation()
+            animation.keyPath = "opacity"
+            animation.fromValue = 1
+            animation.toValue = 0
+            animation.timingFunction = getTimingFunction(curve)
+            animation.duration = CFTimeInterval(duration)
+            animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+            animation.autoreverses = true
+            layer.addAnimation(animation, forKey: "fade")
         case "fadeInLeft":
             opacity = 0
             x = 300*force
@@ -75,7 +85,7 @@ import UIKit
             animation.keyPath = "position.x"
             animation.values = [0, 30*force, -30*force, 30*force, 0]
             animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            animation.timingFunction = getTimingFunction(curve)
             animation.duration = CFTimeInterval(duration)
             animation.additive = true
             animation.repeatCount = 1
@@ -86,13 +96,16 @@ import UIKit
             animation.keyPath = "transform.scale"
             animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
             animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            animation.timingFunction = getTimingFunction(curve)
             animation.duration = CFTimeInterval(duration)
             animation.additive = true
             animation.repeatCount = 1
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "pop")
         case "flipX":
+            rotate = 0
+            scaleX = 1
+            scaleY = 1
             var perspective = CATransform3DIdentity
             perspective.m34 = -1.0 / layer.frame.size.width/2
             
@@ -104,7 +117,7 @@ import UIKit
                 CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(M_PI), 0, 1, 0)))
             animation.duration = CFTimeInterval(duration)
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation.timingFunction = getTimingFunction(curve)
             layer.addAnimation(animation, forKey: "3d")
         case "flipY":
             var perspective = CATransform3DIdentity
@@ -118,14 +131,14 @@ import UIKit
                 CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)))
             animation.duration = CFTimeInterval(duration)
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation.timingFunction = getTimingFunction(curve)
             layer.addAnimation(animation, forKey: "3d")
         case "morph":
             let morphX = CAKeyframeAnimation()
             morphX.keyPath = "transform.scale.x"
             morphX.values = [1, 1.3*force, 0.7, 1.3*force, 1]
             morphX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            morphX.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            morphX.timingFunction = getTimingFunction(curve)
             morphX.duration = CFTimeInterval(duration)
             morphX.repeatCount = 1
             morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
@@ -135,7 +148,7 @@ import UIKit
             morphY.keyPath = "transform.scale.y"
             morphY.values = [1, 0.7, 1.3*force, 0.7, 1]
             morphY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            morphY.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            morphY.timingFunction = getTimingFunction(curve)
             morphY.duration = CFTimeInterval(duration)
             morphY.repeatCount = 1
             morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
@@ -145,7 +158,7 @@ import UIKit
             morphX.keyPath = "transform.scale.x"
             morphX.values = [1, 1.5*force, 0.5, 1.5*force, 1]
             morphX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            morphX.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            morphX.timingFunction = getTimingFunction(curve)
             morphX.duration = CFTimeInterval(duration)
             morphX.repeatCount = 1
             morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
@@ -155,7 +168,7 @@ import UIKit
             morphY.keyPath = "transform.scale.y"
             morphY.values = [1, 0.5, 1, 0.5, 1]
             morphY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            morphY.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+            morphY.timingFunction = getTimingFunction(curve)
             morphY.duration = CFTimeInterval(duration)
             morphY.repeatCount = 1
             morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
@@ -184,7 +197,7 @@ import UIKit
             x.keyPath = "position.x"
             x.values = [0, 30*force, -30*force, 30*force, 0]
             x.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
-            x.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            x.timingFunction = getTimingFunction(curve)
             x.duration = CFTimeInterval(duration)
             x.additive = true
             x.repeatCount = 1
@@ -216,6 +229,40 @@ import UIKit
     @IBInspectable var rotate: CGFloat = 0
     @IBInspectable var opacity: CGFloat = 1
     @IBInspectable var isFrom: Bool = false
+    @IBInspectable var curve: String = ""
+    
+    func getTimingFunction(curve: String) -> CAMediaTimingFunction {
+        switch curve {
+            case "easeIn":
+                return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            case "easeOut":
+                return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            case "easeInOut":
+                return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            case "linear":
+                return CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            case "spring":
+                return CAMediaTimingFunction(controlPoints: 0.5, 1.1+Float(force/3), 1, 1)
+            default:
+                return CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        }
+    }
+    func getAnimationOptions(curve: String) -> UIViewAnimationOptions {
+        switch curve {
+        case "easeIn":
+            return UIViewAnimationOptions.CurveEaseIn
+        case "easeOut":
+            return UIViewAnimationOptions.CurveEaseOut
+        case "easeInOut":
+            return UIViewAnimationOptions.CurveEaseInOut
+        case "linear":
+            return UIViewAnimationOptions.CurveLinear
+        case "spring":
+            return UIViewAnimationOptions.CurveLinear
+        default:
+            return UIViewAnimationOptions.CurveLinear
+        }
+    }
     
     func animate() {
         isFrom = false
@@ -255,7 +302,7 @@ import UIKit
             delay: NSTimeInterval(delay),
             usingSpringWithDamping: damping,
             initialSpringVelocity: velocity,
-            options: nil,
+            options: getAnimationOptions(curve),
             animations: {
                 
             if self.isFrom {
