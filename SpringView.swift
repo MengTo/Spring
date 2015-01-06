@@ -324,4 +324,17 @@ import UIKit
         y = 0
         opacity = 1
     }
+    
+    func resetAll() {
+        x = 0
+        y = 0
+        opacity = 1
+        scaleX = 1
+        scaleY = 1
+        rotate = 0
+        damping = 0.7
+        velocity = 0.7
+        delay = 0
+        duration = 0.7
+    }
 }
