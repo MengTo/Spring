@@ -21,6 +21,12 @@ func delay(delay:Double, closure:()->()) {
         dispatch_get_main_queue(), closure)
 }
 
+func imageFromURL(URL: String) -> UIImage {
+    let url = NSURL(string: URL)
+    let data = NSData(contentsOfURL: url!)
+    return UIImage(data: data!)!
+}
+
 extension UIColor {
     convenience init(rgba: String) {
         var red:   CGFloat = 0.0
