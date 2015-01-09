@@ -28,15 +28,15 @@ func imageFromURL(URL: String) -> UIImage {
 }
 
 extension UIColor {
-    convenience init(rgba: String) {
+    convenience init(hex: String) {
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
         var blue:  CGFloat = 0.0
         var alpha: CGFloat = 1.0
         
-        if rgba.hasPrefix("#") {
-            let index   = advance(rgba.startIndex, 1)
-            let hex     = rgba.substringFromIndex(index)
+        if hex.hasPrefix("#") {
+            let index   = advance(hex.startIndex, 1)
+            let hex     = hex.substringFromIndex(index)
             let scanner = NSScanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
             if scanner.scanHexLongLong(&hexValue) {
