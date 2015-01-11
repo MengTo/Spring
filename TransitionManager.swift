@@ -11,7 +11,7 @@ import UIKit
 class TransitionManager: NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
     var isPresenting = true
-    var duration = 0.7
+    var duration = 0.3
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView()
@@ -23,7 +23,7 @@ class TransitionManager: NSObject, UIViewControllerTransitioningDelegate, UIView
             container.addSubview(toView)
             
             toView.transform = CGAffineTransformMakeTranslation(0, toView.frame.size.height)
-            spring(duration) {
+            springEaseInOut(duration) {
                 fromView.transform = CGAffineTransformMakeScale(0.8, 0.8)
                 fromView.alpha = 0.5
                 toView.transform = CGAffineTransformIdentity
@@ -33,7 +33,7 @@ class TransitionManager: NSObject, UIViewControllerTransitioningDelegate, UIView
             container.addSubview(toView)
             container.addSubview(fromView)
             
-            spring(duration) {
+            springEaseInOut(duration) {
                 fromView.transform = CGAffineTransformMakeTranslation(0, fromView.frame.size.height)
                 toView.transform = CGAffineTransformMakeScale(1, 1)
                 toView.alpha = 1
