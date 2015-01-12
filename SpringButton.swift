@@ -78,7 +78,7 @@ import UIKit
         case "fall":
             animateFrom = false
             rotate = 15 * CGFloat(M_PI/180)
-            y = 300*force
+            y = 500*force
         case "shake":
             let animation = CAKeyframeAnimation()
             animation.keyPath = "position.x"
@@ -93,7 +93,7 @@ import UIKit
         case "pop":
             let animation = CAKeyframeAnimation()
             animation.keyPath = "transform.scale"
-            animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
+            animation.values = [0, 0.2*force, -0.2*force, 0.2*force, 0]
             animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             animation.timingFunction = getTimingFunction(curve)
             animation.duration = CFTimeInterval(duration)
@@ -264,15 +264,35 @@ import UIKit
     }
     
     func animate() {
+        animateFrom = true
         animatePreset()
         setView {}
+        self.resetAll()
     }
     
     func animateNext(completion: () -> ()) {
+        animateFrom = true
         animatePreset()
         setView {
             completion()
         }
+        self.resetAll()
+    }
+    
+    func animateTo() {
+        animateFrom = false
+        animatePreset()
+        setView {}
+        self.resetAll()
+    }
+    
+    func animateToNext(completion: () -> ()) {
+        animateFrom = false
+        animatePreset()
+        setView {
+            completion()
+        }
+        self.resetAll()
     }
     
     override func awakeFromNib() {
@@ -328,6 +348,7 @@ import UIKit
     func resetAll() {
         x = 0
         y = 0
+        animation = ""
         opacity = 1
         scaleX = 1
         scaleY = 1
