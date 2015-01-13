@@ -78,7 +78,7 @@ import UIKit
         case "fall":
             animateFrom = false
             rotate = 15 * CGFloat(M_PI/180)
-            y = 500*force
+            y = 600*force
         case "shake":
             let animation = CAKeyframeAnimation()
             animation.keyPath = "position.x"
