@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6221" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6221"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UpM-yt-Mha">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyS-sC-NOj">
+                    <rect key="frame" x="0.0" y="340" width="600" height="260"/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.94509803920000002" blue="0.96078431369999995" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="260" id="ZzL-k1-Chw"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7P-Rw-nWV">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="t7P-Rw-nWV" firstAttribute="leading" secondItem="UpM-yt-Mha" secondAttribute="leading" id="7kg-00-bKX"/>
+                <constraint firstAttribute="trailing" secondItem="t7P-Rw-nWV" secondAttribute="trailing" id="D2z-sY-gsJ"/>
+                <constraint firstItem="HyS-sC-NOj" firstAttribute="top" secondItem="t7P-Rw-nWV" secondAttribute="bottom" id="M41-Bz-daQ"/>
+                <constraint firstItem="HyS-sC-NOj" firstAttribute="leading" secondItem="UpM-yt-Mha" secondAttribute="leading" id="OyT-BU-HGL"/>
+                <constraint firstItem="t7P-Rw-nWV" firstAttribute="top" secondItem="UpM-yt-Mha" secondAttribute="top" id="RbV-ub-MW2"/>
+                <constraint firstAttribute="trailing" secondItem="HyS-sC-NOj" secondAttribute="trailing" id="dPv-Rb-3j2"/>
+                <constraint firstAttribute="bottom" secondItem="HyS-sC-NOj" secondAttribute="bottom" id="un2-ep-uEa"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="548" y="455"/>
+        </view>
+    </objects>
+</document>

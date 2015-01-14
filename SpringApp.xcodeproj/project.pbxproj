@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		961888BE1A66BD6B00295A64 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888AB1A66BD6B00295A64 /* BlurView.swift */; };
+		961888BF1A66BD6B00295A64 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888AC1A66BD6B00295A64 /* Data.swift */; };
+		961888C01A66BD6B00295A64 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888AD1A66BD6B00295A64 /* DesignableButton.swift */; };
+		961888C11A66BD6B00295A64 /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888AE1A66BD6B00295A64 /* DesignableImageView.swift */; };
+		961888C21A66BD6B00295A64 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888AF1A66BD6B00295A64 /* DesignableLabel.swift */; };
+		961888C31A66BD6B00295A64 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B01A66BD6B00295A64 /* DesignableTextField.swift */; };
+		961888C41A66BD6B00295A64 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B11A66BD6B00295A64 /* DesignableTextView.swift */; };
+		961888C51A66BD6B00295A64 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B21A66BD6B00295A64 /* DesignableView.swift */; };
+		961888C61A66BD6B00295A64 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B31A66BD6B00295A64 /* ImageLoader.swift */; };
+		961888C71A66BD6B00295A64 /* KeyboardAvoidingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B41A66BD6B00295A64 /* KeyboardAvoidingScrollView.swift */; };
+		961888C81A66BD6B00295A64 /* loadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B51A66BD6B00295A64 /* loadingView.swift */; };
+		961888C91A66BD6B00295A64 /* loadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961888B61A66BD6B00295A64 /* loadingView.xib */; };
+		961888CA1A66BD6B00295A64 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B71A66BD6B00295A64 /* Misc.swift */; };
+		961888CB1A66BD6B00295A64 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B81A66BD6B00295A64 /* SpringAnimation.swift */; };
+		961888CC1A66BD6B00295A64 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888B91A66BD6B00295A64 /* SpringButton.swift */; };
+		961888CD1A66BD6B00295A64 /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888BA1A66BD6B00295A64 /* SpringView.swift */; };
+		961888CE1A66BD6B00295A64 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888BB1A66BD6B00295A64 /* TransitionManager.swift */; };
+		961888CF1A66BD6B00295A64 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888BC1A66BD6B00295A64 /* TransitionZoom.swift */; };
+		961888D01A66BD6B00295A64 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888BD1A66BD6B00295A64 /* UnwindSegue.swift */; };
+		964117411A5BE90A000E3A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117401A5BE90A000E3A5A /* AppDelegate.swift */; };
+		964117461A5BE90A000E3A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964117441A5BE90A000E3A5A /* Main.storyboard */; };
+		964117481A5BE90A000E3A5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964117471A5BE90A000E3A5A /* Images.xcassets */; };
+		9641174B1A5BE90A000E3A5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964117491A5BE90A000E3A5A /* LaunchScreen.xib */; };
+		964117571A5BE90A000E3A5A /* SpringAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117561A5BE90A000E3A5A /* SpringAppTests.swift */; };
+		964117641A5BEBC9000E3A5A /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 964117611A5BEBC9000E3A5A /* ProximaNova-Light.otf */; };
+		964117651A5BEBC9000E3A5A /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 964117621A5BEBC9000E3A5A /* ProximaNova-Regular.otf */; };
+		964117661A5BEBC9000E3A5A /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 964117631A5BEBC9000E3A5A /* ProximaNova-Semibold.otf */; };
+		9641178B1A5BEC6F000E3A5A /* SpringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117881A5BEC6F000E3A5A /* SpringViewController.swift */; };
+		9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117891A5BEC6F000E3A5A /* OptionsViewController.swift */; };
+		9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		964117511A5BE90A000E3A5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 964117331A5BE90A000E3A5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9641173A1A5BE90A000E3A5A;
+			remoteInfo = SpringApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		961888AB1A66BD6B00295A64 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		961888AC1A66BD6B00295A64 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		961888AD1A66BD6B00295A64 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		961888AE1A66BD6B00295A64 /* DesignableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
+		961888AF1A66BD6B00295A64 /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
+		961888B01A66BD6B00295A64 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		961888B11A66BD6B00295A64 /* DesignableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
+		961888B21A66BD6B00295A64 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		961888B31A66BD6B00295A64 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		961888B41A66BD6B00295A64 /* KeyboardAvoidingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoidingScrollView.swift; sourceTree = "<group>"; };
+		961888B51A66BD6B00295A64 /* loadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loadingView.swift; sourceTree = "<group>"; };
+		961888B61A66BD6B00295A64 /* loadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loadingView.xib; sourceTree = "<group>"; };
+		961888B71A66BD6B00295A64 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		961888B81A66BD6B00295A64 /* SpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
+		961888B91A66BD6B00295A64 /* SpringButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
+		961888BA1A66BD6B00295A64 /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
+		961888BB1A66BD6B00295A64 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		961888BC1A66BD6B00295A64 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
+		961888BD1A66BD6B00295A64 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
+		9641173B1A5BE90A000E3A5A /* SpringApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpringApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9641173F1A5BE90A000E3A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		964117401A5BE90A000E3A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		964117451A5BE90A000E3A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		964117471A5BE90A000E3A5A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9641174A1A5BE90A000E3A5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		964117501A5BE90A000E3A5A /* SpringAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpringAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		964117551A5BE90A000E3A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		964117561A5BE90A000E3A5A /* SpringAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAppTests.swift; sourceTree = "<group>"; };
+		964117611A5BEBC9000E3A5A /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		964117621A5BEBC9000E3A5A /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
+		964117631A5BEBC9000E3A5A /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
+		964117881A5BEC6F000E3A5A /* SpringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringViewController.swift; sourceTree = "<group>"; };
+		964117891A5BEC6F000E3A5A /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		964117381A5BE90A000E3A5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9641174D1A5BE90A000E3A5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		961888AA1A66BD6B00295A64 /* Spring */ = {
+			isa = PBXGroup;
+			children = (
+				961888AB1A66BD6B00295A64 /* BlurView.swift */,
+				961888AC1A66BD6B00295A64 /* Data.swift */,
+				961888AD1A66BD6B00295A64 /* DesignableButton.swift */,
+				961888AE1A66BD6B00295A64 /* DesignableImageView.swift */,
+				961888AF1A66BD6B00295A64 /* DesignableLabel.swift */,
+				961888B01A66BD6B00295A64 /* DesignableTextField.swift */,
+				961888B11A66BD6B00295A64 /* DesignableTextView.swift */,
+				961888B21A66BD6B00295A64 /* DesignableView.swift */,
+				961888B31A66BD6B00295A64 /* ImageLoader.swift */,
+				961888B41A66BD6B00295A64 /* KeyboardAvoidingScrollView.swift */,
+				961888B51A66BD6B00295A64 /* loadingView.swift */,
+				961888B61A66BD6B00295A64 /* loadingView.xib */,
+				961888B71A66BD6B00295A64 /* Misc.swift */,
+				961888B81A66BD6B00295A64 /* SpringAnimation.swift */,
+				961888B91A66BD6B00295A64 /* SpringButton.swift */,
+				961888BA1A66BD6B00295A64 /* SpringView.swift */,
+				961888BB1A66BD6B00295A64 /* TransitionManager.swift */,
+				961888BC1A66BD6B00295A64 /* TransitionZoom.swift */,
+				961888BD1A66BD6B00295A64 /* UnwindSegue.swift */,
+			);
+			path = Spring;
+			sourceTree = SOURCE_ROOT;
+		};
+		964117321A5BE90A000E3A5A = {
+			isa = PBXGroup;
+			children = (
+				9641173D1A5BE90A000E3A5A /* SpringApp */,
+				964117531A5BE90A000E3A5A /* SpringAppTests */,
+				9641173C1A5BE90A000E3A5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9641173C1A5BE90A000E3A5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9641173B1A5BE90A000E3A5A /* SpringApp.app */,
+				964117501A5BE90A000E3A5A /* SpringAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9641173D1A5BE90A000E3A5A /* SpringApp */ = {
+			isa = PBXGroup;
+			children = (
+				961888AA1A66BD6B00295A64 /* Spring */,
+				964117601A5BEBC9000E3A5A /* font */,
+				964117401A5BE90A000E3A5A /* AppDelegate.swift */,
+				964117881A5BEC6F000E3A5A /* SpringViewController.swift */,
+				964117891A5BEC6F000E3A5A /* OptionsViewController.swift */,
+				9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */,
+				964117441A5BE90A000E3A5A /* Main.storyboard */,
+				964117471A5BE90A000E3A5A /* Images.xcassets */,
+				964117491A5BE90A000E3A5A /* LaunchScreen.xib */,
+				9641173E1A5BE90A000E3A5A /* Supporting Files */,
+			);
+			path = SpringApp;
+			sourceTree = "<group>";
+		};
+		9641173E1A5BE90A000E3A5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9641173F1A5BE90A000E3A5A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		964117531A5BE90A000E3A5A /* SpringAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				964117561A5BE90A000E3A5A /* SpringAppTests.swift */,
+				964117541A5BE90A000E3A5A /* Supporting Files */,
+			);
+			path = SpringAppTests;
+			sourceTree = "<group>";
+		};
+		964117541A5BE90A000E3A5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				964117551A5BE90A000E3A5A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		964117601A5BEBC9000E3A5A /* font */ = {
+			isa = PBXGroup;
+			children = (
+				964117611A5BEBC9000E3A5A /* ProximaNova-Light.otf */,
+				964117621A5BEBC9000E3A5A /* ProximaNova-Regular.otf */,
+				964117631A5BEBC9000E3A5A /* ProximaNova-Semibold.otf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9641173A1A5BE90A000E3A5A /* SpringApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9641175A1A5BE90A000E3A5A /* Build configuration list for PBXNativeTarget "SpringApp" */;
+			buildPhases = (
+				964117371A5BE90A000E3A5A /* Sources */,
+				964117381A5BE90A000E3A5A /* Frameworks */,
+				964117391A5BE90A000E3A5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpringApp;
+			productName = SpringApp;
+			productReference = 9641173B1A5BE90A000E3A5A /* SpringApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9641174F1A5BE90A000E3A5A /* SpringAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9641175D1A5BE90A000E3A5A /* Build configuration list for PBXNativeTarget "SpringAppTests" */;
+			buildPhases = (
+				9641174C1A5BE90A000E3A5A /* Sources */,
+				9641174D1A5BE90A000E3A5A /* Frameworks */,
+				9641174E1A5BE90A000E3A5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				964117521A5BE90A000E3A5A /* PBXTargetDependency */,
+			);
+			name = SpringAppTests;
+			productName = SpringAppTests;
+			productReference = 964117501A5BE90A000E3A5A /* SpringAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		964117331A5BE90A000E3A5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Meng To";
+				TargetAttributes = {
+					9641173A1A5BE90A000E3A5A = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					9641174F1A5BE90A000E3A5A = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 9641173A1A5BE90A000E3A5A;
+					};
+				};
+			};
+			buildConfigurationList = 964117361A5BE90A000E3A5A /* Build configuration list for PBXProject "SpringApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 964117321A5BE90A000E3A5A;
+			productRefGroup = 9641173C1A5BE90A000E3A5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9641173A1A5BE90A000E3A5A /* SpringApp */,
+				9641174F1A5BE90A000E3A5A /* SpringAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		964117391A5BE90A000E3A5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964117461A5BE90A000E3A5A /* Main.storyboard in Resources */,
+				964117661A5BEBC9000E3A5A /* ProximaNova-Semibold.otf in Resources */,
+				964117651A5BEBC9000E3A5A /* ProximaNova-Regular.otf in Resources */,
+				964117641A5BEBC9000E3A5A /* ProximaNova-Light.otf in Resources */,
+				9641174B1A5BE90A000E3A5A /* LaunchScreen.xib in Resources */,
+				961888C91A66BD6B00295A64 /* loadingView.xib in Resources */,
+				964117481A5BE90A000E3A5A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9641174E1A5BE90A000E3A5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		964117371A5BE90A000E3A5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961888C11A66BD6B00295A64 /* DesignableImageView.swift in Sources */,
+				961888CD1A66BD6B00295A64 /* SpringView.swift in Sources */,
+				961888CB1A66BD6B00295A64 /* SpringAnimation.swift in Sources */,
+				961888CA1A66BD6B00295A64 /* Misc.swift in Sources */,
+				964117411A5BE90A000E3A5A /* AppDelegate.swift in Sources */,
+				961888BF1A66BD6B00295A64 /* Data.swift in Sources */,
+				961888CF1A66BD6B00295A64 /* TransitionZoom.swift in Sources */,
+				961888C81A66BD6B00295A64 /* loadingView.swift in Sources */,
+				961888C01A66BD6B00295A64 /* DesignableButton.swift in Sources */,
+				961888C41A66BD6B00295A64 /* DesignableTextView.swift in Sources */,
+				9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */,
+				961888BE1A66BD6B00295A64 /* BlurView.swift in Sources */,
+				9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */,
+				961888C51A66BD6B00295A64 /* DesignableView.swift in Sources */,
+				961888C31A66BD6B00295A64 /* DesignableTextField.swift in Sources */,
+				961888C21A66BD6B00295A64 /* DesignableLabel.swift in Sources */,
+				961888CC1A66BD6B00295A64 /* SpringButton.swift in Sources */,
+				961888CE1A66BD6B00295A64 /* TransitionManager.swift in Sources */,
+				961888D01A66BD6B00295A64 /* UnwindSegue.swift in Sources */,
+				9641178B1A5BEC6F000E3A5A /* SpringViewController.swift in Sources */,
+				961888C71A66BD6B00295A64 /* KeyboardAvoidingScrollView.swift in Sources */,
+				961888C61A66BD6B00295A64 /* ImageLoader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9641174C1A5BE90A000E3A5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964117571A5BE90A000E3A5A /* SpringAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		964117521A5BE90A000E3A5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9641173A1A5BE90A000E3A5A /* SpringApp */;
+			targetProxy = 964117511A5BE90A000E3A5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		964117441A5BE90A000E3A5A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				964117451A5BE90A000E3A5A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		964117491A5BE90A000E3A5A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9641174A1A5BE90A000E3A5A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		964117581A5BE90A000E3A5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		964117591A5BE90A000E3A5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9641175B1A5BE90A000E3A5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpringApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9641175C1A5BE90A000E3A5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpringApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9641175E1A5BE90A000E3A5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpringAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpringApp.app/SpringApp";
+			};
+			name = Debug;
+		};
+		9641175F1A5BE90A000E3A5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpringAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpringApp.app/SpringApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		964117361A5BE90A000E3A5A /* Build configuration list for PBXProject "SpringApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				964117581A5BE90A000E3A5A /* Debug */,
+				964117591A5BE90A000E3A5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9641175A1A5BE90A000E3A5A /* Build configuration list for PBXNativeTarget "SpringApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9641175B1A5BE90A000E3A5A /* Debug */,
+				9641175C1A5BE90A000E3A5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9641175D1A5BE90A000E3A5A /* Build configuration list for PBXNativeTarget "SpringAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9641175E1A5BE90A000E3A5A /* Debug */,
+				9641175F1A5BE90A000E3A5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 964117331A5BE90A000E3A5A /* Project object */;
+}
