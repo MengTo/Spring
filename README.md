@@ -1,6 +1,8 @@
 ## Installation
 Drag and drop the Spring folder to your Xcode project.
 
+\* If you don't need all extra stuff, just drop  Spring/SpringView.swift to your Xcode project.
+
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
 
@@ -65,4 +67,4 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
     y
     rotate
 
-* Not all properties work together. Play with the demo app.
+\* Not all properties work together. Play with the demo app.
