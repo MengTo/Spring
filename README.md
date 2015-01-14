@@ -2,7 +2,11 @@
 Put all the files in a folder called Spring and drag the folder to your Xcode project.
 
 ## Usage with Storyboard
-Connect the UIView or UIButton and set the animation properties.
+In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
+
+![](http://cl.ly/image/1006331m1L11/class.png)
+
+![](http://cl.ly/image/40142G3d1u3N/attribute.png)
 
 ## Usage with Code
     layer.animation = "squeezeDown"
