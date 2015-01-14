@@ -1,5 +1,5 @@
 ## Installation
-Put all the files in a folder called Spring and drag the folder to your Xcode project.
+Drag and drop the Spring folder to your Xcode project.
 
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
