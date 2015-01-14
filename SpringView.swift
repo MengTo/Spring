@@ -296,7 +296,6 @@ import UIKit
     }
     
     override func awakeFromNib() {
-        opacity = 0
         animatePreset()
         setView {}
     }
