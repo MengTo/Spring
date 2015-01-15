@@ -62,8 +62,7 @@ class Spring : NSObject {
         if animation == "" {
             return
         }
-        opacity = 0.99
-
+        
         switch animation {
         case "slideLeft":
             x = 300*force
@@ -329,8 +328,15 @@ class Spring : NSObject {
     }
 
     override func awakeFromNib() {
+        animateFrom = true
         animatePreset()
         setView {}
+    }
+    
+    func didMoveToWindow() {
+    }
+    
+    func didMoveToSuperview() {
     }
 
     func setView(completion: () -> ()) {

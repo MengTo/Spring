@@ -23,7 +23,7 @@ class SpringLabel: UILabel, Springable {
     @IBInspectable var scaleY: CGFloat = 1
     @IBInspectable var rotate: CGFloat = 0
     @IBInspectable var opacity: CGFloat = 1
-    @IBInspectable var animateFrom: Bool = false
+    var animateFrom: Bool = false
     @IBInspectable var curve: String = ""
 
     lazy private var spring : Spring = Spring(self)
@@ -31,6 +31,16 @@ class SpringLabel: UILabel, Springable {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.spring.awakeFromNib()
+    }
+    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        self.spring.didMoveToWindow()
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        self.spring.didMoveToSuperview()
     }
 
     func animate() {
