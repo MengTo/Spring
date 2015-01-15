@@ -1,14 +1,14 @@
 //
-//  SpringView.swift
-//  DesignerNewsApp
+//  SpringLabel.swift
+//  SpringApp
 //
-//  Created by Meng To on 2015-01-01.
+//  Created by James Tang on 15/1/15.
 //  Copyright (c) 2015 Meng To. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable class SpringView: UIView, Springable {
+class SpringLabel: UILabel, Springable {
 
     @IBInspectable var animation: String = ""
 
