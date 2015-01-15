@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AD08AC71A676D5800160D45 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD08AC61A676D5800160D45 /* Spring.swift */; };
 		961888E61A66BF9000295A64 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888D31A66BF9000295A64 /* BlurView.swift */; };
 		961888E71A66BF9000295A64 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888D41A66BF9000295A64 /* Data.swift */; };
 		961888E81A66BF9000295A64 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888D51A66BF9000295A64 /* DesignableButton.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AD08AC61A676D5800160D45 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
 		961888D31A66BF9000295A64 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		961888D41A66BF9000295A64 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		961888D51A66BF9000295A64 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				961888DE1A66BF9000295A64 /* loadingView.xib */,
 				961888DF1A66BF9000295A64 /* Misc.swift */,
 				961888E01A66BF9000295A64 /* SpringAnimation.swift */,
+				1AD08AC61A676D5800160D45 /* Spring.swift */,
 				961888E11A66BF9000295A64 /* SpringButton.swift */,
 				961888E21A66BF9000295A64 /* SpringView.swift */,
 				961888E31A66BF9000295A64 /* TransitionManager.swift */,
@@ -319,6 +322,7 @@
 				9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */,
 				961888ED1A66BF9000295A64 /* DesignableView.swift in Sources */,
 				961888EB1A66BF9000295A64 /* DesignableTextField.swift in Sources */,
+				1AD08AC71A676D5800160D45 /* Spring.swift in Sources */,
 				961888EA1A66BF9000295A64 /* DesignableLabel.swift in Sources */,
 				961888F41A66BF9000295A64 /* SpringButton.swift in Sources */,
 				961888F61A66BF9000295A64 /* TransitionManager.swift in Sources */,
