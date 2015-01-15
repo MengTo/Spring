@@ -28,12 +28,6 @@ import UIKit
 
     lazy private var spring : Spring = Spring(self)
 
-    override func setValue(value: AnyObject?, forKey key: String) {
-        if !self.spring.setSpringValue(value, forKey: key) {
-            super.setValue(value, forKey: key)
-        }
-    }
-
     override func awakeFromNib() {
         super.awakeFromNib()
         self.spring.awakeFromNib()
