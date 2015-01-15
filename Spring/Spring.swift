@@ -391,23 +391,5 @@ class Spring : NSObject {
         delay = 0
         duration = 0.7
     }
-    
-    func keys () -> [String] {
-        return ["animation", "delay", "duration", "damping", "velocity", "x", "y", "scaleX", "scaleY", "rotate", "opacity", "animateFrom", "curve"]
-    }
-
-    func setSpringValue(value: AnyObject?, forKey key: String) -> Bool {
-        if (find(self.keys(), key) != nil) {
-            if value != nil {
-                self.setValue(value, forKey: key)
-            } else {
-                self.setNilValueForKey(key)
-            }
-            return true
-        } else {
-            super.setValue(value, forKey: key)
-        }
-        return false
-    }
 
 }
