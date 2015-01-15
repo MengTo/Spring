@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uF9-EU-g6i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uF9-EU-g6i">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
@@ -113,9 +113,19 @@
                                             <action selector="shapeButtonPressed:" destination="uF9-EU-g6i" eventType="touchUpInside" id="H2Y-y2-Jgx"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mak-Rh-rJN">
+                                        <rect key="frame" x="8" y="8" width="56" height="30"/>
+                                        <state key="normal" title="Loading">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showLoadingIndicator:" destination="uF9-EU-g6i" eventType="touchUpInside" id="Y5a-xj-p40"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="mak-Rh-rJN" firstAttribute="leading" secondItem="jEx-iK-Wpm" secondAttribute="leading" constant="8" id="0R3-Yx-wQg"/>
                                     <constraint firstAttribute="bottom" secondItem="kW9-eS-V9V" secondAttribute="bottom" id="6uT-yo-OAF"/>
                                     <constraint firstAttribute="centerX" secondItem="pm9-y7-HlR" secondAttribute="centerX" id="7hO-9B-uxH"/>
                                     <constraint firstAttribute="trailing" secondItem="kW9-eS-V9V" secondAttribute="trailing" id="DER-GK-DCU"/>
@@ -133,6 +143,7 @@
                                     <constraint firstAttribute="centerX" secondItem="Nak-D3-XzB" secondAttribute="centerX" id="rRq-q4-xqB">
                                         <variation key="heightClass=compact-widthClass=regular" constant="-250"/>
                                     </constraint>
+                                    <constraint firstItem="mak-Rh-rJN" firstAttribute="top" secondItem="jEx-iK-Wpm" secondAttribute="top" constant="8" id="xfZ-Yn-GSH"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -228,15 +239,24 @@
                                     <constraint firstItem="Vkq-iS-03i" firstAttribute="leading" secondItem="Mpa-80-hgk" secondAttribute="leading" constant="15" id="xBb-q1-Qxw"/>
                                 </constraints>
                             </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-7V-BBD" customClass="LoadingView" customModule="SpringApp" customModuleProvider="target">
+                                <rect key="frame" x="275" y="275" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="7sR-uF-CK9"/>
+                                    <constraint firstAttribute="height" constant="50" id="hHT-qY-pkB"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ctv-7V-BBD" secondAttribute="centerX" id="2Za-YV-gD9"/>
                             <constraint firstAttribute="bottom" secondItem="jEx-iK-Wpm" secondAttribute="bottom" constant="260" id="9YW-cY-h2z"/>
                             <constraint firstItem="Mpa-80-hgk" firstAttribute="top" secondItem="jEx-iK-Wpm" secondAttribute="bottom" constant="8" id="AF7-U1-JtU"/>
                             <constraint firstItem="Mpa-80-hgk" firstAttribute="leading" secondItem="PVY-HA-UuV" secondAttribute="leading" id="F9O-Ei-pyO"/>
                             <constraint firstItem="jEx-iK-Wpm" firstAttribute="leading" secondItem="PVY-HA-UuV" secondAttribute="leading" id="FI0-bs-M2X"/>
                             <constraint firstItem="Mpa-80-hgk" firstAttribute="top" secondItem="jEx-iK-Wpm" secondAttribute="bottom" id="Hdp-A4-BqA"/>
                             <constraint firstAttribute="trailing" secondItem="Mpa-80-hgk" secondAttribute="trailing" id="IgS-mO-S1v"/>
+                            <constraint firstAttribute="centerY" secondItem="ctv-7V-BBD" secondAttribute="centerY" id="NSD-cN-Q9Q"/>
                             <constraint firstItem="Mpa-80-hgk" firstAttribute="top" secondItem="jEx-iK-Wpm" secondAttribute="bottom" constant="8" id="Nec-Vy-qhb"/>
                             <constraint firstItem="Mpa-80-hgk" firstAttribute="top" secondItem="PVY-HA-UuV" secondAttribute="top" constant="340" id="V3b-SI-YOg"/>
                             <constraint firstItem="9I4-Bi-XrU" firstAttribute="top" secondItem="Mpa-80-hgk" secondAttribute="bottom" id="jgt-a7-2k4"/>
@@ -260,6 +280,7 @@
                         <outlet property="durationSlider" destination="AkI-y0-NKD" id="4gv-7c-JV5"/>
                         <outlet property="forceLabel" destination="hZO-3H-UCU" id="ce1-VP-A6b"/>
                         <outlet property="forceSlider" destination="Vkq-iS-03i" id="OcW-56-47O"/>
+                        <outlet property="loadingIndicatorView" destination="ctv-7V-BBD" id="VzZ-Ho-q6s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wM-Df-GyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -388,7 +409,7 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damping: 0.7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM7-dW-gD1">
-                                        <rect key="frame" x="22.5" y="72" width="70.5" height="12"/>
+                                        <rect key="frame" x="23" y="72" width="71" height="12"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -407,7 +428,7 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocity: 0.7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqf-ZO-435">
-                                        <rect key="frame" x="268" y="71" width="64.5" height="12"/>
+                                        <rect key="frame" x="268" y="71" width="65" height="12"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -426,7 +447,7 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-g7-hcA">
-                                        <rect key="frame" x="518" y="71" width="48.5" height="12"/>
+                                        <rect key="frame" x="518" y="71" width="49" height="12"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -444,8 +465,8 @@
                                             <action selector="xSliderChanged:" destination="TLI-qL-rpM" eventType="valueChanged" id="Scg-AE-c0n"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i2-8d-Gyo">
-                                        <rect key="frame" x="48.5" y="152" width="19.5" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="x: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i2-8d-Gyo">
+                                        <rect key="frame" x="49" y="152" width="20" height="12"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -463,8 +484,8 @@
                                             <action selector="ySliderChanged:" destination="TLI-qL-rpM" eventType="valueChanged" id="5lY-h3-wEB"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kG-Ub-7Gx">
-                                        <rect key="frame" x="290.5" y="152" width="19.5" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="y: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kG-Ub-7Gx">
+                                        <rect key="frame" x="291" y="152" width="20" height="12"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -482,14 +503,14 @@
                                             <action selector="scaleSliderChanged:" destination="TLI-qL-rpM" eventType="valueChanged" id="EF6-fQ-SYl"/>
                                         </connections>
                                     </slider>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scale: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFw-Jb-2Xm">
-                                        <rect key="frame" x="522.5" y="152" width="40" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Scale: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFw-Jb-2Xm">
+                                        <rect key="frame" x="523" y="152" width="40" height="12"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WbE-Ar-bLf" customClass="DesignableButton" customModule="SpringApp" customModuleProvider="target">
-                                        <rect key="frame" x="250" y="197.5" width="100" height="36"/>
+                                        <rect key="frame" x="250" y="198" width="100" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="Gt6-ig-db1"/>
                                             <constraint firstAttribute="width" constant="100" id="oBI-wy-nzi"/>
@@ -585,5 +606,6 @@
     </scenes>
     <resources>
         <image name="icon-shape" width="30" height="13"/>
+        <image name="loading" width="50" height="50"/>
     </resources>
 </document>

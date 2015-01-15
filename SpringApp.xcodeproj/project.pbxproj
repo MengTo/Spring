@@ -22,8 +22,6 @@
 		961888ED1A66BF9000295A64 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888DA1A66BF9000295A64 /* DesignableView.swift */; };
 		961888EE1A66BF9000295A64 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888DB1A66BF9000295A64 /* ImageLoader.swift */; };
 		961888EF1A66BF9000295A64 /* KeyboardAvoidingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888DC1A66BF9000295A64 /* KeyboardAvoidingScrollView.swift */; };
-		961888F01A66BF9000295A64 /* loadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888DD1A66BF9000295A64 /* loadingView.swift */; };
-		961888F11A66BF9000295A64 /* loadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961888DE1A66BF9000295A64 /* loadingView.xib */; };
 		961888F21A66BF9000295A64 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888DF1A66BF9000295A64 /* Misc.swift */; };
 		961888F31A66BF9000295A64 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888E01A66BF9000295A64 /* SpringAnimation.swift */; };
 		961888F41A66BF9000295A64 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888E11A66BF9000295A64 /* SpringButton.swift */; };
@@ -42,6 +40,7 @@
 		9641178B1A5BEC6F000E3A5A /* SpringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117881A5BEC6F000E3A5A /* SpringViewController.swift */; };
 		9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117891A5BEC6F000E3A5A /* OptionsViewController.swift */; };
 		9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */; };
+		B76631021A680B2900778ACB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76631011A680B2900778ACB /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +69,6 @@
 		961888DA1A66BF9000295A64 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		961888DB1A66BF9000295A64 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		961888DC1A66BF9000295A64 /* KeyboardAvoidingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAvoidingScrollView.swift; sourceTree = "<group>"; };
-		961888DD1A66BF9000295A64 /* loadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loadingView.swift; sourceTree = "<group>"; };
-		961888DE1A66BF9000295A64 /* loadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loadingView.xib; sourceTree = "<group>"; };
 		961888DF1A66BF9000295A64 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		961888E01A66BF9000295A64 /* SpringAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
 		961888E11A66BF9000295A64 /* SpringButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
@@ -94,6 +91,7 @@
 		964117881A5BEC6F000E3A5A /* SpringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringViewController.swift; sourceTree = "<group>"; };
 		964117891A5BEC6F000E3A5A /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		B76631011A680B2900778ACB /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +125,6 @@
 				961888DA1A66BF9000295A64 /* DesignableView.swift */,
 				961888DB1A66BF9000295A64 /* ImageLoader.swift */,
 				961888DC1A66BF9000295A64 /* KeyboardAvoidingScrollView.swift */,
-				961888DD1A66BF9000295A64 /* loadingView.swift */,
-				961888DE1A66BF9000295A64 /* loadingView.xib */,
 				961888DF1A66BF9000295A64 /* Misc.swift */,
 				961888E01A66BF9000295A64 /* SpringAnimation.swift */,
 				1AD08AC61A676D5800160D45 /* Spring.swift */,
@@ -141,6 +137,7 @@
 				961888E31A66BF9000295A64 /* TransitionManager.swift */,
 				961888E41A66BF9000295A64 /* TransitionZoom.swift */,
 				961888E51A66BF9000295A64 /* UnwindSegue.swift */,
+				B76631011A680B2900778ACB /* LoadingView.swift */,
 			);
 			path = Spring;
 			sourceTree = SOURCE_ROOT;
@@ -300,7 +297,6 @@
 				964117651A5BEBC9000E3A5A /* ProximaNova-Regular.otf in Resources */,
 				964117641A5BEBC9000E3A5A /* ProximaNova-Light.otf in Resources */,
 				9641174B1A5BE90A000E3A5A /* LaunchScreen.xib in Resources */,
-				961888F11A66BF9000295A64 /* loadingView.xib in Resources */,
 				964117481A5BE90A000E3A5A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,8 +323,8 @@
 				964117411A5BE90A000E3A5A /* AppDelegate.swift in Sources */,
 				1AF3F11F1A6776760090E8F9 /* SpringLabel.swift in Sources */,
 				961888E71A66BF9000295A64 /* Data.swift in Sources */,
+				B76631021A680B2900778ACB /* LoadingView.swift in Sources */,
 				961888F71A66BF9000295A64 /* TransitionZoom.swift in Sources */,
-				961888F01A66BF9000295A64 /* loadingView.swift in Sources */,
 				961888E81A66BF9000295A64 /* DesignableButton.swift in Sources */,
 				1AF3F1201A6776760090E8F9 /* SpringTextField.swift in Sources */,
 				961888EC1A66BF9000295A64 /* DesignableTextView.swift in Sources */,

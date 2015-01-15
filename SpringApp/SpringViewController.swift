@@ -18,7 +18,8 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var forceSlider: UISlider!
     @IBOutlet weak var ballView: SpringView!
     @IBOutlet weak var animationPicker: UIPickerView!
-    
+    @IBOutlet weak var loadingIndicatorView: LoadingView!
+
     var selectedRow: Int = 0
     var selectedEasing: Int = 0
     
@@ -244,6 +245,19 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         default:
             selectedEasing = row
             animateView()
+        }
+    }
+
+    @IBAction func showLoadingIndicator(sender: AnyObject) {
+        loadingIndicatorView.show()
+
+        func delay(delay:Double, closure:()->()) {
+            let delayTime = dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC)))
+            dispatch_after(delayTime, dispatch_get_main_queue(), closure)
+        }
+
+        delay(1.5) { [unowned self] in
+            self.loadingIndicatorView.hide()
         }
     }
     
