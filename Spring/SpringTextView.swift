@@ -41,6 +41,10 @@ class SpringTextView: UITextView, Springable {
         self.spring.animateNext(completion)
     }
 
+    func animateTo() {
+        self.spring.animateTo()
+    }
+
     func animateToNext(completion: () -> ()) {
         self.spring.animateToNext(completion)
     }
