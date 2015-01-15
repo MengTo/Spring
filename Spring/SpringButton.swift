@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class SpringButton: UIButton, Springable {
+class SpringButton: UIButton, Springable {
 
     @IBInspectable var animation: String = ""
 
