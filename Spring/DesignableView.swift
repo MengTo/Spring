@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class DesignableView: UIView {
+@IBDesignable class DesignableView: SpringView {
     
     @IBInspectable var borderColor: UIColor = UIColor.clearColor() {
         didSet {
