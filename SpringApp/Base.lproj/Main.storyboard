@@ -239,7 +239,7 @@
                                     <constraint firstItem="Vkq-iS-03i" firstAttribute="leading" secondItem="Mpa-80-hgk" secondAttribute="leading" constant="15" id="xBb-q1-Qxw"/>
                                 </constraints>
                             </view>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-7V-BBD" customClass="LoadingView" customModule="SpringApp" customModuleProvider="target">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="ctv-7V-BBD" customClass="LoadingIndicatorView" customModule="SpringApp" customModuleProvider="target">
                                 <rect key="frame" x="275" y="275" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="7sR-uF-CK9"/>

@@ -18,7 +18,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var forceSlider: UISlider!
     @IBOutlet weak var ballView: SpringView!
     @IBOutlet weak var animationPicker: UIPickerView!
-    @IBOutlet weak var loadingIndicatorView: LoadingView!
+    @IBOutlet weak var loadingIndicatorView: LoadingIndicatorView!
 
     var selectedRow: Int = 0
     var selectedEasing: Int = 0

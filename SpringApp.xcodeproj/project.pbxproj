@@ -40,7 +40,7 @@
 		9641178B1A5BEC6F000E3A5A /* SpringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117881A5BEC6F000E3A5A /* SpringViewController.swift */; };
 		9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117891A5BEC6F000E3A5A /* OptionsViewController.swift */; };
 		9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */; };
-		B76631021A680B2900778ACB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76631011A680B2900778ACB /* LoadingView.swift */; };
+		B76631021A680B2900778ACB /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76631011A680B2900778ACB /* LoadingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,7 @@
 		964117881A5BEC6F000E3A5A /* SpringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringViewController.swift; sourceTree = "<group>"; };
 		964117891A5BEC6F000E3A5A /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
-		B76631011A680B2900778ACB /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B76631011A680B2900778ACB /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 				961888E31A66BF9000295A64 /* TransitionManager.swift */,
 				961888E41A66BF9000295A64 /* TransitionZoom.swift */,
 				961888E51A66BF9000295A64 /* UnwindSegue.swift */,
-				B76631011A680B2900778ACB /* LoadingView.swift */,
+				B76631011A680B2900778ACB /* LoadingIndicatorView.swift */,
 			);
 			path = Spring;
 			sourceTree = SOURCE_ROOT;
@@ -323,7 +323,7 @@
 				964117411A5BE90A000E3A5A /* AppDelegate.swift in Sources */,
 				1AF3F11F1A6776760090E8F9 /* SpringLabel.swift in Sources */,
 				961888E71A66BF9000295A64 /* Data.swift in Sources */,
-				B76631021A680B2900778ACB /* LoadingView.swift in Sources */,
+				B76631021A680B2900778ACB /* LoadingIndicatorView.swift in Sources */,
 				961888F71A66BF9000295A64 /* TransitionZoom.swift in Sources */,
 				961888E81A66BF9000295A64 /* DesignableButton.swift in Sources */,
 				1AF3F1201A6776760090E8F9 /* SpringTextField.swift in Sources */,

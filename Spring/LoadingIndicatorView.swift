@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingView: UIImageView {
+class LoadingIndicatorView: UIImageView {
 
     override func awakeFromNib() {
         let animation = CABasicAnimation()
