@@ -1,8 +1,6 @@
 ## Installation
 Drag and drop the Spring folder to your Xcode project.
 
-\* If you don't need all extra stuff, just drop  Spring/SpringView.swift to your Xcode project.
-
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
 
@@ -16,45 +14,51 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
 
 ## Chaining Animations
     layer.y = -50
-    animateToNext() {
+    animateToNext {
       layer.animation = "fall"
       layer.animateTo()
     }
 
+## Functions
+    animate()
+    animateNext { ... }
+    animateTo()
+    animateToNext { ... }
+
 ## Presets
-        "shake",
-        "pop",
-        "morph",
-        "squeeze",
-        "wobble",
-        "swing",
-        "flipX",
-        "flipY",
-        "fall",
-        "squeezeLeft",
-        "squeezeRight",
-        "squeezeDown",
-        "squeezeUp",
-        "slideLeft",
-        "slideRight",
-        "slideDown",
-        "slideUp",
-        "fadeIn",
-        "fadeOut",
-        "fadeInLeft",
-        "fadeInRight",
-        "fadeInDown",
-        "fadeInUp",
-        "zoomIn",
-        "zoomOut",
-        "flash",
+    shake
+    pop
+    morph
+    squeeze
+    wobble
+    swing
+    flipX
+    flipY
+    fall
+    squeezeLeft
+    squeezeRight
+    squeezeDown
+    squeezeUp
+    slideLeft
+    slideRight
+    slideDown
+    slideUp
+    fadeIn
+    fadeOut
+    fadeInLeft
+    fadeInRight
+    fadeInDown
+    fadeInUp
+    zoomIn
+    zoomOut
+    flash
 
 ## Curve
-      "spring", 
-      "linear", 
-      "easeIn", 
-      "easeOut", 
-      "easeInOut"
+    spring
+    linear 
+    easeIn 
+    easeOut 
+    easeInOut
 
 ## Properties
     force
