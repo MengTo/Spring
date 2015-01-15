@@ -26,21 +26,7 @@ class SpringTextField: UITextField, Springable {
     @IBInspectable var animateFrom: Bool = false
     @IBInspectable var curve: String = ""
 
-    private var spring : Spring!
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.commonInit()
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.commonInit()
-    }
-
-    func commonInit() {
-        self.spring = Spring(self)
-    }
+    lazy private var spring : Spring = Spring(self)
 
     override func setValue(value: AnyObject?, forKey key: String) {
         if !self.spring.setSpringValue(value, forKey: key) {
