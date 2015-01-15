@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1AD08AC71A676D5800160D45 /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD08AC61A676D5800160D45 /* Spring.swift */; };
+		1AF3F11E1A6776760090E8F9 /* SpringImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3F11A1A6776760090E8F9 /* SpringImageView.swift */; };
+		1AF3F11F1A6776760090E8F9 /* SpringLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3F11B1A6776760090E8F9 /* SpringLabel.swift */; };
+		1AF3F1201A6776760090E8F9 /* SpringTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3F11C1A6776760090E8F9 /* SpringTextField.swift */; };
+		1AF3F1211A6776760090E8F9 /* SpringTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3F11D1A6776760090E8F9 /* SpringTextView.swift */; };
 		961888E61A66BF9000295A64 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888D31A66BF9000295A64 /* BlurView.swift */; };
 		961888E71A66BF9000295A64 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888D41A66BF9000295A64 /* Data.swift */; };
 		961888E81A66BF9000295A64 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888D51A66BF9000295A64 /* DesignableButton.swift */; };
@@ -52,6 +56,10 @@
 
 /* Begin PBXFileReference section */
 		1AD08AC61A676D5800160D45 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
+		1AF3F11A1A6776760090E8F9 /* SpringImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringImageView.swift; sourceTree = "<group>"; };
+		1AF3F11B1A6776760090E8F9 /* SpringLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringLabel.swift; sourceTree = "<group>"; };
+		1AF3F11C1A6776760090E8F9 /* SpringTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextField.swift; sourceTree = "<group>"; };
+		1AF3F11D1A6776760090E8F9 /* SpringTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringTextView.swift; sourceTree = "<group>"; };
 		961888D31A66BF9000295A64 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		961888D41A66BF9000295A64 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		961888D51A66BF9000295A64 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -126,6 +134,10 @@
 				1AD08AC61A676D5800160D45 /* Spring.swift */,
 				961888E11A66BF9000295A64 /* SpringButton.swift */,
 				961888E21A66BF9000295A64 /* SpringView.swift */,
+				1AF3F11A1A6776760090E8F9 /* SpringImageView.swift */,
+				1AF3F11B1A6776760090E8F9 /* SpringLabel.swift */,
+				1AF3F11C1A6776760090E8F9 /* SpringTextField.swift */,
+				1AF3F11D1A6776760090E8F9 /* SpringTextView.swift */,
 				961888E31A66BF9000295A64 /* TransitionManager.swift */,
 				961888E41A66BF9000295A64 /* TransitionZoom.swift */,
 				961888E51A66BF9000295A64 /* UnwindSegue.swift */,
@@ -310,12 +322,15 @@
 				961888E91A66BF9000295A64 /* DesignableImageView.swift in Sources */,
 				961888F51A66BF9000295A64 /* SpringView.swift in Sources */,
 				961888F31A66BF9000295A64 /* SpringAnimation.swift in Sources */,
+				1AF3F1211A6776760090E8F9 /* SpringTextView.swift in Sources */,
 				961888F21A66BF9000295A64 /* Misc.swift in Sources */,
 				964117411A5BE90A000E3A5A /* AppDelegate.swift in Sources */,
+				1AF3F11F1A6776760090E8F9 /* SpringLabel.swift in Sources */,
 				961888E71A66BF9000295A64 /* Data.swift in Sources */,
 				961888F71A66BF9000295A64 /* TransitionZoom.swift in Sources */,
 				961888F01A66BF9000295A64 /* loadingView.swift in Sources */,
 				961888E81A66BF9000295A64 /* DesignableButton.swift in Sources */,
+				1AF3F1201A6776760090E8F9 /* SpringTextField.swift in Sources */,
 				961888EC1A66BF9000295A64 /* DesignableTextView.swift in Sources */,
 				9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */,
 				961888E61A66BF9000295A64 /* BlurView.swift in Sources */,
@@ -324,6 +339,7 @@
 				961888EB1A66BF9000295A64 /* DesignableTextField.swift in Sources */,
 				1AD08AC71A676D5800160D45 /* Spring.swift in Sources */,
 				961888EA1A66BF9000295A64 /* DesignableLabel.swift in Sources */,
+				1AF3F11E1A6776760090E8F9 /* SpringImageView.swift in Sources */,
 				961888F41A66BF9000295A64 /* SpringButton.swift in Sources */,
 				961888F61A66BF9000295A64 /* TransitionManager.swift in Sources */,
 				961888F81A66BF9000295A64 /* UnwindSegue.swift in Sources */,
