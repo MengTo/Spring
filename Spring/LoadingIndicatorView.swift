@@ -10,7 +10,17 @@ import UIKit
 
 class LoadingIndicatorView: UIImageView {
 
-    override func awakeFromNib() {
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        prepareAnimation()
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        prepareAnimation()
+    }
+
+    private func prepareAnimation() {
         let animation = CABasicAnimation()
         animation.keyPath = "transform.rotation.z"
         animation.fromValue = degreesToRadians(0)
