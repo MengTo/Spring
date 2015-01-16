@@ -23,16 +23,16 @@ class LoadingIndicatorView: UIImageView {
     func show() {
         hidden = false
         self.transform = CGAffineTransformIdentity
-        spring(0.7, {
+        spring(0.7) {
             self.alpha = 1
-        })
+        }
     }
 
     func hide() {
-        spring(0.7, {
+        spring(0.7) {
             self.alpha = 0
             self.transform = CGAffineTransformMakeScale(3, 3)
-        })
+        }
     }
 }
 
