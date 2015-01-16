@@ -72,3 +72,13 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
     rotate
 
 \* Not all properties work together. Play with the demo app.
+
+
+## Autostart
+Allows you to animate with code. Don't use this is you plan to start the animation in code.
+
+## Autohide
+Saves you the hassle of adding a line "layer.alpha = 0" in viewDidLoad().
+
+## Known issue
+Animations won't autostart when view is reached via performSegueWithIdentifier.
