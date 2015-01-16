@@ -1,8 +1,6 @@
 ## Installation
 Drag and drop the Spring folder to your Xcode project.
 
-\* If you don't need all extra stuff, just drop  Spring/SpringView.swift to your Xcode project.
-
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
 
@@ -16,45 +14,51 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
 
 ## Chaining Animations
     layer.y = -50
-    animateToNext() {
+    animateToNext {
       layer.animation = "fall"
       layer.animateTo()
     }
 
+## Functions
+    animate()
+    animateNext { ... }
+    animateTo()
+    animateToNext { ... }
+
 ## Presets
-        "shake",
-        "pop",
-        "morph",
-        "squeeze",
-        "wobble",
-        "swing",
-        "flipX",
-        "flipY",
-        "fall",
-        "squeezeLeft",
-        "squeezeRight",
-        "squeezeDown",
-        "squeezeUp",
-        "slideLeft",
-        "slideRight",
-        "slideDown",
-        "slideUp",
-        "fadeIn",
-        "fadeOut",
-        "fadeInLeft",
-        "fadeInRight",
-        "fadeInDown",
-        "fadeInUp",
-        "zoomIn",
-        "zoomOut",
-        "flash",
+    shake
+    pop
+    morph
+    squeeze
+    wobble
+    swing
+    flipX
+    flipY
+    fall
+    squeezeLeft
+    squeezeRight
+    squeezeDown
+    squeezeUp
+    slideLeft
+    slideRight
+    slideDown
+    slideUp
+    fadeIn
+    fadeOut
+    fadeInLeft
+    fadeInRight
+    fadeInDown
+    fadeInUp
+    zoomIn
+    zoomOut
+    flash
 
 ## Curve
-      "spring", 
-      "linear", 
-      "easeIn", 
-      "easeOut", 
-      "easeInOut"
+    spring
+    linear 
+    easeIn 
+    easeOut 
+    easeInOut
 
 ## Properties
     force
@@ -68,3 +72,13 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
     rotate
 
 \* Not all properties work together. Play with the demo app.
+
+
+## Autostart
+Allows you to animate without code. Don't need to use this is if you plan to start the animation in code.
+
+## Autohide
+Saves you the hassle of adding a line "layer.alpha = 0" in viewDidLoad().
+
+## Known issue
+Animations won't autostart when view is reached via performSegueWithIdentifier.

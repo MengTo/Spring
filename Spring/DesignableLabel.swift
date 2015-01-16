@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class DesignableLabel: UILabel {
+@IBDesignable class DesignableLabel: SpringLabel {
 
     @IBInspectable var lineHeight: CGFloat = 1.5 {
         didSet {

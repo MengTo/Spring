@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class DesignableTextField: UITextField {
+@IBDesignable class DesignableTextField: SpringTextField {
     
     @IBInspectable var placeholderColor: UIColor = UIColor.clearColor() {
         didSet {

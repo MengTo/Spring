@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class DesignableButton: UIButton {
+@IBDesignable class DesignableButton: SpringButton {
 
     @IBInspectable var borderColor: UIColor = UIColor.clearColor() {
         didSet {
