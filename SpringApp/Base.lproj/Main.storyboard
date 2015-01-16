@@ -8,6 +8,7 @@
             <string>ProximaNova-Regular</string>
             <string>ProximaNova-Regular</string>
             <string>ProximaNova-Regular</string>
+            <string>ProximaNova-Regular</string>
         </mutableArray>
         <mutableArray key="ProximaNova-Semibold.otf">
             <string>ProximaNova-Semibold</string>
@@ -113,19 +114,32 @@
                                             <action selector="shapeButtonPressed:" destination="uF9-EU-g6i" eventType="touchUpInside" id="H2Y-y2-Jgx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mak-Rh-rJN">
-                                        <rect key="frame" x="8" y="8" width="56" height="30"/>
-                                        <state key="normal" title="Loading">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofp-Ew-gXj">
+                                        <rect key="frame" x="0.0" y="20" width="100" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="4Kn-sx-sgh"/>
+                                            <constraint firstAttribute="width" constant="100" id="B2M-J3-98H"/>
+                                            <constraint firstAttribute="height" constant="44" id="Pe3-5S-8c2"/>
+                                            <constraint firstAttribute="width" constant="100" id="q2G-n1-WW7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                        <color key="tintColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Load">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Pe3-5S-8c2"/>
+                                                <exclude reference="q2G-n1-WW7"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
-                                            <action selector="showLoadingIndicator:" destination="uF9-EU-g6i" eventType="touchUpInside" id="Y5a-xj-p40"/>
+                                            <action selector="showLoadingIndicator:" destination="uF9-EU-g6i" eventType="touchUpInside" id="zHc-83-jtY"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="mak-Rh-rJN" firstAttribute="leading" secondItem="jEx-iK-Wpm" secondAttribute="leading" constant="8" id="0R3-Yx-wQg"/>
                                     <constraint firstAttribute="bottom" secondItem="kW9-eS-V9V" secondAttribute="bottom" id="6uT-yo-OAF"/>
                                     <constraint firstAttribute="centerX" secondItem="pm9-y7-HlR" secondAttribute="centerX" id="7hO-9B-uxH"/>
                                     <constraint firstAttribute="trailing" secondItem="kW9-eS-V9V" secondAttribute="trailing" id="DER-GK-DCU"/>
@@ -143,7 +157,8 @@
                                     <constraint firstAttribute="centerX" secondItem="Nak-D3-XzB" secondAttribute="centerX" id="rRq-q4-xqB">
                                         <variation key="heightClass=compact-widthClass=regular" constant="-250"/>
                                     </constraint>
-                                    <constraint firstItem="mak-Rh-rJN" firstAttribute="top" secondItem="jEx-iK-Wpm" secondAttribute="top" constant="8" id="xfZ-Yn-GSH"/>
+                                    <constraint firstItem="ofp-Ew-gXj" firstAttribute="leading" secondItem="jEx-iK-Wpm" secondAttribute="leading" id="tCw-j0-q7O"/>
+                                    <constraint firstItem="ofp-Ew-gXj" firstAttribute="top" secondItem="jEx-iK-Wpm" secondAttribute="top" constant="20" id="vFG-CQ-GIU"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">

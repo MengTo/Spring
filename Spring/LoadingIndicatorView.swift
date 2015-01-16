@@ -16,7 +16,7 @@ class LoadingIndicatorView: UIImageView {
         animation.fromValue = degreesToRadians(0)
         animation.toValue = degreesToRadians(360)
         animation.duration = 0.5
-        animation.repeatCount = HUGE
+        animation.repeatCount = MAXFLOAT
         self.layer.addAnimation(animation, forKey: "Spinning")
     }
 
