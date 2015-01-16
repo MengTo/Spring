@@ -9,9 +9,9 @@
 import UIKit
 
 class SpringTextField: UITextField, Springable {
-
+    @IBInspectable var autostart: Bool = false
+    @IBInspectable var autohide: Bool = false
     @IBInspectable var animation: String = ""
-
     @IBInspectable var force: CGFloat = 1
     @IBInspectable var delay: CGFloat = 0
     @IBInspectable var duration: CGFloat = 0.7
@@ -22,7 +22,7 @@ class SpringTextField: UITextField, Springable {
     @IBInspectable var scaleX: CGFloat = 1
     @IBInspectable var scaleY: CGFloat = 1
     @IBInspectable var rotate: CGFloat = 0
-    @IBInspectable var opacity: CGFloat = 1
+    var opacity: CGFloat = 1
     var animateFrom: Bool = false
     @IBInspectable var curve: String = ""
 
@@ -30,17 +30,12 @@ class SpringTextField: UITextField, Springable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.spring.awakeFromNib()
+        self.spring.customAwakeFromNib()
     }
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        self.spring.didMoveToWindow()
-    }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        self.spring.didMoveToSuperview()
+        self.spring.customDidMoveToWindow()
     }
 
     func animate() {

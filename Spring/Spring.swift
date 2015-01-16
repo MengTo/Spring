@@ -9,6 +9,8 @@
 import UIKit
 
 @objc protocol Springable {
+    var autostart: Bool  { get set }
+    var autohide: Bool  { get set }
     var animation: String  { get set }
     var force: CGFloat  { get set }
     var delay: CGFloat { get set }
@@ -38,6 +40,8 @@ class Spring : NSObject {
         self.view = view
     }
 
+    private var autostart: Bool { set { self.view.autostart = newValue } get { return self.view.autostart }}
+    private var autohide: Bool { set { self.view.autohide = newValue } get { return self.view.autohide }}
     private var animation: String { set { self.view.animation = newValue } get { return self.view.animation }}
     private var force: CGFloat { set { self.view.force = newValue } get { return self.view.force }}
     private var delay: CGFloat { set { self.view.delay = newValue } get { return self.view.delay }}
@@ -326,17 +330,20 @@ class Spring : NSObject {
         }
         self.resetAll()
     }
-
-    override func awakeFromNib() {
-        animateFrom = true
-        animatePreset()
-        setView {}
+    
+    func customAwakeFromNib() {
+        if autohide {
+            alpha = 0
+        }
     }
     
-    func didMoveToWindow() {
-    }
-    
-    func didMoveToSuperview() {
+    func customDidMoveToWindow() {
+        if autostart {
+            alpha = 0
+            animateFrom = true
+            animatePreset()
+            setView {}
+        }
     }
 
     func setView(completion: () -> ()) {
