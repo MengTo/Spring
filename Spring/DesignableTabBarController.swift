@@ -55,7 +55,7 @@ import UIKit
         didSet {
             if let image = fourthSelectedImage? {
                 var tabBarItems = self.tabBar.items as [UITabBarItem]
-                tabBarItems[2].selectedImage = image.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+                tabBarItems[3].selectedImage = image.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             }
         }
     }
@@ -64,7 +64,7 @@ import UIKit
         didSet {
             if let image = fifthSelectedImage? {
                 var tabBarItems = self.tabBar.items as [UITabBarItem]
-                tabBarItems[2].selectedImage = image.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+                tabBarItems[4].selectedImage = image.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             }
         }
     }
