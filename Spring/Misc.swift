@@ -8,6 +8,13 @@
 
 import UIKit
 
+func htmlToAttributedString(text: String) -> NSAttributedString! {
+    let htmlData = text.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+    let htmlString = NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
+    
+    return htmlString
+}
+
 func degreesToRadians(degrees: CGFloat) -> CGFloat {
     return degrees * CGFloat(M_PI / 180)
 }
