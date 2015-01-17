@@ -42,6 +42,7 @@
 		9641178B1A5BEC6F000E3A5A /* SpringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117881A5BEC6F000E3A5A /* SpringViewController.swift */; };
 		9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117891A5BEC6F000E3A5A /* OptionsViewController.swift */; };
 		9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */; };
+		969775D41A6AD6AC009B4B79 /* DesignableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		964117881A5BEC6F000E3A5A /* SpringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringViewController.swift; sourceTree = "<group>"; };
 		964117891A5BEC6F000E3A5A /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
+		969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				961888D81A66BF9000295A64 /* DesignableTextField.swift */,
 				961888D91A66BF9000295A64 /* DesignableTextView.swift */,
 				961888DA1A66BF9000295A64 /* DesignableView.swift */,
+				969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */,
 				961888DB1A66BF9000295A64 /* ImageLoader.swift */,
 				961888DC1A66BF9000295A64 /* KeyboardAvoidingScrollView.swift */,
 				961888DD1A66BF9000295A64 /* loadingView.swift */,
@@ -325,6 +328,7 @@
 				1AF3F1211A6776760090E8F9 /* SpringTextView.swift in Sources */,
 				961888F21A66BF9000295A64 /* Misc.swift in Sources */,
 				964117411A5BE90A000E3A5A /* AppDelegate.swift in Sources */,
+				969775D41A6AD6AC009B4B79 /* DesignableTabBarController.swift in Sources */,
 				1AF3F11F1A6776760090E8F9 /* SpringLabel.swift in Sources */,
 				961888E71A66BF9000295A64 /* Data.swift in Sources */,
 				961888F71A66BF9000295A64 /* TransitionZoom.swift in Sources */,
