@@ -24,6 +24,12 @@ import UIKit
         }
     }
     
+    @IBInspectable var fontName: String = "" {
+        didSet {
+            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: normalTint, NSFontAttributeName: UIFont(name: fontName, size: 11)!], forState: UIControlState.Normal)
+        }
+    }
+    
     @IBInspectable var firstSelectedImage: UIImage? {
         didSet {
             if let image = firstSelectedImage? {
