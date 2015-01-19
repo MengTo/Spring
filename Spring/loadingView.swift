@@ -17,7 +17,7 @@ class loadingView: UIView {
         animation.keyPath = "transform.rotation.z"
         animation.fromValue = degreesToRadians(0)
         animation.toValue = degreesToRadians(360)
-        animation.duration = 0.5
+        animation.duration = 0.9
         animation.repeatCount = HUGE
         loadingView.layer.addAnimation(animation, forKey: "")
     }
