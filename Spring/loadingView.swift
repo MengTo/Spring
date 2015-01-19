@@ -38,9 +38,11 @@ func showLoading(view: UIView) {
 }
 
 func hideLoading() {
-    loadingXibView.alpha = 1
-    spring(0.7, {
-        loadingXibView.alpha = 0
-        loadingXibView.transform = CGAffineTransformMakeScale(3, 3)
-    })
+    if loadingXibView != nil {
+        loadingXibView.alpha = 1
+        spring(0.7, {
+            loadingXibView.alpha = 0
+            loadingXibView.transform = CGAffineTransformMakeScale(3, 3)
+        })
+    }
 }
