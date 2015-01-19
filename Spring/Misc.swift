@@ -8,6 +8,10 @@
 
 import UIKit
 
+extension String {
+    var length: Int { return countElements(self) }
+}
+
 func htmlToAttributedString(text: String) -> NSAttributedString! {
     let htmlData = text.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
     let htmlString = NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
