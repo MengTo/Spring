@@ -6,11 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="2ih-bH-VRI" customClass="LoadingView" customModule="DesignerNewsApp" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="2ih-bH-VRI" customClass="LoadingView" customModule="Spring" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19J-d9-rcw" customClass="SpringView" customModule="DesignerNewsApp" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19J-d9-rcw" customClass="SpringView" customModule="Spring" customModuleProvider="target">
                     <rect key="frame" x="275" y="275" width="50" height="50"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-jP-Opi">
@@ -36,7 +36,7 @@
                 <constraint firstAttribute="centerX" secondItem="19J-d9-rcw" secondAttribute="centerX" id="iTf-dQ-2Ho"/>
             </constraints>
             <connections>
-                <outlet property="indicatorView" destination="19J-d9-rcw" id="Bck-J1-B1g"/>
+                <outlet property="indicatorView" destination="19J-d9-rcw" id="WZZ-6H-whz"/>
             </connections>
         </view>
     </objects>

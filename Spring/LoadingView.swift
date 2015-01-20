@@ -8,11 +8,11 @@
 
 import UIKit
 
-class LoadingView: UIView {
+public class LoadingView: UIView {
 
-    @IBOutlet weak var indicatorView: SpringView!
+    @IBOutlet public weak var indicatorView: SpringView!
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         let animation = CABasicAnimation()
         animation.keyPath = "transform.rotation.z"
         animation.fromValue = degreesToRadians(0)
@@ -21,23 +21,26 @@ class LoadingView: UIView {
         animation.repeatCount = HUGE
         indicatorView.layer.addAnimation(animation, forKey: "")
     }
+
+    class func designCodeLoadingView() -> UIView {
+        return NSBundle(forClass: self).loadNibNamed("LoadingView", owner: self, options: nil)[0] as UIView
+    }
 }
 
-extension UIView {
+public extension UIView {
 
     struct LoadingViewConstants {
         static let Tag = 1000
     }
 
-    func showLoading() {
+    public func showLoading() {
 
         if let loadingXibView = self.viewWithTag(LoadingViewConstants.Tag) {
             // If loading view is already found in current view hierachy, do nothing
             return
         }
 
-        let loadingXibView =
-            NSBundle.mainBundle().loadNibNamed("LoadingView", owner: self, options: nil)[0] as UIView
+        let loadingXibView = LoadingView.designCodeLoadingView()
         loadingXibView.frame = self.bounds
         loadingXibView.tag = LoadingViewConstants.Tag
         self.addSubview(loadingXibView)
@@ -48,7 +51,7 @@ extension UIView {
         })
     }
 
-    func hideLoading() {
+    public func hideLoading() {
 
         if let loadingXibView = self.viewWithTag(LoadingViewConstants.Tag) {
             loadingXibView.alpha = 1

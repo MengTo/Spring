@@ -16,14 +16,18 @@
 	<key>IDESourceControlProjectPath</key>
 	<string>SpringApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
-	<dict>
-		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
-		<string>../../../Shots-Assets/Spring</string>
-	</dict>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>30465C3FE587DE41DC8D7C50D84E40C5B622D54F</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
