@@ -8,45 +8,45 @@
 
 import UIKit
 
-@IBDesignable class DesignableView: SpringView {
+@IBDesignable public class DesignableView: SpringView {
     
-    @IBInspectable var borderColor: UIColor = UIColor.clearColor() {
+    @IBInspectable public var borderColor: UIColor = UIColor.clearColor() {
         didSet {
             layer.borderColor = borderColor.CGColor
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 0 {
+    @IBInspectable public var borderWidth: CGFloat = 0 {
         didSet {
             layer.borderWidth = borderWidth
         }
     }
     
-    @IBInspectable var cornerRadius: CGFloat = 0 {
+    @IBInspectable public var cornerRadius: CGFloat = 0 {
         didSet {
             layer.cornerRadius = cornerRadius
         }
     }
     
-    @IBInspectable var shadowColor: UIColor = UIColor.clearColor() {
+    @IBInspectable public var shadowColor: UIColor = UIColor.clearColor() {
         didSet {
             layer.shadowColor = shadowColor.CGColor
         }
     }
     
-    @IBInspectable var shadowRadius: CGFloat = 0 {
+    @IBInspectable public var shadowRadius: CGFloat = 0 {
         didSet {
             layer.shadowRadius = shadowRadius
         }
     }
     
-    @IBInspectable var shadowOpacity: CGFloat = 0 {
+    @IBInspectable public var shadowOpacity: CGFloat = 0 {
         didSet {
             layer.shadowOpacity = Float(shadowOpacity)
         }
     }
     
-    @IBInspectable var shadowOffsetY: CGFloat = 0 {
+    @IBInspectable public var shadowOffsetY: CGFloat = 0 {
         didSet {
             layer.shadowOffset.height = shadowOffsetY
         }

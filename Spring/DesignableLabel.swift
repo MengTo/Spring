@@ -8,9 +8,9 @@
 
 import UIKit
 
-@IBDesignable class DesignableLabel: SpringLabel {
+@IBDesignable public class DesignableLabel: SpringLabel {
 
-    @IBInspectable var lineHeight: CGFloat = 1.5 {
+    @IBInspectable public var lineHeight: CGFloat = 1.5 {
         didSet {
             var font = UIFont(name: self.font.fontName, size: self.font.pointSize)
             var text = self.text

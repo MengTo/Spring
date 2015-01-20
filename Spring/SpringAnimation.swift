@@ -8,7 +8,7 @@
 
 import UIKit
 
-func spring(duration: NSTimeInterval, animations: (() -> Void)!) {
+public func spring(duration: NSTimeInterval, animations: (() -> Void)!) {
     
     UIView.animateWithDuration(
         duration,
@@ -24,7 +24,7 @@ func spring(duration: NSTimeInterval, animations: (() -> Void)!) {
     })
 }
 
-func springEaseIn(duration: NSTimeInterval, animations: (() -> Void)!) {
+public func springEaseIn(duration: NSTimeInterval, animations: (() -> Void)!) {
     
     UIView.animateWithDuration(
         duration,
@@ -38,7 +38,7 @@ func springEaseIn(duration: NSTimeInterval, animations: (() -> Void)!) {
     })
 }
 
-func springEaseOut(duration: NSTimeInterval, animations: (() -> Void)!) {
+public func springEaseOut(duration: NSTimeInterval, animations: (() -> Void)!) {
     
     UIView.animateWithDuration(
         duration,
@@ -52,7 +52,7 @@ func springEaseOut(duration: NSTimeInterval, animations: (() -> Void)!) {
     })
 }
 
-func springEaseInOut(duration: NSTimeInterval, animations: (() -> Void)!) {
+public func springEaseInOut(duration: NSTimeInterval, animations: (() -> Void)!) {
     
     UIView.animateWithDuration(
         duration,
@@ -66,7 +66,7 @@ func springEaseInOut(duration: NSTimeInterval, animations: (() -> Void)!) {
     })
 }
 
-func springLinear(duration: NSTimeInterval, animations: (() -> Void)!) {
+public func springLinear(duration: NSTimeInterval, animations: (() -> Void)!) {
     
     UIView.animateWithDuration(
         duration,
@@ -80,7 +80,7 @@ func springLinear(duration: NSTimeInterval, animations: (() -> Void)!) {
     })
 }
 
-func springWithDelay(duration: NSTimeInterval, delay: NSTimeInterval, animations: (() -> Void)!) {
+public func springWithDelay(duration: NSTimeInterval, delay: NSTimeInterval, animations: (() -> Void)!) {
     UIView.animateWithDuration(
         duration,
         delay: delay,
@@ -95,7 +95,7 @@ func springWithDelay(duration: NSTimeInterval, delay: NSTimeInterval, animations
     })
 }
 
-func springWithCompletion(duration: NSTimeInterval, animations: (() -> Void)!, completion: ((Bool) -> Void)!) {
+public func springWithCompletion(duration: NSTimeInterval, animations: (() -> Void)!, completion: ((Bool) -> Void)!) {
 
     UIView.animateWithDuration(
         duration,

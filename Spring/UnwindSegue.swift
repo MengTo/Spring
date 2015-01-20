@@ -8,6 +8,6 @@
 
 import UIKit
 
-extension UIViewController {
-    @IBAction func unwindToViewController (sender: UIStoryboardSegue){}
+public extension UIViewController {
+    @IBAction public func unwindToViewController (sender: UIStoryboardSegue){}
 }

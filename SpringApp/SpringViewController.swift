@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Spring
 
 class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, OptionsViewControllerDelegate {
 

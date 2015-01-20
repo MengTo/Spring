@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol Springable {
+@objc public protocol Springable {
     var autostart: Bool  { get set }
     var autohide: Bool  { get set }
     var animation: String  { get set }
@@ -32,7 +32,7 @@ import UIKit
     var alpha : CGFloat { get set }
 }
 
-class Spring : NSObject {
+public class Spring : NSObject {
 
     private var view : Springable
 
@@ -299,14 +299,14 @@ class Spring : NSObject {
         }
     }
 
-    func animate() {
+    public func animate() {
         animateFrom = true
         animatePreset()
         setView {}
         self.resetAll()
     }
 
-    func animateNext(completion: () -> ()) {
+    public func animateNext(completion: () -> ()) {
         animateFrom = true
         animatePreset()
         setView {
@@ -315,14 +315,14 @@ class Spring : NSObject {
         self.resetAll()
     }
 
-    func animateTo() {
+    public func animateTo() {
         animateFrom = false
         animatePreset()
         setView {}
         self.resetAll()
     }
 
-    func animateToNext(completion: () -> ()) {
+    public func animateToNext(completion: () -> ()) {
         animateFrom = false
         animatePreset()
         setView {
@@ -331,13 +331,13 @@ class Spring : NSObject {
         self.resetAll()
     }
     
-    func customAwakeFromNib() {
+    public func customAwakeFromNib() {
         if autohide {
             alpha = 0
         }
     }
     
-    func customDidMoveToWindow() {
+    public func customDidMoveToWindow() {
         if autostart {
             alpha = 0
             animateFrom = true

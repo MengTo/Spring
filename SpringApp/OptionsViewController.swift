@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Spring
 
 protocol OptionsViewControllerDelegate: class {
     func dampingSliderChanged(sender: AnyObject)

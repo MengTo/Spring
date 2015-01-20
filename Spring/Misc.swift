@@ -8,22 +8,22 @@
 
 import UIKit
 
-extension String {
-    var length: Int { return countElements(self) }
+public extension String {
+    public var length: Int { return countElements(self) }
 }
 
-func htmlToAttributedString(text: String) -> NSAttributedString! {
+public func htmlToAttributedString(text: String) -> NSAttributedString! {
     let htmlData = text.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
     let htmlString = NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
     
     return htmlString
 }
 
-func degreesToRadians(degrees: CGFloat) -> CGFloat {
+public func degreesToRadians(degrees: CGFloat) -> CGFloat {
     return degrees * CGFloat(M_PI / 180)
 }
 
-func delay(delay:Double, closure:()->()) {
+public func delay(delay:Double, closure:()->()) {
     dispatch_after(
         dispatch_time(
             DISPATCH_TIME_NOW,
@@ -32,13 +32,13 @@ func delay(delay:Double, closure:()->()) {
         dispatch_get_main_queue(), closure)
 }
 
-func imageFromURL(URL: String) -> UIImage {
+public func imageFromURL(URL: String) -> UIImage {
     let url = NSURL(string: URL)
     let data = NSData(contentsOfURL: url!)
     return UIImage(data: data!)!
 }
 
-extension UIColor {
+public extension UIColor {
     convenience init(hex: String) {
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
@@ -83,12 +83,12 @@ extension UIColor {
     }
 }
 
-func rgbaToUIColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+public func rgbaToUIColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
     
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
 }
 
-func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+public func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
         green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -97,19 +97,19 @@ func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     )
 }
 
-func stringFromDate(date: NSDate, format: String) -> String {
+public func stringFromDate(date: NSDate, format: String) -> String {
     var dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = format
     return dateFormatter.stringFromDate(date)
 }
 
-func dateFromString(date: String, format: String) -> NSDate {
+public func dateFromString(date: String, format: String) -> NSDate {
     var dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = format
     return dateFormatter.dateFromString(date)!
 }
 
-func randomStringWithLength (len : Int) -> NSString {
+public func randomStringWithLength (len : Int) -> NSString {
     
     let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
@@ -124,7 +124,7 @@ func randomStringWithLength (len : Int) -> NSString {
     return randomString
 }
 
-func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
+public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
     let calendar = NSCalendar.currentCalendar()
     let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
     let now = NSDate()

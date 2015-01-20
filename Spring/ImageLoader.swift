@@ -9,18 +9,18 @@ import UIKit
 import Foundation
 
 
-class ImageLoader {
+public class ImageLoader {
     
     var cache = NSCache()
     
-    class var sharedLoader : ImageLoader {
+    public class var sharedLoader : ImageLoader {
     struct Static {
         static let instance : ImageLoader = ImageLoader()
         }
         return Static.instance
     }
     
-    func imageForUrl(urlString: String, completionHandler:(image: UIImage?, url: String) -> ()) {
+    public func imageForUrl(urlString: String, completionHandler:(image: UIImage?, url: String) -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
             var data: NSData? = self.cache.objectForKey(urlString) as? NSData
             

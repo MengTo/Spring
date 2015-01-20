@@ -8,49 +8,49 @@
 
 import UIKit
 
-class SpringButton: UIButton, Springable {
-    @IBInspectable var autostart: Bool = false
-    @IBInspectable var autohide: Bool = false
-    @IBInspectable var animation: String = ""
-    @IBInspectable var force: CGFloat = 1
-    @IBInspectable var delay: CGFloat = 0
-    @IBInspectable var duration: CGFloat = 0.7
-    @IBInspectable var damping: CGFloat = 0.7
-    @IBInspectable var velocity: CGFloat = 0.7
-    @IBInspectable var x: CGFloat = 0
-    @IBInspectable var y: CGFloat = 0
-    @IBInspectable var scaleX: CGFloat = 1
-    @IBInspectable var scaleY: CGFloat = 1
-    @IBInspectable var rotate: CGFloat = 0
-    var opacity: CGFloat = 1
-    var animateFrom: Bool = false
-    @IBInspectable var curve: String = ""
+public class SpringButton: UIButton, Springable {
+    @IBInspectable public var autostart: Bool = false
+    @IBInspectable public var autohide: Bool = false
+    @IBInspectable public var animation: String = ""
+    @IBInspectable public var force: CGFloat = 1
+    @IBInspectable public var delay: CGFloat = 0
+    @IBInspectable public var duration: CGFloat = 0.7
+    @IBInspectable public var damping: CGFloat = 0.7
+    @IBInspectable public var velocity: CGFloat = 0.7
+    @IBInspectable public var x: CGFloat = 0
+    @IBInspectable public var y: CGFloat = 0
+    @IBInspectable public var scaleX: CGFloat = 1
+    @IBInspectable public var scaleY: CGFloat = 1
+    @IBInspectable public var rotate: CGFloat = 0
+    @IBInspectable public var curve: String = ""
+    public var opacity: CGFloat = 1
+    public var animateFrom: Bool = false
 
     lazy private var spring : Spring = Spring(self)
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         self.spring.customAwakeFromNib()
     }
-    
-    override func didMoveToWindow() {
+
+    override public func didMoveToWindow() {
         super.didMoveToWindow()
         self.spring.customDidMoveToWindow()
     }
 
-    func animate() {
+    public func animate() {
         self.spring.animate()
     }
 
-    func animateNext(completion: () -> ()) {
+    public func animateNext(completion: () -> ()) {
         self.spring.animateNext(completion)
     }
 
-    func animateTo() {
+    public func animateTo() {
         self.spring.animateTo()
     }
 
-    func animateToNext(completion: () -> ()) {
+    public func animateToNext(completion: () -> ()) {
         self.spring.animateToNext(completion)
     }
 }

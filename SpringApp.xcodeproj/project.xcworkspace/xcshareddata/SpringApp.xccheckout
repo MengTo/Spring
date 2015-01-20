@@ -10,6 +10,8 @@
 	<string>SpringApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>30465C3FE587DE41DC8D7C50D84E40C5B622D54F</key>
+		<string>github.com:MengTo/DesignerNewsApp.git</string>
 		<key>5369EEB49A48E30C3CD15EEEFBA1CC44961E9C8F</key>
 		<string>https://github.com/MengTo/SpringApp.git</string>
 		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
@@ -19,6 +21,8 @@
 	<string>SpringApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>30465C3FE587DE41DC8D7C50D84E40C5B622D54F</key>
+		<string>../../..</string>
 		<key>5369EEB49A48E30C3CD15EEEFBA1CC44961E9C8F</key>
 		<string>../..</string>
 		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
@@ -32,6 +36,14 @@
 	<string>5369EEB49A48E30C3CD15EEEFBA1CC44961E9C8F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>30465C3FE587DE41DC8D7C50D84E40C5B622D54F</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
