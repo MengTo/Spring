@@ -1,5 +1,5 @@
 //
-//  loadingView.swift
+//  LoadingView.swift
 //  DesignerNewsApp
 //
 //  Created by Meng To on 2015-01-10.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class loadingView: UIView {
+class LoadingView: UIView {
     
-    @IBOutlet weak var loadingView: SpringView!
+    @IBOutlet weak var indicatorView: SpringView!
     
     override func awakeFromNib() {
         let animation = CABasicAnimation()
@@ -19,30 +19,47 @@ class loadingView: UIView {
         animation.toValue = degreesToRadians(360)
         animation.duration = 0.9
         animation.repeatCount = HUGE
-        loadingView.layer.addAnimation(animation, forKey: "")
+        indicatorView.layer.addAnimation(animation, forKey: "")
     }
 }
 
-var loadingXibView: UIView!
+extension UIView {
 
-func showLoading(view: UIView) {
-    loadingXibView =
-    NSBundle.mainBundle().loadNibNamed("loadingView", owner: view, options: nil)[0] as UIView
-    loadingXibView.frame = view.bounds;
-    view.addSubview(loadingXibView)
-    
-    loadingXibView.alpha = 0
-    spring(0.7, {
-        loadingXibView.alpha = 1
-    })
-}
+    struct LoadingViewConstants {
+        static let Tag = 1000
+    }
 
-func hideLoading() {
-    if loadingXibView != nil {
-        loadingXibView.alpha = 1
+    func showLoading() {
+
+        if let loadingXibView = self.viewWithTag(LoadingViewConstants.Tag) {
+            // If loading view is already found in current view hierachy, do nothing
+            return
+        }
+
+        let loadingXibView =
+            NSBundle.mainBundle().loadNibNamed("loadingView", owner: self, options: nil)[0] as UIView
+        loadingXibView.frame = self.bounds
+        loadingXibView.tag = LoadingViewConstants.Tag
+        self.addSubview(loadingXibView)
+
+        loadingXibView.alpha = 0
         spring(0.7, {
-            loadingXibView.alpha = 0
-            loadingXibView.transform = CGAffineTransformMakeScale(3, 3)
+            loadingXibView.alpha = 1
         })
     }
+
+    func hideLoading() {
+
+        if let loadingXibView = self.viewWithTag(LoadingViewConstants.Tag) {
+            loadingXibView.alpha = 1
+
+            springWithCompletion(0.7, {
+                loadingXibView.alpha = 0
+                loadingXibView.transform = CGAffineTransformMakeScale(3, 3)
+            }, { (completed) -> Void in
+                loadingXibView.removeFromSuperview()
+            })
+        }
+    }
+
 }
