@@ -9,9 +9,9 @@
 import UIKit
 
 class LoadingView: UIView {
-    
+
     @IBOutlet weak var indicatorView: SpringView!
-    
+
     override func awakeFromNib() {
         let animation = CABasicAnimation()
         animation.keyPath = "transform.rotation.z"
@@ -37,7 +37,7 @@ extension UIView {
         }
 
         let loadingXibView =
-            NSBundle.mainBundle().loadNibNamed("loadingView", owner: self, options: nil)[0] as UIView
+            NSBundle.mainBundle().loadNibNamed("LoadingView", owner: self, options: nil)[0] as UIView
         loadingXibView.frame = self.bounds
         loadingXibView.tag = LoadingViewConstants.Tag
         self.addSubview(loadingXibView)
