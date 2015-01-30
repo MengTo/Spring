@@ -343,6 +343,7 @@ public class Spring : NSObject {
             animateFrom = true
             animatePreset()
             setView {}
+            self.resetAll()
         }
     }
 
