@@ -37,6 +37,7 @@
 		1A4FDA691A6E44A70099D309 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888E31A66BF9000295A64 /* TransitionManager.swift */; };
 		1A4FDA6A1A6E44A70099D309 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888E41A66BF9000295A64 /* TransitionZoom.swift */; };
 		1A4FDA6B1A6E44A70099D309 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961888E51A66BF9000295A64 /* UnwindSegue.swift */; };
+		1A585F401A7B9530007EEB7D /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A585F3F1A7B9530007EEB7D /* KeyboardLayoutConstraint.swift */; };
 		1AB764641A6E4F070076CD78 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 964117471A5BE90A000E3A5A /* Images.xcassets */; };
 		964117411A5BE90A000E3A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117401A5BE90A000E3A5A /* AppDelegate.swift */; };
 		964117461A5BE90A000E3A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 964117441A5BE90A000E3A5A /* Main.storyboard */; };
@@ -105,6 +106,7 @@
 		1A4FDA3D1A6E44780099D309 /* SpringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A4FDA451A6E44780099D309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4FDA461A6E44780099D309 /* SpringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringTests.swift; sourceTree = "<group>"; };
+		1A585F3F1A7B9530007EEB7D /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		1AD08AC61A676D5800160D45 /* Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
 		1AF3F11A1A6776760090E8F9 /* SpringImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringImageView.swift; sourceTree = "<group>"; };
 		1AF3F11B1A6776760090E8F9 /* SpringLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringLabel.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */,
 				961888DB1A66BF9000295A64 /* ImageLoader.swift */,
 				961888DC1A66BF9000295A64 /* KeyboardAvoidingScrollView.swift */,
+				1A585F3F1A7B9530007EEB7D /* KeyboardLayoutConstraint.swift */,
 				961888DF1A66BF9000295A64 /* Misc.swift */,
 				1AD08AC61A676D5800160D45 /* Spring.swift */,
 				961888E01A66BF9000295A64 /* SpringAnimation.swift */,
@@ -515,6 +518,7 @@
 				1A4FDA661A6E44A70099D309 /* SpringTextField.swift in Sources */,
 				1A4FDA631A6E44A70099D309 /* SpringButton.swift in Sources */,
 				1A4FDA621A6E44A70099D309 /* SpringAnimation.swift in Sources */,
+				1A585F401A7B9530007EEB7D /* KeyboardLayoutConstraint.swift in Sources */,
 				1A4FDA6B1A6E44A70099D309 /* UnwindSegue.swift in Sources */,
 				1A4FDA681A6E44A70099D309 /* SpringView.swift in Sources */,
 				1A4FDA6A1A6E44A70099D309 /* TransitionZoom.swift in Sources */,
