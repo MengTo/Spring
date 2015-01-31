@@ -1,16 +1,19 @@
+![](http://cl.ly/image/3a1r1d3l3D1j/spring-logo.jpg)
+
 ## Installation
-Drag and drop the Spring folder to your Xcode project.
+Drop in the Spring folder to your Xcode project.
 
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
 
-![](http://cl.ly/image/1006331m1L11/class.png)
-
-![](http://cl.ly/image/40142G3d1u3N/attribute.png)
+![](http://cl.ly/image/241o0G1G3S36/download/springsetup.jpg)
 
 ## Usage with Code
     layer.animation = "squeezeDown"
     layer.animate()
+
+## Demo The Animations
+![](http://cl.ly/image/1n1E2j3W3y24/springscreen.jpg)
 
 ## Chaining Animations
     layer.y = -50
