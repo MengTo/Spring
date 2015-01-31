@@ -303,7 +303,6 @@ public class Spring : NSObject {
         animateFrom = true
         animatePreset()
         setView {}
-        self.resetAll()
     }
 
     public func animateNext(completion: () -> ()) {
@@ -312,14 +311,12 @@ public class Spring : NSObject {
         setView {
             completion()
         }
-        self.resetAll()
     }
 
     public func animateTo() {
         animateFrom = false
         animatePreset()
         setView {}
-        self.resetAll()
     }
 
     public func animateToNext(completion: () -> ()) {
@@ -328,7 +325,6 @@ public class Spring : NSObject {
         setView {
             completion()
         }
-        self.resetAll()
     }
     
     public func customAwakeFromNib() {
@@ -343,7 +339,6 @@ public class Spring : NSObject {
             animateFrom = true
             animatePreset()
             setView {}
-            self.resetAll()
         }
     }
 
@@ -382,6 +377,7 @@ public class Spring : NSObject {
             }, { finished in
 
                 completion()
+                self.resetAll()
 
         })
     }
