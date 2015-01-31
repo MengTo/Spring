@@ -85,3 +85,6 @@ Saves you the hassle of adding a line "layer.alpha = 0" in viewDidLoad().
 
 ## Known issue
 Animations won't autostart when view is reached via performSegueWithIdentifier.
+
+## Tutorials
+Tutorials available on [Design+Code](https://designcode.io/swiftapp).
