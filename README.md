@@ -88,3 +88,8 @@ Animations won't autostart when view is reached via performSegueWithIdentifier.
 
 ## Tutorials
 Tutorials available on [Design+Code](https://designcode.io/swiftapp).
+
+## License
+
+Spring is released under the MIT license. See LICENSE for details.
+
