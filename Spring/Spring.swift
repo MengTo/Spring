@@ -414,6 +414,7 @@ public class Spring : NSObject {
         rotate = 0
         damping = 0.7
         velocity = 0.7
+        repeatCount = 1
         delay = 0
         duration = 0.7
     }
