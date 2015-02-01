@@ -31,6 +31,7 @@ import UIKit
     var duration: CGFloat { get set }
     var damping: CGFloat { get set }
     var velocity: CGFloat { get set }
+    var repeatCount: Float { get set }
     var x: CGFloat { get set }
     var y: CGFloat { get set }
     var scaleX: CGFloat { get set }
@@ -62,6 +63,7 @@ public class Spring : NSObject {
     private var duration: CGFloat { set { self.view.duration = newValue } get { return self.view.duration }}
     private var damping: CGFloat { set { self.view.damping = newValue } get { return self.view.damping }}
     private var velocity: CGFloat { set { self.view.velocity = newValue } get { return self.view.velocity }}
+    private var repeatCount: Float { set { self.view.repeatCount = newValue } get { return self.view.repeatCount }}
     private var x: CGFloat { set { self.view.x = newValue } get { return self.view.x }}
     private var y: CGFloat { set { self.view.y = newValue } get { return self.view.y }}
     private var scaleX: CGFloat { set { self.view.scaleX = newValue } get { return self.view.scaleX }}
@@ -150,7 +152,7 @@ public class Spring : NSObject {
             animation.timingFunction = getTimingFunction(curve)
             animation.duration = CFTimeInterval(duration)
             animation.additive = true
-            animation.repeatCount = 1
+            animation.repeatCount = repeatCount
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "shake")
         case "pop":
@@ -161,7 +163,7 @@ public class Spring : NSObject {
             animation.timingFunction = getTimingFunction(curve)
             animation.duration = CFTimeInterval(duration)
             animation.additive = true
-            animation.repeatCount = 1
+            animation.repeatCount = repeatCount
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "pop")
         case "flipX":
@@ -202,7 +204,7 @@ public class Spring : NSObject {
             morphX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             morphX.timingFunction = getTimingFunction(curve)
             morphX.duration = CFTimeInterval(duration)
-            morphX.repeatCount = 1
+            morphX.repeatCount = repeatCount
             morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(morphX, forKey: "morphX")
 
@@ -212,7 +214,7 @@ public class Spring : NSObject {
             morphY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             morphY.timingFunction = getTimingFunction(curve)
             morphY.duration = CFTimeInterval(duration)
-            morphY.repeatCount = 1
+            morphY.repeatCount = repeatCount
             morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(morphY, forKey: "morphY")
         case "squeeze":
@@ -222,7 +224,7 @@ public class Spring : NSObject {
             morphX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             morphX.timingFunction = getTimingFunction(curve)
             morphX.duration = CFTimeInterval(duration)
-            morphX.repeatCount = 1
+            morphX.repeatCount = repeatCount
             morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(morphX, forKey: "morphX")
 
@@ -232,7 +234,7 @@ public class Spring : NSObject {
             morphY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
             morphY.timingFunction = getTimingFunction(curve)
             morphY.duration = CFTimeInterval(duration)
-            morphY.repeatCount = 1
+            morphY.repeatCount = repeatCount
             morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(morphY, forKey: "morphY")
         case "flash":
@@ -241,7 +243,7 @@ public class Spring : NSObject {
             animation.fromValue = 1
             animation.toValue = 0
             animation.duration = CFTimeInterval(duration)
-            animation.repeatCount = 2
+            animation.repeatCount = repeatCount * 2.0
             animation.autoreverses = true
             animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(animation, forKey: "flash")
@@ -262,7 +264,7 @@ public class Spring : NSObject {
             x.timingFunction = getTimingFunction(curve)
             x.duration = CFTimeInterval(duration)
             x.additive = true
-            x.repeatCount = 1
+            x.repeatCount = repeatCount
             x.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
             layer.addAnimation(x, forKey: "x")
         case "swing":

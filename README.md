@@ -69,6 +69,7 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
     delay
     damping
     velocity
+    repeatCount
     scale
     x
     y
