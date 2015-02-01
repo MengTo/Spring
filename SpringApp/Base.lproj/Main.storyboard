@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uF9-EU-g6i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uF9-EU-g6i">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="ProximaNova-Regular.otf">
-            <string>ProximaNova-Regular</string>
-            <string>ProximaNova-Regular</string>
-            <string>ProximaNova-Regular</string>
-        </mutableArray>
-        <mutableArray key="ProximaNova-Semibold.otf">
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-            <string>ProximaNova-Semibold</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Spring View Controller-->
         <scene sceneID="BLg-45-6qz">
@@ -69,7 +50,7 @@
                                             <constraint firstAttribute="width" constant="100" id="bV4-jl-2ic"/>
                                             <constraint firstAttribute="height" constant="44" id="z4W-XA-EwU"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                         <color key="tintColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Options">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -86,7 +67,7 @@
                                             <constraint firstAttribute="width" constant="100" id="SeB-ve-Lhd"/>
                                             <constraint firstAttribute="width" constant="100" id="ui4-JW-eAd"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                         <color key="tintColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Code">
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -191,20 +172,20 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Force: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZO-3H-UCU">
-                                        <rect key="frame" x="38" y="103" width="41" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="35.5" y="103" width="46" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xk2-sC-g25">
-                                        <rect key="frame" x="272" y="103" width="57" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="269" y="103" width="63.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfx-rk-xQP">
-                                        <rect key="frame" x="520" y="103" width="44" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="519" y="103" width="46" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -298,8 +279,8 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUx-Gp-qoT">
-                                        <rect key="frame" x="126" y="30" width="48" height="20"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                                        <rect key="frame" x="124.5" y="30" width="51" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -320,7 +301,7 @@
                                     <constraint firstAttribute="width" constant="300" id="jiZ-9d-R1i"/>
                                     <constraint firstAttribute="centerX" secondItem="jUx-Gp-qoT" secondAttribute="centerX" id="nL7-wh-det"/>
                                     <constraint firstAttribute="trailing" secondItem="QYe-M8-GcU" secondAttribute="trailing" constant="10" id="sKf-sj-Qcr"/>
-                                    <constraint firstItem="QYe-M8-GcU" firstAttribute="top" secondItem="jUx-Gp-qoT" secondAttribute="bottom" constant="16" id="xVO-L4-qKb"/>
+                                    <constraint firstItem="QYe-M8-GcU" firstAttribute="top" secondItem="jUx-Gp-qoT" secondAttribute="bottom" constant="8.5" id="xVO-L4-qKb"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeRight"/>
@@ -388,8 +369,8 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damping: 0.7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rM7-dW-gD1">
-                                        <rect key="frame" x="22.5" y="72" width="70.5" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="19.5" y="72" width="76.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -407,8 +388,8 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocity: 0.7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqf-ZO-435">
-                                        <rect key="frame" x="268" y="71" width="64.5" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="266" y="71" width="68.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -426,8 +407,8 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotate: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sss-g7-hcA">
-                                        <rect key="frame" x="518" y="71" width="48.5" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="517" y="71" width="50.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -445,8 +426,8 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i2-8d-Gyo">
-                                        <rect key="frame" x="48.5" y="152" width="19.5" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="48" y="152" width="20.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -464,8 +445,8 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kG-Ub-7Gx">
-                                        <rect key="frame" x="290.5" y="152" width="19.5" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="290" y="152" width="20.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -483,8 +464,8 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scale: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFw-Jb-2Xm">
-                                        <rect key="frame" x="522.5" y="152" width="40" height="12"/>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="12"/>
+                                        <rect key="frame" x="521" y="152" width="43.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
                                         <color key="textColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -494,7 +475,7 @@
                                             <constraint firstAttribute="height" constant="36" id="Gt6-ig-db1"/>
                                             <constraint firstAttribute="width" constant="100" id="oBI-wy-nzi"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <state key="normal" title="Reset">
                                             <color key="titleColor" red="0.58641076089999999" green="0.61882251499999996" blue="0.69047850369999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -520,7 +501,7 @@
                                     <constraint firstAttribute="centerX" secondItem="WbE-Ar-bLf" secondAttribute="centerX" id="3q2-yh-Ybl"/>
                                     <constraint firstItem="EqA-ng-ZaN" firstAttribute="top" secondItem="lGB-5Y-C2z" secondAttribute="top" constant="35" id="6Qu-N6-4Gs"/>
                                     <constraint firstItem="Sss-g7-hcA" firstAttribute="top" secondItem="hp3-5D-ajZ" secondAttribute="bottom" constant="6.5" id="7fN-2B-svp"/>
-                                    <constraint firstItem="WbE-Ar-bLf" firstAttribute="top" secondItem="8kG-Ub-7Gx" secondAttribute="bottom" constant="33.5" id="7pX-za-V55"/>
+                                    <constraint firstItem="WbE-Ar-bLf" firstAttribute="top" secondItem="8kG-Ub-7Gx" secondAttribute="bottom" constant="29" id="7pX-za-V55"/>
                                     <constraint firstItem="kqf-ZO-435" firstAttribute="centerX" secondItem="P2p-U0-U48" secondAttribute="centerX" constant="0.5" id="89v-Cf-WeC"/>
                                     <constraint firstItem="6UY-eF-UAm" firstAttribute="top" secondItem="hp3-5D-ajZ" secondAttribute="bottom" constant="51" id="93Z-4G-cdy"/>
                                     <constraint firstAttribute="centerX" secondItem="WeN-Ux-Pdh" secondAttribute="centerX" id="A0L-HO-nic"/>
