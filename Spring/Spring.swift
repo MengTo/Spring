@@ -48,7 +48,7 @@ import UIKit
 
 public class Spring : NSObject {
 
-    private var view : Springable
+    private unowned var view : Springable
 
     init(_ view: Springable) {
         self.view = view
