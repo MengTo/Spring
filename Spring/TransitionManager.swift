@@ -33,10 +33,10 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
         let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
         
         if isPresenting {
+            toView.frame = container.bounds
+            toView.transform = CGAffineTransformMakeTranslation(0, container.frame.size.height)
             container.addSubview(fromView)
             container.addSubview(toView)
-            
-            toView.transform = CGAffineTransformMakeTranslation(0, toView.frame.size.height)
             springEaseInOut(duration) {
                 fromView.transform = CGAffineTransformMakeScale(0.8, 0.8)
                 fromView.alpha = 0.5
@@ -44,12 +44,23 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
             }
         }
         else {
+
+            // 1. Rotating will change the bounds
+            // 2. we have to properly reset toView
+            // to the actual container's bounds, at
+            // the same time take consideration of
+            // previous transformation when presenting
+            let transform = toView.transform
+            toView.transform = CGAffineTransformIdentity
+            toView.frame = container.bounds
+            toView.transform = transform
+
             container.addSubview(toView)
             container.addSubview(fromView)
-            
+
             springEaseInOut(duration) {
                 fromView.transform = CGAffineTransformMakeTranslation(0, fromView.frame.size.height)
-                toView.transform = CGAffineTransformMakeScale(1, 1)
+                toView.transform = CGAffineTransformIdentity
                 toView.alpha = 1
             }
         }
