@@ -3,13 +3,8 @@
 ## Installation
 Drop in the Spring folder to your Xcode project.
 
-### OR via CocoaPods (pre-release)
-
-```
-pod 'Spring', '~> 1.0.0'
-```
-
----
+Or via CocoaPods pre-release:
+`pod 'Spring', '~> 1.0.0'`
 
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
