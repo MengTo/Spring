@@ -24,6 +24,10 @@ import UIKit
 
 public extension String {
     public var length: Int { return countElements(self) }
+
+    public func toURL() -> NSURL? {
+        return NSURL(string: self)
+    }
 }
 
 public func htmlToAttributedString(text: String) -> NSAttributedString! {
