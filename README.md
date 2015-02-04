@@ -31,7 +31,7 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
     animateTo()
     animateToNext { ... }
 
-## Presets
+## Animation
     shake
     pop
     morph
