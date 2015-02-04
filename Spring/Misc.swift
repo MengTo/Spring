@@ -115,16 +115,26 @@ public func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     )
 }
 
+var dateFormatter : NSDateFormatter?
+
 public func stringFromDate(date: NSDate, format: String) -> String {
-    var dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = format
-    return dateFormatter.stringFromDate(date)
+
+    if dateFormatter == nil {
+        dateFormatter = NSDateFormatter()
+    }
+
+    dateFormatter!.dateFormat = format
+    return dateFormatter!.stringFromDate(date)
 }
 
 public func dateFromString(date: String, format: String) -> NSDate {
-    var dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = format
-    return dateFormatter.dateFromString(date)!
+
+    if dateFormatter == nil {
+        dateFormatter = NSDateFormatter()
+    }
+
+    dateFormatter!.dateFormat = format
+    return dateFormatter!.dateFromString(date)!
 }
 
 public func randomStringWithLength (len : Int) -> NSString {
