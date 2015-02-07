@@ -166,38 +166,18 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         animateView()
     }
     
-    var ballState = 0
+    var isBall = false
     func changeBall() {
-        switch ballState {
-        case 1:
-            let animation = CABasicAnimation()
-            animation.keyPath = "cornerRadius"
-            animation.fromValue = 50
-            animation.toValue = 10
-            animation.duration = 0.2
-            ballView.layer.cornerRadius = 10
-            ballView.layer.addAnimation(animation, forKey: "radius")
-            
-            ballState = 0
-        default:
-            let animation = CABasicAnimation()
-            animation.keyPath = "cornerRadius"
-            animation.fromValue = 10
-            animation.toValue = 50
-            animation.duration = 0.2
-            ballView.layer.cornerRadius = 50
-            ballView.layer.addAnimation(animation, forKey: "radius")
-            
-            ballState++
-        }
-        
+        isBall = !isBall
         let animation = CABasicAnimation()
-        animation.keyPath = "opacity"
-        animation.fromValue = 1
-        animation.toValue = 0
+        let halfWidth = ballView.frame.width / 2
+        let cornorRadius: CGFloat = isBall ? halfWidth : 10
+        animation.keyPath = "cornerRadius"
+        animation.fromValue = isBall ? 10 : halfWidth
+        animation.toValue = cornorRadius
         animation.duration = 0.2
-        animation.autoreverses = true
-        ballView.layer.addAnimation(animation, forKey: "fade")
+        ballView.layer.cornerRadius = cornorRadius
+        ballView.layer.addAnimation(animation, forKey: "radius")
     }
     
     @IBAction func shapeButtonPressed(sender: AnyObject) {
