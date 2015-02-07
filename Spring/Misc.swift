@@ -157,7 +157,7 @@ public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
     let unitFlags = NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitWeekOfYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitSecond
     let now = NSDate()
     let earliest = now.earlierDate(date)
-    let latest = (earliest == now) ? date : now
+    let latest = now.laterDate(date)
     let components:NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest, options: nil)
     
     if (components.year >= 2) {

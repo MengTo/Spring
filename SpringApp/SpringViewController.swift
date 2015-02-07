@@ -171,12 +171,12 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         isBall = !isBall
         let animation = CABasicAnimation()
         let halfWidth = ballView.frame.width / 2
-        let cornorRadius: CGFloat = isBall ? halfWidth : 10
+        let cornerRadius: CGFloat = isBall ? halfWidth : 10
         animation.keyPath = "cornerRadius"
         animation.fromValue = isBall ? 10 : halfWidth
-        animation.toValue = cornorRadius
+        animation.toValue = cornerRadius
         animation.duration = 0.2
-        ballView.layer.cornerRadius = cornorRadius
+        ballView.layer.cornerRadius = cornerRadius
         ballView.layer.addAnimation(animation, forKey: "radius")
     }
     
