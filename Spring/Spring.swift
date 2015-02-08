@@ -49,7 +49,7 @@ import UIKit
 
 public class Spring : NSObject {
 
-    private var view : Springable
+    private unowned var view : Springable
 
     init(_ view: Springable) {
         self.view = view
@@ -374,26 +374,29 @@ public class Spring : NSObject {
             usingSpringWithDamping: damping,
             initialSpringVelocity: velocity,
             options: getAnimationOptions(curve),
-            animations: {
-
-                if self.animateFrom {
-                    self.transform = CGAffineTransformIdentity
-                    self.alpha = 1
+            animations: { [weak self] in
+                if let _self = self
+                {
+                    if _self.animateFrom {
+                        _self.transform = CGAffineTransformIdentity
+                        _self.alpha = 1
+                    }
+                    else {
+                        let translate = CGAffineTransformMakeTranslation(_self.x, _self.y)
+                        let scale = CGAffineTransformMakeScale(_self.scaleX, _self.scaleY)
+                        let rotate = CGAffineTransformMakeRotation(_self.rotate)
+                        let translateAndScale = CGAffineTransformConcat(translate, scale)
+                        _self.transform = CGAffineTransformConcat(rotate, translateAndScale)
+                        
+                        _self.alpha = _self.opacity
+                    }
+                    
                 }
-                else {
-                    let translate = CGAffineTransformMakeTranslation(self.x, self.y)
-                    let scale = CGAffineTransformMakeScale(self.scaleX, self.scaleY)
-                    let rotate = CGAffineTransformMakeRotation(self.rotate)
-                    let translateAndScale = CGAffineTransformConcat(translate, scale)
-                    self.transform = CGAffineTransformConcat(rotate, translateAndScale)
-
-                    self.alpha = self.opacity
-                }
-
-            }, { finished in
-
+                
+            }, { [weak self] finished in
+                
                 completion()
-                self.resetAll()
+                self?.resetAll()
 
         })
     }
