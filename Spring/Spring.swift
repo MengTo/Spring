@@ -45,6 +45,11 @@ import UIKit
     var layer : CALayer { get }
     var transform : CGAffineTransform { get set }
     var alpha : CGFloat { get set }
+    
+    func animate()
+    func animateNext(completion: () -> ())
+    func animateTo()
+    func animateToNext(completion: () -> ())
 }
 
 public class Spring : NSObject {
