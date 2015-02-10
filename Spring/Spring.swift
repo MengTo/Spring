@@ -50,9 +50,28 @@ import UIKit
 public class Spring : NSObject {
 
     private unowned var view : Springable
+    private var shouldAnimateAfterActive = false
 
     init(_ view: Springable) {
         self.view = view
+        super.init()
+        commonInit()
+    }
+
+    func commonInit() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+
+    func didBecomeActiveNotification(notification: NSNotification) {
+        if shouldAnimateAfterActive {
+            alpha = 0
+            animate()
+            shouldAnimateAfterActive = false
+        }
+    }
+
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
 
     private var autostart: Bool { set { self.view.autostart = newValue } get { return self.view.autostart }}
@@ -350,11 +369,16 @@ public class Spring : NSObject {
     }
     
     public func customDidMoveToWindow() {
+
         if autostart {
+
+            if UIApplication.sharedApplication().applicationState != .Active {
+                shouldAnimateAfterActive = true
+                return
+            }
+
             alpha = 0
-            animateFrom = true
-            animatePreset()
-            setView {}
+            animate()
         }
     }
 
