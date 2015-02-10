@@ -245,7 +245,9 @@
 				1A4FDA431A6E44780099D309 /* SpringTests */,
 				9641173C1A5BE90A000E3A5A /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		9641173C1A5BE90A000E3A5A /* Products */ = {
 			isa = PBXGroup;
