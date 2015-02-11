@@ -4,7 +4,7 @@
 Drop in the Spring folder to your Xcode project.
 
 Or via CocoaPods pre-release:
-`pod 'Spring', '~> 1.0.0'`
+`pod 'Spring', '~> 1.0.1'`
 
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
@@ -93,6 +93,9 @@ Animations won't autostart when view is reached via performSegueWithIdentifier.
 ## Tutorials
 - Tutorials available on [Design+Code](https://designcode.io/swiftapp).
 - [Integrate Spring to existing Objective-C projects](https://medium.com/ios-apprentice/using-swift-in-objective-c-projects-f7e7a09f8be)
+
+## ChangeLog
+- At [ChangeLog](https://github.com/MengTo/Spring/wiki/CHANGELOG) wiki page
 
 ## License
 
