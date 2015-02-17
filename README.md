@@ -90,6 +90,8 @@ Saves you the hassle of adding a line "layer.alpha = 0" in viewDidLoad().
 ## Known issue
 Animations won't autostart when view is reached via performSegueWithIdentifier.
 
+Animations using IBInspectables are currently not working in iOS 7. iOS 8 is supported. We're looking for a fix. Animations in code works for both iOS 7 and 8.
+
 ## Tutorials
 - Tutorials available on [Design+Code](https://designcode.io/swiftapp).
 - [Integrate Spring to existing Objective-C projects](https://medium.com/ios-apprentice/using-swift-in-objective-c-projects-f7e7a09f8be)
