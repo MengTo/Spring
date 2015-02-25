@@ -156,7 +156,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func ballButtonPressed(sender: AnyObject) {
         
         UIView.animateWithDuration(0.1, animations: {
-            self.ballView.backgroundColor = UIColor(hex: "#69DBFF")
+            self.ballView.backgroundColor = UIColor(hex: "69DBFF")
         }, completion: { finished in
             UIView.animateWithDuration(0.5, animations: {
                 self.ballView.backgroundColor = UIColor(hex: "#279CEB")
