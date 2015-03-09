@@ -21,7 +21,6 @@
 // SOFTWARE.
 
 import UIKit
-import Spring
 
 public class AsyncImageView: UIImageView {
 
