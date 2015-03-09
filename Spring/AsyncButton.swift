@@ -21,7 +21,6 @@
 // SOFTWARE.
 
 import UIKit
-import Spring
 
 public class AsyncButton: UIButton {
 
