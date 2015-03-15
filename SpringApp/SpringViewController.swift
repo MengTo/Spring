@@ -143,7 +143,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         "zoomIn",
         "zoomOut",
         "flash",
-    ], ["spring", "linear", "easeIn", "easeOut", "easeInOut"]]
+    ], ["spring", "linear", "easeIn", "easeOut", "easeInOut","easeInSine","easeOutSine","easeInOutSine","easeInQuad","easeOutQuad","easeInOutQuad","easeInCubic","easeOutCubic","easeInOutCubic","easeInQuart","easeOutQuart","easeInOutQuart","easeInQuint","easeOutQuint","easeInOutQuint","easeInExpo","easeOutExpo","easeInOutExpo","easeInCirc","easeOutCirc","easeInOutCirc","easeInBack","easeOutBack","easeInOutBack"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
