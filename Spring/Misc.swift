@@ -124,7 +124,11 @@ public func stringFromDate(date: NSDate, format: String) -> String {
 public func dateFromString(date: String, format: String) -> NSDate {
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = format
-    return dateFormatter.dateFromString(date)!
+    if let date = dateFormatter.dateFromString(date) {
+        return date
+    } else {
+        return NSDate(timeIntervalSince1970: 0)
+    }
 }
 
 public func randomStringWithLength (len : Int) -> NSString {
