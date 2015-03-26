@@ -163,12 +163,12 @@ public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
             return "1y"
         }
     } else if (components.month >= 2) {
-        return "\(components.month)"
+        return "\(components.month * 4)w"
     } else if (components.month >= 1){
         if (numericDates){
-            return "1M"
+            return "4w"
         } else {
-            return "1M"
+            return "4w"
         }
     } else if (components.weekOfYear >= 2) {
         return "\(components.weekOfYear)w"
