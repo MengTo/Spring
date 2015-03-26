@@ -48,6 +48,7 @@
 		9641178B1A5BEC6F000E3A5A /* SpringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117881A5BEC6F000E3A5A /* SpringViewController.swift */; };
 		9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117891A5BEC6F000E3A5A /* OptionsViewController.swift */; };
 		9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */; };
+		96C5F4621AC464C800BB8A18 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C5F4611AC464C800BB8A18 /* AutoTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		964117891A5BEC6F000E3A5A /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTabBarController.swift; sourceTree = "<group>"; };
+		96C5F4611AC464C800BB8A18 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 			children = (
 				1AA7E1821AA36EFF00762D75 /* AsyncButton.swift */,
 				1AA7E1811AA36EFF00762D75 /* AsyncImageView.swift */,
+				96C5F4611AC464C800BB8A18 /* AutoTextView.swift */,
 				1A4FDA2A1A6E44270099D309 /* LoadingView.swift */,
 				1A4FDA2B1A6E44270099D309 /* LoadingView.xib */,
 				961888D31A66BF9000295A64 /* BlurView.swift */,
@@ -530,6 +533,7 @@
 				9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */,
 				9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */,
 				9641178B1A5BEC6F000E3A5A /* SpringViewController.swift in Sources */,
+				96C5F4621AC464C800BB8A18 /* AutoTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
