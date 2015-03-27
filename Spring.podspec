@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Spring'
-  s.version = '1.0.1'
+  s.version = '1.0.2'
   s.license = 'MIT'
   s.summary = 'A library to simplify iOS animations in Swift.'
   s.homepage = 'https://github.com/MengTo/Spring'
@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
   s.source_files = 'Spring/*.swift'
+  s.resources = ['Spring/*.xib', 'SpringApp/*.xcassets']
 end
