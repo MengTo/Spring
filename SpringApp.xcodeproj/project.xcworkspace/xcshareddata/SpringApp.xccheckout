@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>90BE4A8A-3AD7-483D-B9EA-ED8463875CE6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SpringApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
+		<string>github.com:MengTo/Spring.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SpringApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:MengTo/Spring.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>71F5D8D885CFF6BD7151066D7BFF25CC48A5235E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Spring</string>
+		</dict>
+	</array>
+</dict>
+</plist>
