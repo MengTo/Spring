@@ -103,6 +103,7 @@ public class Spring : NSObject {
     private var alpha: CGFloat { get { return view.alpha } set { view.alpha = newValue } }
 
     func animatePreset() {
+        alpha = 0.99
         if animation == "" {
             return
         }
