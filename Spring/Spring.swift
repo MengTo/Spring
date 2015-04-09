@@ -471,12 +471,12 @@ public class Spring : NSObject {
                     
                 }
                 
-            }, { [weak self] finished in
+            }) { [weak self] finished in
                 
                 completion()
                 self?.resetAll()
 
-        })
+        }
     }
 
     func reset() {
