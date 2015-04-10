@@ -33,7 +33,7 @@ import UIKit
     
     @IBInspectable var selectedTint: UIColor = UIColor.clearColor() {
         didSet {
-            UITabBar.appearance().selectedImageTintColor = selectedTint
+            UITabBar.appearance().tintColor = selectedTint
             UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedTint], forState:UIControlState.Selected)
         }
     }
