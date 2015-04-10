@@ -35,48 +35,48 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var selectedRotate: CGFloat = 0
     
     @IBAction func forceSliderChanged(sender: AnyObject) {
-        selectedForce = sender.valueForKey("value") as CGFloat
+        selectedForce = sender.valueForKey("value") as! CGFloat
         animateView()
         forceLabel.text = String(format: "Force: %.1f", Double(selectedForce))
     }
     @IBAction func durationSliderChanged(sender: AnyObject) {
-        selectedDuration = sender.valueForKey("value") as CGFloat
+        selectedDuration = sender.valueForKey("value") as! CGFloat
         animateView()
         durationLabel.text = String(format: "Duration: %.1f", Double(selectedDuration))
     }
     @IBAction func delaySliderChanged(sender: AnyObject) {
-        selectedDelay = sender.valueForKey("value") as CGFloat
+        selectedDelay = sender.valueForKey("value") as! CGFloat
         animateView()
         delayLabel.text = String(format: "Delay: %.1f", Double(selectedDelay))
     }
 
     func dampingSliderChanged(sender: AnyObject) {
-        selectedDamping = sender.valueForKey("value") as CGFloat
+        selectedDamping = sender.valueForKey("value") as! CGFloat
         animateView()
     }
     
     func velocitySliderChanged(sender: AnyObject) {
-        selectedVelocity = sender.valueForKey("value") as CGFloat
+        selectedVelocity = sender.valueForKey("value") as! CGFloat
         animateView()
     }
     
     func scaleSliderChanged(sender: AnyObject) {
-        selectedScale = sender.valueForKey("value") as CGFloat
+        selectedScale = sender.valueForKey("value") as! CGFloat
         animateView()
     }
     
     func xSliderChanged(sender: AnyObject) {
-        selectedX = sender.valueForKey("value") as CGFloat
+        selectedX = sender.valueForKey("value") as! CGFloat
         animateView()
     }
     
     func ySliderChanged(sender: AnyObject) {
-        selectedY = sender.valueForKey("value") as CGFloat
+        selectedY = sender.valueForKey("value") as! CGFloat
         animateView()
     }
     
     func rotateSliderChanged(sender: AnyObject) {
-        selectedRotate = sender.valueForKey("value") as CGFloat
+        selectedRotate = sender.valueForKey("value") as! CGFloat
         animateView()
     }
     

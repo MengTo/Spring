@@ -453,30 +453,31 @@ public class Spring : NSObject {
             initialSpringVelocity: velocity,
             options: getAnimationOptions(curve),
             animations: { [weak self] in
-                if let _self = self
-                {
-                    if _self.animateFrom {
-                        _self.transform = CGAffineTransformIdentity
-                        _self.alpha = 1
-                    }
-                    else {
-                        let translate = CGAffineTransformMakeTranslation(_self.x, _self.y)
-                        let scale = CGAffineTransformMakeScale(_self.scaleX, _self.scaleY)
-                        let rotate = CGAffineTransformMakeRotation(_self.rotate)
-                        let translateAndScale = CGAffineTransformConcat(translate, scale)
-                        _self.transform = CGAffineTransformConcat(rotate, translateAndScale)
-                        
-                        _self.alpha = _self.opacity
-                    }
+            if let _self = self
+            {
+                if _self.animateFrom {
+                    _self.transform = CGAffineTransformIdentity
+                    _self.alpha = 1
+                }
+                else {
+                    let translate = CGAffineTransformMakeTranslation(_self.x, _self.y)
+                    let scale = CGAffineTransformMakeScale(_self.scaleX, _self.scaleY)
+                    let rotate = CGAffineTransformMakeRotation(_self.rotate)
+                    let translateAndScale = CGAffineTransformConcat(translate, scale)
+                    _self.transform = CGAffineTransformConcat(rotate, translateAndScale)
                     
+                    _self.alpha = _self.opacity
                 }
                 
-            }, { [weak self] finished in
+            }
+            
+            }, completion: { [weak self] finished in
                 
                 completion()
                 self?.resetAll()
-
-        })
+                
+            })
+        
     }
 
     func reset() {

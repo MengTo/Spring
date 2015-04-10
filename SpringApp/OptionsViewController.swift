@@ -68,37 +68,37 @@ class OptionsViewController: UIViewController {
     }
 
     @IBAction func dampingSliderChanged(sender: AnyObject) {
-        selectedDamping = sender.valueForKey("value") as CGFloat
+        selectedDamping = sender.valueForKey("value") as! CGFloat
         delegate?.dampingSliderChanged(sender)
         dampingLabel.text = getString("Damping", value: selectedDamping)
     }
     
     @IBAction func velocitySliderChanged(sender: AnyObject) {
-        selectedVelocity = sender.valueForKey("value") as CGFloat
+        selectedVelocity = sender.valueForKey("value") as! CGFloat
         delegate?.velocitySliderChanged(sender)
         velocityLabel.text = getString("Velocity", value: selectedVelocity)
     }
     
     @IBAction func scaleSliderChanged(sender: AnyObject) {
-        selectedScale = sender.valueForKey("value") as CGFloat
+        selectedScale = sender.valueForKey("value") as! CGFloat
         delegate?.scaleSliderChanged(sender)
         scaleLabel.text = getString("Scale", value: selectedScale)
     }
     
     @IBAction func xSliderChanged(sender: AnyObject) {
-        selectedX = sender.valueForKey("value") as CGFloat
+        selectedX = sender.valueForKey("value") as! CGFloat
         delegate?.xSliderChanged(sender)
         xLabel.text = getString("X", value: selectedX)
     }
     
     @IBAction func ySliderChanged(sender: AnyObject) {
-        selectedY = sender.valueForKey("value") as CGFloat
+        selectedY = sender.valueForKey("value") as! CGFloat
         delegate?.ySliderChanged(sender)
         yLabel.text = getString("Y", value: selectedY)
     }
     
     @IBAction func rotateSliderChanged(sender: AnyObject) {
-        selectedRotate = sender.valueForKey("value") as CGFloat
+        selectedRotate = sender.valueForKey("value") as! CGFloat
         delegate?.rotateSliderChanged(sender)
         rotateLabel.text = getString("Rotate", value: selectedRotate)
     }
