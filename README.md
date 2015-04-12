@@ -3,8 +3,8 @@
 ## Installation
 Drop in the Spring folder to your Xcode project.
 
-Or via CocoaPods pre-release:
-`pod 'Spring', '~> 1.0.1'`
+Or via CocoaPods:
+`pod 'Spring', '~> 1.0.2'`
 
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
@@ -61,9 +61,9 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
 
 ## Curve
     spring
-    linear 
-    easeIn 
-    easeOut 
+    linear
+    easeIn
+    easeOut
     easeInOut
 
 ## Properties
@@ -102,4 +102,3 @@ Animations using IBInspectables are currently not working in iOS 7. iOS 8 is sup
 ## License
 
 Spring is released under the MIT license. See LICENSE for details.
-
