@@ -1,4 +1,4 @@
-![](http://cl.ly/image/3a1r1d3l3D1j/spring-logo.jpg)
+![](http://cl.ly/image/012R0D3R3x2g/download/springswift2.jpg)
 
 ## Updated for Swift 2
 This update will be in this branch until Swift 2 is out of beta.
