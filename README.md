@@ -1,5 +1,8 @@
 ![](http://cl.ly/image/3a1r1d3l3D1j/spring-logo.jpg)
 
+## Updated for Swift 2
+This update will be in this branch until Swift 2 is out of beta.
+
 ## Installation
 Drop in the Spring folder to your Xcode project.
 
