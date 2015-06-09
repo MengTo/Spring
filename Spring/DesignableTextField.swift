@@ -34,7 +34,7 @@ import UIKit
     
     @IBInspectable public var sidePadding: CGFloat = 0 {
         didSet {
-            var padding = UIView(frame: CGRectMake(0, 0, sidePadding, sidePadding))
+            let padding = UIView(frame: CGRectMake(0, 0, sidePadding, sidePadding))
             
             leftViewMode = UITextFieldViewMode.Always
             leftView = padding
@@ -46,7 +46,7 @@ import UIKit
     
     @IBInspectable public var leftPadding: CGFloat = 0 {
         didSet {
-            var padding = UIView(frame: CGRectMake(0, 0, leftPadding, 0))
+            let padding = UIView(frame: CGRectMake(0, 0, leftPadding, 0))
             
             leftViewMode = UITextFieldViewMode.Always
             leftView = padding
@@ -55,7 +55,7 @@ import UIKit
     
     @IBInspectable public var rightPadding: CGFloat = 0 {
         didSet {
-            var padding = UIView(frame: CGRectMake(0, 0, 0, rightPadding))
+            let padding = UIView(frame: CGRectMake(0, 0, 0, rightPadding))
             
             rightViewMode = UITextFieldViewMode.Always
             rightView = padding
@@ -82,7 +82,7 @@ import UIKit
    
     @IBInspectable public var lineHeight: CGFloat = 1.5 {
         didSet {
-            var font = UIFont(name: self.font.fontName, size: self.font.pointSize)
+            var font = UIFont(name: self.font!.fontName, size: self.font!.pointSize)
             var text = self.text
             
             var paragraphStyle = NSMutableParagraphStyle()

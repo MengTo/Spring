@@ -60,7 +60,7 @@ public extension UIView {
         self.addSubview(loadingXibView)
 
         loadingXibView.alpha = 0
-        spring(0.7, {
+        spring(0.7, animations: {
             loadingXibView.alpha = 1
         })
     }
@@ -70,10 +70,10 @@ public extension UIView {
         if let loadingXibView = self.viewWithTag(LoadingViewConstants.Tag) {
             loadingXibView.alpha = 1
 
-            springWithCompletion(0.7, {
+            springWithCompletion(0.7, animations: {
                 loadingXibView.alpha = 0
                 loadingXibView.transform = CGAffineTransformMakeScale(3, 3)
-            }, { (completed) -> Void in
+            }, completion: { (completed) -> Void in
                 loadingXibView.removeFromSuperview()
             })
         }
