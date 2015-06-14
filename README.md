@@ -7,7 +7,11 @@ This update will be in this branch until Swift 2 is out of beta.
 Drop in the Spring folder to your Xcode project.
 
 Or via CocoaPods:
-`pod 'Spring', '~> 1.0.3'`
+```
+use_frameworks!
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+```
+
 
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
