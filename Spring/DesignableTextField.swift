@@ -55,7 +55,7 @@ import UIKit
     
     @IBInspectable public var rightPadding: CGFloat = 0 {
         didSet {
-            var padding = UIView(frame: CGRectMake(0, 0, 0, rightPadding))
+            var padding = UIView(frame: CGRectMake(0, 0, rightPadding, 0))
             
             rightViewMode = UITextFieldViewMode.Always
             rightView = padding
