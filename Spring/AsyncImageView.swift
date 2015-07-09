@@ -34,7 +34,7 @@ public class AsyncImageView: UIImageView {
                     if let strongSelf = self {
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             if strongSelf.url?.absoluteString == url {
-                                strongSelf.image = image
+                                strongSelf.image = image ?? strongSelf.placeholderImage
                             }
                         })
                     }
