@@ -132,6 +132,38 @@ public class Spring : NSObject {
         case Swing = "swing"
     }
 
+    public enum AnimationCurve: String {
+        case EaseIn = "easeIn"
+        case EaseOut = "easeOut"
+        case EaseInOut = "easeInOut"
+        case Linear = "linear"
+        case Spring = "spring"
+        case EaseInSine = "easeInSine"
+        case EaseOutSine = "easeOutSine"
+        case EaseInOutSine = "easeInOutSine"
+        case EaseInQuad = "easeInQuad"
+        case EaseOutQuad = "easeOutQuad"
+        case EaseInOutQuad = "easeInOutQuad"
+        case EaseInCubic = "easeInCubic"
+        case EaseOutCubic = "easeOutCubic"
+        case EaseInOutCubic = "easeInOutCubic"
+        case EaseInQuart = "easeInQuart"
+        case EaseOutQuart = "easeOutQuart"
+        case EaseInOutQuart = "easeInOutQuart"
+        case EaseInQuint = "easeInQuint"
+        case EaseOutQuint = "easeOutQuint"
+        case EaseInOutQuint = "easeInOutQuint"
+        case EaseInExpo = "easeInExpo"
+        case EaseOutExpo = "easeOutExpo"
+        case EaseInOutExpo = "easeInOutExpo"
+        case EaseInCirc = "easeInCirc"
+        case EaseOutCirc = "easeOutCirc"
+        case EaseInOutCirc = "easeInOutCirc"
+        case EaseInBack = "easeInBack"
+        case EaseOutBack = "easeOutBack"
+        case EaseInOutBack = "easeInOutBack"
+    }
+
     func animatePreset() {
         alpha = 0.99
         if let animation = AnimationPreset(rawValue: animation) {
