@@ -98,8 +98,8 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         ballView.y = selectedY
         ballView.rotate = selectedRotate
         
-        ballView.animation = data[0][selectedRow]
-        ballView.curve = data[1][selectedEasing]
+        ballView.animation = animations[selectedRow].rawValue
+        ballView.curve = data[selectedEasing]
     }
     
     func minimizeView(sender: AnyObject) {
@@ -115,35 +115,37 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         })
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
     }
-    
-    var data = [[
-        "shake",
-        "pop",
-        "morph",
-        "squeeze",
-        "wobble",
-        "swing",
-        "flipX",
-        "flipY",
-        "fall",
-        "squeezeLeft",
-        "squeezeRight",
-        "squeezeDown",
-        "squeezeUp",
-        "slideLeft",
-        "slideRight",
-        "slideDown",
-        "slideUp",
-        "fadeIn",
-        "fadeOut",
-        "fadeInLeft",
-        "fadeInRight",
-        "fadeInDown",
-        "fadeInUp",
-        "zoomIn",
-        "zoomOut",
-        "flash",
-    ], ["spring", "linear", "easeIn", "easeOut", "easeInOut","easeInSine","easeOutSine","easeInOutSine","easeInQuad","easeOutQuad","easeInOutQuad","easeInCubic","easeOutCubic","easeInOutCubic","easeInQuart","easeOutQuart","easeInOutQuart","easeInQuint","easeOutQuint","easeInOutQuint","easeInExpo","easeOutExpo","easeInOutExpo","easeInCirc","easeOutCirc","easeInOutCirc","easeInBack","easeOutBack","easeInOutBack"]]
+
+    let animations: [Spring.AnimationPreset] = [
+        .Shake,
+        .Pop,
+        .Morph,
+        .Squeeze,
+        .Wobble,
+        .Swing,
+        .FlipX,
+        .FlipY,
+        .Fall,
+        .SqueezeLeft,
+        .SqueezeRight,
+        .SqueezeDown,
+        .SqueezeUp,
+        .SlideLeft,
+        .SlideRight,
+        .SlideDown,
+        .SlideUp,
+        .FadeIn,
+        .FadeOut,
+        .FadeInLeft,
+        .FadeInRight,
+        .FadeInDown,
+        .FadeInUp,
+        .ZoomIn,
+        .ZoomOut,
+        .Flash
+    ]
+
+    var data = ["spring", "linear", "easeIn", "easeOut", "easeInOut","easeInSine","easeOutSine","easeInOutSine","easeInQuad","easeOutQuad","easeInOutQuad","easeInCubic","easeOutCubic","easeInOutCubic","easeInQuart","easeOutQuart","easeInOutQuart","easeInQuint","easeOutQuint","easeInOutQuint","easeInExpo","easeOutExpo","easeInOutExpo","easeInCirc","easeOutCirc","easeInOutCirc","easeInBack","easeOutBack","easeInOutBack"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -210,11 +212,11 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return data[component].count
+        return component == 0 ? animations.count : data.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return data[component][row]
+        return component == 0 ? animations[row].rawValue : data[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

@@ -102,7 +102,7 @@ public class Spring : NSObject {
     private var transform : CGAffineTransform { get { return view.transform } set { view.transform = newValue }}
     private var alpha: CGFloat { get { return view.alpha } set { view.alpha = newValue } }
 
-    enum AnimationPreset: String {
+    public enum AnimationPreset: String {
         case SlideLeft = "slideLeft"
         case SlideRight = "slideRight"
         case SlideDown = "slideDown"
