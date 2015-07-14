@@ -431,20 +431,15 @@ public class Spring : NSObject {
     }
 
     func getAnimationOptions(curve: String) -> UIViewAnimationOptions {
-        switch curve {
-        case "easeIn":
-            return UIViewAnimationOptions.CurveEaseIn
-        case "easeOut":
-            return UIViewAnimationOptions.CurveEaseOut
-        case "easeInOut":
-            return UIViewAnimationOptions.CurveEaseInOut
-        case "linear":
-            return UIViewAnimationOptions.CurveLinear
-        case "spring":
-            return UIViewAnimationOptions.CurveLinear
-        default:
-            return UIViewAnimationOptions.CurveLinear
+        if let curve = AnimationCurve(rawValue: curve) {
+            switch curve {
+            case .EaseIn: return UIViewAnimationOptions.CurveEaseIn
+            case .EaseOut: return UIViewAnimationOptions.CurveEaseOut
+            case .EaseInOut: return UIViewAnimationOptions.CurveEaseInOut
+            default: break
+            }
         }
+        return UIViewAnimationOptions.CurveLinear
     }
 
     public func animate() {
