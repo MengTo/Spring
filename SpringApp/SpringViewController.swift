@@ -99,7 +99,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         ballView.rotate = selectedRotate
         
         ballView.animation = animations[selectedRow].rawValue
-        ballView.curve = data[selectedEasing]
+        ballView.curve = animationCurves[selectedEasing].rawValue
     }
     
     func minimizeView(sender: AnyObject) {
@@ -145,7 +145,37 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         .Flash
     ]
 
-    var data = ["spring", "linear", "easeIn", "easeOut", "easeInOut","easeInSine","easeOutSine","easeInOutSine","easeInQuad","easeOutQuad","easeInOutQuad","easeInCubic","easeOutCubic","easeInOutCubic","easeInQuart","easeOutQuart","easeInOutQuart","easeInQuint","easeOutQuint","easeInOutQuint","easeInExpo","easeOutExpo","easeInOutExpo","easeInCirc","easeOutCirc","easeInOutCirc","easeInBack","easeOutBack","easeInOutBack"]
+    var animationCurves: [Spring.AnimationCurve] = [
+        .EaseIn,
+        .EaseOut,
+        .EaseInOut,
+        .Linear,
+        .Spring,
+        .EaseInSine,
+        .EaseOutSine,
+        .EaseInOutSine,
+        .EaseInQuad,
+        .EaseOutQuad,
+        .EaseInOutQuad,
+        .EaseInCubic,
+        .EaseOutCubic,
+        .EaseInOutCubic,
+        .EaseInQuart,
+        .EaseOutQuart,
+        .EaseInOutQuart,
+        .EaseInQuint,
+        .EaseOutQuint,
+        .EaseInOutQuint,
+        .EaseInExpo,
+        .EaseOutExpo,
+        .EaseInOutExpo,
+        .EaseInCirc,
+        .EaseOutCirc,
+        .EaseInOutCirc,
+        .EaseInBack,
+        .EaseOutBack,
+        .EaseInOutBack
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -212,11 +242,11 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return component == 0 ? animations.count : data.count
+        return component == 0 ? animations.count : animationCurves.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return component == 0 ? animations[row].rawValue : data[row]
+        return component == 0 ? animations[row].rawValue : animationCurves[row].rawValue
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
