@@ -271,7 +271,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0U-Rm-19b" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="layer.animation = &quot;shake&quot;" translatesAutoresizingMaskIntoConstraints="NO" id="QYe-M8-GcU">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="layer.animation = &quot;shake&quot;" translatesAutoresizingMaskIntoConstraints="NO" id="QYe-M8-GcU">
                                         <rect key="frame" x="10" y="66" width="280" height="524"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
