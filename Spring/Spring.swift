@@ -447,7 +447,7 @@ public class Spring : NSObject {
         }
     }
     
-    public func customDidMoveToWindow() {
+    public func customLayoutSubviews() {
 
         if autostart {
 
