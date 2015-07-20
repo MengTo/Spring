@@ -448,14 +448,11 @@ public class Spring : NSObject {
     }
     
     public func customLayoutSubviews() {
-
         if autostart {
-
             if UIApplication.sharedApplication().applicationState != .Active {
                 shouldAnimateAfterActive = true
                 return
             }
-
             alpha = 0
             animate()
         }
