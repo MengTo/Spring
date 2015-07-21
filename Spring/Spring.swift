@@ -56,6 +56,7 @@ public class Spring : NSObject {
 
     private unowned var view : Springable
     private var shouldAnimateAfterActive = false
+    private var shouldAnimateInLayoutSubviews = true
 
     init(_ view: Springable) {
         self.view = view
@@ -447,17 +448,17 @@ public class Spring : NSObject {
         }
     }
     
-    public func customDidMoveToWindow() {
-
-        if autostart {
-
-            if UIApplication.sharedApplication().applicationState != .Active {
-                shouldAnimateAfterActive = true
-                return
+    public func customLayoutSubviews() {
+        if shouldAnimateInLayoutSubviews {
+            shouldAnimateInLayoutSubviews = false
+            if autostart {
+                if UIApplication.sharedApplication().applicationState != .Active {
+                    shouldAnimateAfterActive = true
+                    return
+                }
+                alpha = 0
+                animate()
             }
-
-            alpha = 0
-            animate()
         }
     }
 

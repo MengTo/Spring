@@ -48,9 +48,9 @@ public class SpringTextView: UITextView, Springable {
         self.spring.customAwakeFromNib()
     }
 
-    override public func didMoveToWindow() {
-        super.didMoveToWindow()
-        self.spring.customDidMoveToWindow()
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        spring.customLayoutSubviews()
     }
 
     public func animate() {
