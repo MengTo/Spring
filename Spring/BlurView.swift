@@ -22,6 +22,7 @@
 
 import UIKit
 
+@available(iOS 8.0, *)
 public func insertBlurView (view: UIView, style: UIBlurEffectStyle) -> UIVisualEffectView {
     view.backgroundColor = UIColor.clearColor()
     

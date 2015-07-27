@@ -22,6 +22,7 @@
 
 import UIKit
 
+@available(iOS 8.0, *)
 public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
     var isPresenting = true
