@@ -1,5 +1,7 @@
 ![](http://cl.ly/image/3a1r1d3l3D1j/spring-logo.jpg)
 
+[![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/spring/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 ## Installation
 Drop in the Spring folder to your Xcode project.
 
