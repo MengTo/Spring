@@ -110,7 +110,7 @@ import UIKit
         })
     }
 
-    public class func springWithCompletion(duration: NSTimeInterval, animations: (() -> Void)!, completion: ((Bool) -> Void)!) {
+    public class func springWithCompletion(duration: NSTimeInterval, animations: (() -> Void)!, completion: (Bool -> Void)!) {
         
         UIView.animateWithDuration(
             duration,
@@ -123,7 +123,8 @@ import UIKit
                 animations()
                 
             }, completion: { finished in
-                completion(true)
-        })
+                completion(finished)
+            }
+        )
     }
 }
