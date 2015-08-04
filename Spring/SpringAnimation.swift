@@ -22,7 +22,7 @@
 
 import UIKit
 
-public class SpringAnimation {
+@objc public class SpringAnimation {
     public class func spring(duration: NSTimeInterval, animations: (() -> Void)!) {
 
         UIView.animateWithDuration(
