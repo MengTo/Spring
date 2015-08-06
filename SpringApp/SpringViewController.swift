@@ -103,14 +103,14 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func minimizeView(sender: AnyObject) {
-        spring(0.7, {
+        SpringAnimation.spring(0.7, animations: {
             self.view.transform = CGAffineTransformMakeScale(0.935, 0.935)
         })
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
     }
     
     func maximizeView(sender: AnyObject) {
-        spring(0.7, {
+        SpringAnimation.spring(0.7, animations: {
             self.view.transform = CGAffineTransformMakeScale(1, 1)
         })
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
