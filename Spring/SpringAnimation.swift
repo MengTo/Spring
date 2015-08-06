@@ -41,7 +41,7 @@ import UIKit
         UIView.animateWithDuration(
             duration,
             delay: 0,
-            options: UIViewAnimationOptions.CurveEaseIn,
+            options: .CurveEaseIn,
             animations: {
                 animations()
             },
@@ -53,7 +53,7 @@ import UIKit
         UIView.animateWithDuration(
             duration,
             delay: 0,
-            options: UIViewAnimationOptions.CurveEaseOut,
+            options: .CurveEaseOut,
             animations: {
                 animations()
             }, completion: nil
@@ -64,7 +64,7 @@ import UIKit
         UIView.animateWithDuration(
             duration,
             delay: 0,
-            options: UIViewAnimationOptions.CurveEaseInOut,
+            options: .CurveEaseInOut,
             animations: {
                 animations()
             }, completion: nil
@@ -75,7 +75,7 @@ import UIKit
         UIView.animateWithDuration(
             duration,
             delay: 0,
-            options: UIViewAnimationOptions.CurveLinear,
+            options: .CurveLinear,
             animations: {
                 animations()
             }, completion: nil
