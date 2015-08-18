@@ -3,10 +3,20 @@
 ## Installation
 Drop in the Spring folder to your Xcode project.
 
-Or via CocoaPods:
+### CocoaPods:
 ```
 use_frameworks!
 pod 'Spring', '~> 1.0.3'
+```
+
+### Carthage
+
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+in your `Cartfile`
+
+```
+github "MengTo/Spring" ~> 1.0.3
 ```
 
 ## Usage with Storyboard
