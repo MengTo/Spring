@@ -4,7 +4,7 @@
 This update will be in this branch until Swift 2 is out of beta.
 
 ## Installation
-Drop in the Spring folder to your Xcode project.
+Drop in the Spring folder to your Xcode project (make sure to enable "Copy items if needed" and "Create groups").
 
 Or via CocoaPods:
 ```
