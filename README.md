@@ -1,7 +1,7 @@
 ![](http://cl.ly/image/012R0D3R3x2g/download/springswift2.jpg)
 
 ## Updated for Swift 2
-This update will be in this branch until Swift 2 is out of beta.
+Requires Xcode 7 and Swift 2.
 
 ## Installation
 Drop in the Spring folder to your Xcode project (make sure to enable "Copy items if needed" and "Create groups").
@@ -11,7 +11,6 @@ Or via CocoaPods:
 use_frameworks!
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 ```
-
 
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
