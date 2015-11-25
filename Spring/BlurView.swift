@@ -27,7 +27,7 @@ public func insertBlurView (view: UIView, style: UIBlurEffectStyle) -> UIVisualE
     
     let blurEffect = UIBlurEffect(style: style)
     let blurEffectView = UIVisualEffectView(effect: blurEffect)
-    blurEffectView.frame = view.bounds
-    view.insertSubview(blurEffectView, atIndex: 0)
+    let size = CGSize(width: UIScreen.mainScreen().bounds.width, height: self.bounds.height)
+	blurEffectView.frame = CGRect(origin: self.bounds.origin, size: size)
     return blurEffectView
 }
