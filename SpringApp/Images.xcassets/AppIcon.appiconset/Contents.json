@@ -71,6 +71,12 @@
       "idiom" : "ipad",
       "filename" : "appicon@152.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "appicon@167.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
