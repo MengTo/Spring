@@ -44,7 +44,7 @@ import UIKit
 
     @IBInspectable public var lineHeight: CGFloat = 1.5 {
         didSet {
-            var font = UIFont(name: self.font.fontName, size: self.font.pointSize)
+            var font = UIFont(name: self.font.fontName, size: self.font!.pointSize)
             var text = self.text
             
             var paragraphStyle = NSMutableParagraphStyle()

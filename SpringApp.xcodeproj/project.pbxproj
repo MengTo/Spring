@@ -407,6 +407,8 @@
 		964117331A5BE90A000E3A5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Meng To";
 				TargetAttributes = {

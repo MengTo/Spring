@@ -53,7 +53,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
             switch (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber) {
             case let (.Some(duration), .Some(curve)):
 
-                let options = UIViewAnimationOptions(curve.unsignedLongValue)
+                let options = UIViewAnimationOptions(rawValue: curve.unsignedLongValue)
 
                 UIView.animateWithDuration(
                     NSTimeInterval(duration.doubleValue),
@@ -82,7 +82,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
             switch (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber) {
             case let (.Some(duration), .Some(curve)):
 
-                let options = UIViewAnimationOptions(curve.unsignedLongValue)
+                let options = UIViewAnimationOptions(rawValue: curve.unsignedLongValue)
 
                 UIView.animateWithDuration(
                     NSTimeInterval(duration.doubleValue),

@@ -29,7 +29,7 @@ public func spring(duration: NSTimeInterval, animations: (() -> Void)!) {
         delay: 0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.7,
-        options: nil,
+        options: [],
         animations: {
         
             animations()
@@ -100,7 +100,7 @@ public func springWithDelay(duration: NSTimeInterval, delay: NSTimeInterval, ani
         delay: delay,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.7,
-        options: nil,
+        options: [],
         animations: {
             
             animations()
@@ -116,7 +116,7 @@ public func springWithCompletion(duration: NSTimeInterval, animations: (() -> Vo
         delay: 0,
         usingSpringWithDamping: 0.7,
         initialSpringVelocity: 0.7,
-        options: nil,
+        options: [],
         animations: {
         
             animations()
