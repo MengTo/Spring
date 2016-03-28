@@ -88,7 +88,7 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
 
 
 ## Autostart
-Allows you to animate without code. Don't need to use this is if you plan to start the animation in code.
+Allows you to animate without code. Don't need to use this if you plan to start the animation in code.
 
 ## Autohide
 Saves you the hassle of adding a line "layer.alpha = 0" in viewDidLoad().
