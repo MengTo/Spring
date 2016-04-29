@@ -170,24 +170,24 @@ public class Spring : NSObject {
         if let animation = AnimationPreset(rawValue: animation) {
             switch animation {
             case .SlideLeft:
-                x = 300*force
+                x = UIScreen.mainScreen().bounds.width*force
             case .SlideRight:
-                x = -300*force
+                x = -UIScreen.mainScreen().bounds.width*force
             case .SlideDown:
-                y = -300*force
+                y = -UIScreen.mainScreen().bounds.height*force
             case .SlideUp:
-                y = 300*force
+                y = UIScreen.mainScreen().bounds.height*force
             case .SqueezeLeft:
-                x = 300
+                x = UIScreen.mainScreen().bounds.width
                 scaleX = 3*force
             case .SqueezeRight:
-                x = -300
+                x = -UIScreen.mainScreen().bounds.width
                 scaleX = 3*force
             case .SqueezeDown:
-                y = -300
+                y = -UIScreen.mainScreen().bounds.height
                 scaleY = 3*force
             case .SqueezeUp:
-                y = 300
+                y = UIScreen.mainScreen().bounds.height
                 scaleY = 3*force
             case .FadeIn:
                 opacity = 0
@@ -206,15 +206,15 @@ public class Spring : NSObject {
                 layer.addAnimation(animation, forKey: "fade")
             case .FadeInLeft:
                 opacity = 0
-                x = 300*force
+                x = UIScreen.mainScreen().bounds.width*force
             case .FadeInRight:
-                x = -300*force
+                x = -UIScreen.mainScreen().bounds.width*force
                 opacity = 0
             case .FadeInDown:
-                y = -300*force
+                y = -UIScreen.mainScreen().bounds.height*force
                 opacity = 0
             case .FadeInUp:
-                y = 300*force
+                y = UIScreen.mainScreen().bounds.width*force
                 opacity = 0
             case .ZoomIn:
                 opacity = 0
@@ -228,7 +228,7 @@ public class Spring : NSObject {
             case .Fall:
                 animateFrom = false
                 rotate = 15 * CGFloat(M_PI/180)
-                y = 600*force
+                y = (UIScreen.mainScreen().bounds.width*2)*force
             case .Shake:
                 let animation = CAKeyframeAnimation()
                 animation.keyPath = "position.x"
@@ -257,7 +257,7 @@ public class Spring : NSObject {
                 scaleY = 1
                 var perspective = CATransform3DIdentity
                 perspective.m34 = -1.0 / layer.frame.size.width/2
-
+                
                 let animation = CABasicAnimation()
                 animation.keyPath = "transform"
                 animation.fromValue = NSValue(CATransform3D:
@@ -271,7 +271,7 @@ public class Spring : NSObject {
             case .FlipY:
                 var perspective = CATransform3DIdentity
                 perspective.m34 = -1.0 / layer.frame.size.width/2
-
+                
                 let animation = CABasicAnimation()
                 animation.keyPath = "transform"
                 animation.fromValue = NSValue(CATransform3D:
@@ -292,7 +292,7 @@ public class Spring : NSObject {
                 morphX.repeatCount = repeatCount
                 morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.addAnimation(morphX, forKey: "morphX")
-
+                
                 let morphY = CAKeyframeAnimation()
                 morphY.keyPath = "transform.scale.y"
                 morphY.values = [1, 0.7, 1.3*force, 0.7, 1]
@@ -312,7 +312,7 @@ public class Spring : NSObject {
                 morphX.repeatCount = repeatCount
                 morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.addAnimation(morphX, forKey: "morphX")
-
+                
                 let morphY = CAKeyframeAnimation()
                 morphY.keyPath = "transform.scale.y"
                 morphY.values = [1, 0.5, 1, 0.5, 1]
@@ -341,7 +341,7 @@ public class Spring : NSObject {
                 animation.additive = true
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.addAnimation(animation, forKey: "wobble")
-
+                
                 let x = CAKeyframeAnimation()
                 x.keyPath = "position.x"
                 x.values = [0, 30*force, -30*force, 30*force, 0]
@@ -364,6 +364,7 @@ public class Spring : NSObject {
             }
         }
     }
+
 
     func getTimingFunction(curve: String) -> CAMediaTimingFunction {
         if let curve = AnimationCurve(rawValue: curve) {
