@@ -25,16 +25,16 @@ import UIKit
 public extension String {
     public var length: Int { return self.characters.count }
 
-    public func toURL() -> NSURL? {
-        return NSURL(string: self)
+    public func toURL() -> URL? {
+        return URL(string: self)
     }
 }
 
-public func htmlToAttributedString(text: String) -> NSAttributedString! {
-    let htmlData = text.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-    let htmlString: NSAttributedString?
+public func htmlToAttributedString(_ text: String) -> AttributedString! {
+    let htmlData = text.data(using: String.Encoding.utf8, allowLossyConversion: false)
+    let htmlString: AttributedString?
     do {
-        htmlString = try NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        htmlString = try AttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
     } catch _ {
         htmlString = nil
     }
@@ -42,22 +42,18 @@ public func htmlToAttributedString(text: String) -> NSAttributedString! {
     return htmlString
 }
 
-public func degreesToRadians(degrees: CGFloat) -> CGFloat {
+public func degreesToRadians(_ degrees: CGFloat) -> CGFloat {
     return degrees * CGFloat(M_PI / 180)
 }
 
-public func delay(delay:Double, closure:()->()) {
-    dispatch_after(
-        dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(delay * Double(NSEC_PER_SEC))
-        ),
-        dispatch_get_main_queue(), closure)
+public func delay(_ delay:Double, closure:()->()) {
+    DispatchQueue.main.after(
+        when: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
-public func imageFromURL(URL: String) -> UIImage {
-    let url = NSURL(string: URL)
-    let data = NSData(contentsOfURL: url!)
+public func imageFromURL(_ URL: String) -> UIImage {
+    let url = Foundation.URL(string: URL)
+    let data = try? Data(contentsOf: url!)
     return UIImage(data: data!)!
 }
 
@@ -70,13 +66,13 @@ public extension UIColor {
         var hex:   String = hex
         
         if hex.hasPrefix("#") {
-            let index = hex.startIndex.advancedBy(1)
-            hex         = hex.substringFromIndex(index)
+            let index = hex.index(hex.startIndex, offsetBy: 1)
+            hex         = hex.substring(from: index)
         }
 
-        let scanner = NSScanner(string: hex)
+        let scanner = Scanner(string: hex)
         var hexValue: CUnsignedLongLong = 0
-        if scanner.scanHexLongLong(&hexValue) {
+        if scanner.scanHexInt64(&hexValue) {
             switch (hex.characters.count) {
             case 3:
                 red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
@@ -106,12 +102,12 @@ public extension UIColor {
     }
 }
 
-public func rgbaToUIColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+public func rgbaToUIColor(_ red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
     
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
 }
 
-public func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+public func UIColorFromRGB(_ rgbValue: UInt) -> UIColor {
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
         green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -120,44 +116,44 @@ public func UIColorFromRGB(rgbValue: UInt) -> UIColor {
     )
 }
 
-public func stringFromDate(date: NSDate, format: String) -> String {
-    let dateFormatter = NSDateFormatter()
+public func stringFromDate(_ date: Date, format: String) -> String {
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
-    return dateFormatter.stringFromDate(date)
+    return dateFormatter.string(from: date)
 }
 
-public func dateFromString(date: String, format: String) -> NSDate {
-    let dateFormatter = NSDateFormatter()
+public func dateFromString(_ date: String, format: String) -> Date {
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
-    if let date = dateFormatter.dateFromString(date) {
+    if let date = dateFormatter.date(from: date) {
         return date
     } else {
-        return NSDate(timeIntervalSince1970: 0)
+        return Date(timeIntervalSince1970: 0)
     }
 }
 
-public func randomStringWithLength (len : Int) -> NSString {
+public func randomStringWithLength (_ len : Int) -> NSString {
     
     let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
     let randomString : NSMutableString = NSMutableString(capacity: len)
     
-    for (var i=0; i < len; i++){
+    for _ in 0 ..< len {
         let length = UInt32 (letters.length)
         let rand = arc4random_uniform(length)
-        randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+        randomString.appendFormat("%C", letters.character(at: Int(rand)))
     }
     
     return randomString
 }
 
-public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
-    let calendar = NSCalendar.currentCalendar()
-    let unitFlags: NSCalendarUnit = [NSCalendarUnit.Minute, NSCalendarUnit.Hour, NSCalendarUnit.Day, NSCalendarUnit.WeekOfYear, NSCalendarUnit.Month, NSCalendarUnit.Year, NSCalendarUnit.Second]
-    let now = NSDate()
-    let earliest = now.earlierDate(date)
+public func timeAgoSinceDate(_ date:Date, numericDates:Bool) -> String {
+    let calendar = Calendar.current()
+    let unitFlags: Calendar.Unit = [Calendar.Unit.minute, Calendar.Unit.hour, Calendar.Unit.day, Calendar.Unit.weekOfYear, Calendar.Unit.month, Calendar.Unit.year, Calendar.Unit.second]
+    let now = Date()
+    let earliest = (now as NSDate).earlierDate(date)
     let latest = (earliest == now) ? date : now
-    let components: NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest, options: [])
+    let components: DateComponents = calendar.components(unitFlags, from: earliest, to: latest, options: [])
     
     if (components.year >= 2) {
         return "\(components.year)y"
@@ -168,7 +164,7 @@ public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
             return "1y"
         }
     } else if (components.month >= 2) {
-        return "\(components.month * 4)w"
+        return "\(components.month! * 4)w"
     } else if (components.month >= 1){
         if (numericDates){
             return "4w"

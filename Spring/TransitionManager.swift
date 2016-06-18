@@ -27,20 +27,20 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
     var isPresenting = true
     var duration = 0.3
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let container = transitionContext.containerView()!
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
+    public func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+        let container = transitionContext.containerView()
+        let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!
+        let toView = transitionContext.view(forKey: UITransitionContextToViewKey)!
         
         if isPresenting {
             toView.frame = container.bounds
-            toView.transform = CGAffineTransformMakeTranslation(0, container.frame.size.height)
+            toView.transform = CGAffineTransform(translationX: 0, y: container.frame.size.height)
             container.addSubview(fromView)
             container.addSubview(toView)
             SpringAnimation.springEaseInOut(duration) {
-                fromView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+                fromView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
                 fromView.alpha = 0.5
-                toView.transform = CGAffineTransformIdentity
+                toView.transform = CGAffineTransform.identity
             }
         }
         else {
@@ -51,7 +51,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
             // the same time take consideration of
             // previous transformation when presenting
             let transform = toView.transform
-            toView.transform = CGAffineTransformIdentity
+            toView.transform = CGAffineTransform.identity
             toView.frame = container.bounds
             toView.transform = transform
 
@@ -59,8 +59,8 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
             container.addSubview(fromView)
 
             SpringAnimation.springEaseInOut(duration) {
-                fromView.transform = CGAffineTransformMakeTranslation(0, fromView.frame.size.height)
-                toView.transform = CGAffineTransformIdentity
+                fromView.transform = CGAffineTransform(translationX: 0, y: fromView.frame.size.height)
+                toView.transform = CGAffineTransform.identity
                 toView.alpha = 1
             }
         }
@@ -70,16 +70,16 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
         })
     }
     
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    public func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
-    public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresenting = true
         return self
     }
     
-    public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresenting = false
         return self
     }

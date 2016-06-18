@@ -57,7 +57,7 @@ public class SpringView: UIView, Springable {
         self.spring.animate()
     }
 
-    public func animateNext(completion: () -> ()) {
+    public func animateNext(_ completion: () -> ()) {
         self.spring.animateNext(completion)
     }
 
@@ -65,7 +65,7 @@ public class SpringView: UIView, Springable {
         self.spring.animateTo()
     }
 
-    public func animateToNext(completion: () -> ()) {
+    public func animateToNext(_ completion: () -> ()) {
         self.spring.animateToNext(completion)
     }
 }

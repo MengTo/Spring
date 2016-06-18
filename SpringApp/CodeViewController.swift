@@ -20,7 +20,7 @@ class CodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        modalView.transform = CGAffineTransformMakeTranslation(-300, 0)
+        modalView.transform = CGAffineTransform(translationX: -300, y: 0)
         
         if data.animation != "" {
             codeText += "layer.animation = \"\(data.animation)\"\n"
@@ -57,21 +57,21 @@ class CodeViewController: UIViewController {
         codeTextView.text = codeText
     }
     
-    @IBAction func closeButtonPressed(sender: AnyObject) {
-        UIApplication.sharedApplication().sendAction("maximizeView:", to: nil, from: self, forEvent: nil)
+    @IBAction func closeButtonPressed(_ sender: AnyObject) {
+        UIApplication.shared().sendAction(Selector(("maximizeView:")), to: nil, from: self, for: nil)
         
         modalView.animation = "slideRight"
         modalView.animateFrom = false
         modalView.animateToNext({
-            self.dismissViewControllerAnimated(false, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
         modalView.animate()
         
-        UIApplication.sharedApplication().sendAction("minimizeView:", to: nil, from: self, forEvent: nil)
+        UIApplication.shared().sendAction(Selector(("minimizeView:")), to: nil, from: self, for: nil)
     }
 }

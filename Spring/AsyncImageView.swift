@@ -26,13 +26,13 @@ public class AsyncImageView: UIImageView {
 
     public var placeholderImage : UIImage?
 
-    public var url : NSURL? {
+    public var url : URL? {
         didSet {
             self.image = placeholderImage
             if let urlString = url?.absoluteString {
                 ImageLoader.sharedLoader.imageForUrl(urlString) { [weak self] image, url in
                     if let strongSelf = self {
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        DispatchQueue.main.async(execute: { () -> Void in
                             if strongSelf.url?.absoluteString == url {
                                 strongSelf.image = image ?? strongSelf.placeholderImage
                             }
@@ -43,7 +43,7 @@ public class AsyncImageView: UIImageView {
         }
     }
 
-    public func setURL(url: NSURL?, placeholderImage: UIImage?) {
+    public func setURL(_ url: URL?, placeholderImage: UIImage?) {
         self.placeholderImage = placeholderImage
         self.url = url
     }

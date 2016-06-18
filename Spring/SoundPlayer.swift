@@ -29,16 +29,16 @@ public class SoundPlayer: NSObject {
     @IBInspectable var enabled : Bool = true
 
     private struct Internal {
-        static var cache = [NSURL:SystemSoundID]()
+        static var cache = [URL:SystemSoundID]()
     }
 
-    public func playSound(soundFile:String) {
+    public func playSound(_ soundFile:String) {
 
         if !enabled {
             return
         }
 
-        if let url = NSBundle.mainBundle().URLForResource(soundFile, withExtension: nil) {
+        if let url = Bundle.main().urlForResource(soundFile, withExtension: nil) {
 
             var soundID : SystemSoundID = Internal.cache[url] ?? 0
 
@@ -54,7 +54,7 @@ public class SoundPlayer: NSObject {
         }
     }
 
-    @IBAction public func play(sender: AnyObject?) {
+    @IBAction public func play(_ sender: AnyObject?) {
         if let filename = filename {
             self.playSound(filename)
         }

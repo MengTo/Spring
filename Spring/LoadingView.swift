@@ -33,11 +33,11 @@ public class LoadingView: UIView {
         animation.toValue = degreesToRadians(360)
         animation.duration = 0.9
         animation.repeatCount = HUGE
-        indicatorView.layer.addAnimation(animation, forKey: "")
+        indicatorView.layer.add(animation, forKey: "")
     }
 
     class func designCodeLoadingView() -> UIView {
-        return NSBundle(forClass: self).loadNibNamed("LoadingView", owner: self, options: nil)[0] as! UIView
+        return Bundle(for: self).loadNibNamed("LoadingView", owner: self, options: nil)[0] as! UIView
     }
 }
 
@@ -72,7 +72,7 @@ public extension UIView {
 
             SpringAnimation.springWithCompletion(0.7, animations: {
                 loadingXibView.alpha = 0
-                loadingXibView.transform = CGAffineTransformMakeScale(3, 3)
+                loadingXibView.transform = CGAffineTransform(scaleX: 3, y: 3)
             }, completion: { (completed) -> Void in
                 loadingXibView.removeFromSuperview()
             })

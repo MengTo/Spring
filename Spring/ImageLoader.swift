@@ -26,7 +26,7 @@ import Foundation
 
 public class ImageLoader {
     
-    var cache = NSCache()
+    var cache = Cache<NSString, NSData>()
     
     public class var sharedLoader : ImageLoader {
     struct Static {
@@ -35,19 +35,19 @@ public class ImageLoader {
         return Static.instance
     }
     
-    public func imageForUrl(urlString: String, completionHandler:(image: UIImage?, url: String) -> ()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
-            let data: NSData? = self.cache.objectForKey(urlString) as? NSData
+    public func imageForUrl(_ urlString: String, completionHandler:(image: UIImage?, url: String) -> ()) {
+        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosBackground).async(execute: {()in
+            let data: Data? = self.cache.object(forKey: urlString) as? Data
             
             if let goodData = data {
                 let image = UIImage(data: goodData)
-                dispatch_async(dispatch_get_main_queue(), {() in
+                DispatchQueue.main.async(execute: {() in
                     completionHandler(image: image, url: urlString)
                 })
                 return
             }
             
-            let downloadTask: NSURLSessionDataTask = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: urlString)!, completionHandler: { (data, response, error) -> Void in
+            let downloadTask: URLSessionDataTask = URLSession.shared().dataTask(with: URL(string: urlString)!, completionHandler: { (data, response, error) -> Void in
                 if (error != nil) {
                     completionHandler(image: nil, url: urlString)
                     return
@@ -56,7 +56,7 @@ public class ImageLoader {
                 if data != nil {
                     let image = UIImage(data: data!)
                     self.cache.setObject(data!, forKey: urlString)
-                    dispatch_async(dispatch_get_main_queue(), {() in
+                    DispatchQueue.main.async(execute: {() in
                         completionHandler(image: image, url: urlString)
                     })
                     return

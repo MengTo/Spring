@@ -27,22 +27,22 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
     var isPresenting = true
     var duration = 0.4
     
-    public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let container = transitionContext.containerView()!
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
+    public func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+        let container = transitionContext.containerView()
+        let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!
+        let toView = transitionContext.view(forKey: UITransitionContextToViewKey)!
         
         if isPresenting {
             container.addSubview(fromView)
             container.addSubview(toView)
             
             toView.alpha = 0
-            toView.transform = CGAffineTransformMakeScale(2, 2)
+            toView.transform = CGAffineTransform(scaleX: 2, y: 2)
 
             SpringAnimation.springEaseInOut(duration) {
-                fromView.transform = CGAffineTransformMakeScale(0.5, 0.5)
+                fromView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                 fromView.alpha = 0
-                toView.transform = CGAffineTransformIdentity
+                toView.transform = CGAffineTransform.identity
                 toView.alpha = 1
             }
         }
@@ -51,9 +51,9 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
             container.addSubview(fromView)
             
             SpringAnimation.springEaseInOut(duration) {
-                fromView.transform = CGAffineTransformMakeScale(2, 2)
+                fromView.transform = CGAffineTransform(scaleX: 2, y: 2)
                 fromView.alpha = 0
-                toView.transform = CGAffineTransformMakeScale(1, 1)
+                toView.transform = CGAffineTransform(scaleX: 1, y: 1)
                 toView.alpha = 1
             }
         }
@@ -63,16 +63,16 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
         })
     }
     
-    public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    public func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
-    public func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresentedController presented: UIViewController, presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresenting = true
         return self
     }
     
-    public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresenting = false
         return self
     }
