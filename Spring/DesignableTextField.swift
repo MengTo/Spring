@@ -24,9 +24,9 @@ import UIKit
 
 @IBDesignable public class DesignableTextField: SpringTextField {
     
-    @IBInspectable public var placeholderColor: UIColor = UIColor.clearColor() {
+    @IBInspectable public var placeholderColor: UIColor = UIColor.clear() {
         didSet {
-            attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
+            attributedPlaceholder = AttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
             layoutSubviews()
             
         }
@@ -36,10 +36,10 @@ import UIKit
         didSet {
             let padding = UIView(frame: CGRectMake(0, 0, sidePadding, sidePadding))
             
-            leftViewMode = UITextFieldViewMode.Always
+            leftViewMode = UITextFieldViewMode.always
             leftView = padding
             
-            rightViewMode = UITextFieldViewMode.Always
+            rightViewMode = UITextFieldViewMode.always
             rightView = padding
         }
     }
@@ -48,7 +48,7 @@ import UIKit
         didSet {
             let padding = UIView(frame: CGRectMake(0, 0, leftPadding, 0))
             
-            leftViewMode = UITextFieldViewMode.Always
+            leftViewMode = UITextFieldViewMode.always
             leftView = padding
         }
     }
@@ -57,14 +57,14 @@ import UIKit
         didSet {
             let padding = UIView(frame: CGRectMake(0, 0, rightPadding, 0))
             
-            rightViewMode = UITextFieldViewMode.Always
+            rightViewMode = UITextFieldViewMode.always
             rightView = padding
         }
     }
     
-    @IBInspectable public var borderColor: UIColor = UIColor.clearColor() {
+    @IBInspectable public var borderColor: UIColor = UIColor.clear() {
         didSet {
-            layer.borderColor = borderColor.CGColor
+            layer.borderColor = borderColor.cgColor
         }
     }
     

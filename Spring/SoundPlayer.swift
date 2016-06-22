@@ -38,7 +38,7 @@ struct SoundPlayer {
             return
         }
         
-        if let url = NSBundle.mainBundle().URLForResource(soundFile, withExtension: nil) {
+        if let url = Bundle.main().urlForResource(soundFile, withExtension: nil) {
             
             var soundID : SystemSoundID = Internal.cache[url] ?? 0
             
@@ -55,6 +55,6 @@ struct SoundPlayer {
     }
     
     static func play(file: String) {
-        self.playSound(file)
+        self.playSound(soundFile: file)
     }
 }

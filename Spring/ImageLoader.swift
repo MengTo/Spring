@@ -26,7 +26,7 @@ import Foundation
 
 public class ImageLoader {
     
-    var cache = NSCache()
+    var cache = Cache()
     
     public class var sharedLoader : ImageLoader {
     struct Static {
@@ -36,18 +36,18 @@ public class ImageLoader {
     }
     
     public func imageForUrl(urlString: String, completionHandler:(image: UIImage?, url: String) -> ()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
+        DispatchQueue.global(Int(UInt64(DispatchQueue.GlobalAttributes.qosBackground.rawValue)), 0).asynchronously(execute: {()in
             let data: NSData? = self.cache.objectForKey(urlString) as? NSData
             
             if let goodData = data {
-                let image = UIImage(data: goodData)
-                dispatch_async(dispatch_get_main_queue(), {() in
+                let image = UIImage(data: goodData as Data)
+                DispatchQueue.main().asynchronously(execute: {() in
                     completionHandler(image: image, url: urlString)
                 })
                 return
             }
             
-            let downloadTask: NSURLSessionDataTask = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: urlString)!, completionHandler: { (data, response, error) -> Void in
+            let downloadTask: URLSessionDataTask = URLSession.sharedSession().dataTaskWithURL(NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
                 if (error != nil) {
                     completionHandler(image: nil, url: urlString)
                     return

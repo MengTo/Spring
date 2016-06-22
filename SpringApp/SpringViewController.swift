@@ -34,49 +34,49 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var selectedY: CGFloat = 0
     var selectedRotate: CGFloat = 0
     
-    @IBAction func forceSliderChanged(sender: AnyObject) {
-        selectedForce = sender.valueForKey("value") as! CGFloat
+    @IBAction func forceSliderChanged(_ sender: AnyObject) {
+        selectedForce = sender.value(forKey: "value") as! CGFloat
         animateView()
         forceLabel.text = String(format: "Force: %.1f", Double(selectedForce))
     }
-    @IBAction func durationSliderChanged(sender: AnyObject) {
-        selectedDuration = sender.valueForKey("value") as! CGFloat
+    @IBAction func durationSliderChanged(_ sender: AnyObject) {
+        selectedDuration = sender.value(forKey: "value") as! CGFloat
         animateView()
         durationLabel.text = String(format: "Duration: %.1f", Double(selectedDuration))
     }
-    @IBAction func delaySliderChanged(sender: AnyObject) {
-        selectedDelay = sender.valueForKey("value") as! CGFloat
+    @IBAction func delaySliderChanged(_ sender: AnyObject) {
+        selectedDelay = sender.value(forKey: "value") as! CGFloat
         animateView()
         delayLabel.text = String(format: "Delay: %.1f", Double(selectedDelay))
     }
 
-    func dampingSliderChanged(sender: AnyObject) {
-        selectedDamping = sender.valueForKey("value") as! CGFloat
+    func dampingSliderChanged(_ sender: AnyObject) {
+        selectedDamping = sender.value(forKey: "value") as! CGFloat
         animateView()
     }
     
-    func velocitySliderChanged(sender: AnyObject) {
-        selectedVelocity = sender.valueForKey("value") as! CGFloat
+    func velocitySliderChanged(_ sender: AnyObject) {
+        selectedVelocity = sender.value(forKey: "value") as! CGFloat
         animateView()
     }
     
-    func scaleSliderChanged(sender: AnyObject) {
-        selectedScale = sender.valueForKey("value") as! CGFloat
+    func scaleSliderChanged(_ sender: AnyObject) {
+        selectedScale = sender.value(forKey: "value") as! CGFloat
         animateView()
     }
     
-    func xSliderChanged(sender: AnyObject) {
-        selectedX = sender.valueForKey("value") as! CGFloat
+    func xSliderChanged(_ sender: AnyObject) {
+        selectedX = sender.value(forKey: "value") as! CGFloat
         animateView()
     }
     
-    func ySliderChanged(sender: AnyObject) {
-        selectedY = sender.valueForKey("value") as! CGFloat
+    func ySliderChanged(_ sender: AnyObject) {
+        selectedY = sender.value(forKey: "value") as! CGFloat
         animateView()
     }
     
-    func rotateSliderChanged(sender: AnyObject) {
-        selectedRotate = sender.valueForKey("value") as! CGFloat
+    func rotateSliderChanged(_ sender: AnyObject) {
+        selectedRotate = sender.value(forKey: "value") as! CGFloat
         animateView()
     }
     
@@ -102,18 +102,18 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         ballView.curve = animationCurves[selectedEasing].rawValue
     }
     
-    func minimizeView(sender: AnyObject) {
+    func minimizeView(_ sender: AnyObject) {
         SpringAnimation.spring(0.7, animations: {
-            self.view.transform = CGAffineTransformMakeScale(0.935, 0.935)
+            self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
         })
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        UIApplication.shared().setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
     }
     
-    func maximizeView(sender: AnyObject) {
+    func maximizeView(_ sender: AnyObject) {
         SpringAnimation.spring(0.7, animations: {
-            self.view.transform = CGAffineTransformMakeScale(1, 1)
+            self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
+        UIApplication.shared().setStatusBarStyle(UIStatusBarStyle.default, animated: true)
     }
 
     let animations: [Spring.AnimationPreset] = [
@@ -185,7 +185,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         animationPicker.showsSelectionIndicator = true
     }
     
-    @IBAction func ballButtonPressed(sender: AnyObject) {
+    @IBAction func ballButtonPressed(_ sender: AnyObject) {
         
         UIView.animateWithDuration(0.1, animations: {
             self.ballView.backgroundColor = UIColor(hex: "69DBFF")
@@ -212,11 +212,11 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         ballView.layer.addAnimation(animation, forKey: "radius")
     }
     
-    @IBAction func shapeButtonPressed(sender: AnyObject) {
+    @IBAction func shapeButtonPressed(_ sender: AnyObject) {
         changeBall()
     }
     
-    func resetButtonPressed(sender: AnyObject) {
+    func resetButtonPressed(_ sender: AnyObject) {
         selectedForce = 1
         selectedDuration = 1
         selectedDelay = 0
@@ -237,19 +237,19 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         delayLabel.text = String(format: "Delay: %.1f", Double(selectedDelay))
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return component == 0 ? animations.count : animationCurves.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return component == 0 ? animations[row].rawValue : animationCurves[row].rawValue
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
             selectedRow = row
@@ -260,7 +260,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if let optionsViewController = segue.destinationViewController as? OptionsViewController {
             optionsViewController.delegate = self
             setOptions()
