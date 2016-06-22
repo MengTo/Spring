@@ -245,7 +245,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return component == 0 ? animations.count : animationCurves.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return component == 0 ? animations[row].rawValue : animationCurves[row].rawValue
     }
     

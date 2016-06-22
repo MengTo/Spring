@@ -32,8 +32,8 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
 
         offset = constant
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillHideNotification(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
     deinit {
@@ -53,7 +53,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
             switch (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber) {
             case let (.Some(duration), .Some(curve)):
 
-                let options = UIViewAnimationOptions(curve.unsignedLongValue)
+                let options = UIViewAnimationOptions(rawValue: curve.unsignedLongValue)
 
                 UIView.animateWithDuration(
                     NSTimeInterval(duration.doubleValue),
@@ -82,7 +82,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
             switch (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber) {
             case let (.Some(duration), .Some(curve)):
 
-                let options = UIViewAnimationOptions(curve.unsignedLongValue)
+                let options = UIViewAnimationOptions(rawValue: curve.unsignedLongValue)
 
                 UIView.animateWithDuration(
                     NSTimeInterval(duration.doubleValue),

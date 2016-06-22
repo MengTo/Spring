@@ -65,7 +65,7 @@ public class Spring : NSObject {
     }
 
     func commonInit() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
 
     func didBecomeActiveNotification(notification: NSNotification) {
@@ -477,7 +477,7 @@ public class Spring : NSObject {
             delay: NSTimeInterval(delay),
             usingSpringWithDamping: damping,
             initialSpringVelocity: velocity,
-            options: getAnimationOptions(curve) | UIViewAnimationOptions.AllowUserInteraction,
+            options: [getAnimationOptions(curve), UIViewAnimationOptions.AllowUserInteraction],
             animations: { [weak self] in
             if let _self = self
             {

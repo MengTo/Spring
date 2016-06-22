@@ -1,12 +1,15 @@
-![](http://cl.ly/image/3a1r1d3l3D1j/spring-logo.jpg)
+![](http://cl.ly/image/012R0D3R3x2g/download/springswift2.jpg)
+
+## Updated for Swift 2
+Requires Xcode 7 and Swift 2.
 
 ## Installation
-Drop in the Spring folder to your Xcode project.
+Drop in the Spring folder to your Xcode project (make sure to enable "Copy items if needed" and "Create groups").
 
 Or via CocoaPods:
 ```
 use_frameworks!
-pod 'Spring', '~> 1.0.3'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 ```
 
 ## Usage with Storyboard
@@ -85,17 +88,13 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
 
 
 ## Autostart
-Allows you to animate without code. Don't need to use this is if you plan to start the animation in code.
+Allows you to animate without code. Don't need to use this if you plan to start the animation in code.
 
 ## Autohide
 Saves you the hassle of adding a line "layer.alpha = 0" in viewDidLoad().
 
 ## Known issue
 Animations won't autostart when view is reached via performSegueWithIdentifier.
-
-Animations using IBInspectables are currently not working in iOS 7. iOS 8 is supported. We're looking for a fix. Animations in code works for both iOS 7 and 8.
-
-This project now requires Xcode 6.3 and Swift 1.2. For old version please download [1.0.2](https://github.com/MengTo/Spring/tree/1.0.2)
 
 ## Tutorials
 - Tutorials available on [Design+Code](https://designcode.io/swiftapp).

@@ -49,7 +49,7 @@ public extension UIView {
 
     public func showLoading() {
 
-        if let loadingXibView = self.viewWithTag(LoadingViewConstants.Tag) {
+        if self.viewWithTag(LoadingViewConstants.Tag) != nil {
             // If loading view is already found in current view hierachy, do nothing
             return
         }
