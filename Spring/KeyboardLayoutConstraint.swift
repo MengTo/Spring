@@ -50,8 +50,12 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     func keyboardWillShowNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             if let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-                let frame = frameValue.CGRectValue()
-                keyboardVisibleHeight = frame.size.height
+                let keyboardRect = frameValue.CGRectValue()
+                let screenRect = UIScreen.mainScreen().bounds
+                
+                let intersectionRect = CGRectIntersection(keyboardRect, screenRect)
+                
+                keyboardVisibleHeight = intersectionRect.size.height
             }
 
             self.updateConstant()
