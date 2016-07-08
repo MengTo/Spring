@@ -51,14 +51,10 @@ public func delay(delay:Double, closure:()->()) {
         when: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
-public func imageFromURL(Url: String) -> UIImage {
-    let url = URL(string: Url)
-    do {
-        let data = try Data(contentsOf: url!)
-        return UIImage(data: data)!
-    } catch {
-        UIImage(named: "")
-    }
+public func imageFromURL(_ Url: String) -> UIImage {
+    let url = Foundation.URL(string: Url)
+    let data = try? Data(contentsOf: url!)
+    return UIImage(data: data!)!
 }
 
 public extension UIColor {
@@ -70,8 +66,8 @@ public extension UIColor {
         var hex:   String = hex
         
         if hex.hasPrefix("#") {
-            let index = hex.startIndex.advancedBy(n: 1)
-            hex         = hex.substringFromIndex(index)
+            let index = hex.index(hex.startIndex, offsetBy: 1)
+            hex         = hex.substring(from: index)
         }
         
         let scanner = Scanner(string: hex)
@@ -157,7 +153,7 @@ public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
     let now = NSDate()
     let earliest = now.earlierDate(date as Date)
     let latest = (earliest == now) ? date : now
-    let components: NSDateComponents = calendar.components(unitFlags, fromDate: earliest, toDate: latest as Date, options: [])
+    let components: DateComponents = calendar.components(unitFlags, from: earliest, to: latest as Date, options: [])
     
     if (components.year >= 2) {
         return "\(components.year)y"
@@ -168,7 +164,7 @@ public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
             return "1y"
         }
     } else if (components.month >= 2) {
-        return "\(components.month * 4)w"
+        return "\(components.month! * 4)w"
     } else if (components.month >= 1){
         if (numericDates){
             return "4w"

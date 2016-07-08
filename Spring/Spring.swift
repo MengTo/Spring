@@ -68,7 +68,7 @@ public class Spring : NSObject {
         NotificationCenter.default().addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
-    func didBecomeActiveNotification(notification: NSNotification) {
+    func didBecomeActiveNotification(_ notification: NSNotification) {
         if shouldAnimateAfterActive {
             alpha = 0
             animate()
@@ -275,7 +275,7 @@ public class Spring : NSObject {
                 animation.keyPath = "transform"
                 animation.fromValue = NSValue(caTransform3D:
                     CATransform3DMakeRotation(0, 0, 0, 0))
-                animation.toValue = NSValue(CATransform3D:
+                animation.toValue = NSValue(caTransform3D:
                     CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(M_PI), 1, 0, 0)))
                 animation.duration = CFTimeInterval(duration)
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
@@ -406,7 +406,7 @@ public class Spring : NSObject {
             switch curve {
             case .EaseIn: return UIViewAnimationOptions.curveEaseIn
             case .EaseOut: return UIViewAnimationOptions.curveEaseOut
-            case .EaseInOut: return UIViewAnimationOptions.curveEaseInOut
+            case .EaseInOut: return UIViewAnimationOptions()
             default: break
             }
         }
@@ -481,7 +481,7 @@ public class Spring : NSObject {
                             if let _self = self
                             {
                                 if _self.animateFrom {
-                                    _self.transform = CGAffineTransform.Identity
+                                    _self.transform = CGAffineTransform.identity
                                     _self.alpha = 1
                                 }
                                 else {

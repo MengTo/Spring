@@ -27,7 +27,7 @@ import UIKit
     @IBInspectable var normalTint: UIColor = UIColor.clear() {
         didSet {
             UITabBar.appearance().tintColor = normalTint
-            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: normalTint], for: UIControlState.normal)
+            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: normalTint], for: UIControlState())
         }
     }
     
@@ -40,7 +40,7 @@ import UIKit
     
     @IBInspectable var fontName: String = "" {
         didSet {
-            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: normalTint, NSFontAttributeName: UIFont(name: fontName, size: 11)!], for: UIControlState.normal)
+            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: normalTint, NSFontAttributeName: UIFont(name: fontName, size: 11)!], for: UIControlState())
         }
     }
     
@@ -109,10 +109,10 @@ extension UIImage {
         context!.scale(x: 1.0, y: -1.0);
         context!.setBlendMode(CGBlendMode.normal)
         
-        let rect = CGRect(0, 0, self.size.width, self.size.height)
-        CGContextClipToMask(context!, rect, self.cgImage!)
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        context!.clipToMask(rect, mask: self.cgImage!)
         tintColor.setFill()
-        CGContextFillRect(context!, rect)
+        context!.fill(rect)
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()! as UIImage
         UIGraphicsEndImageContext()
