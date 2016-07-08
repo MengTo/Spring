@@ -24,7 +24,7 @@ import UIKit
 
 public extension String {
     public var length: Int { return self.characters.count }
-
+    
     public func toURL() -> NSURL? {
         return NSURL(string: self)
     }
@@ -47,18 +47,15 @@ public func degreesToRadians(degrees: CGFloat) -> CGFloat {
 }
 
 public func delay(delay:Double, closure:()->()) {
-    dispatch_time(
-        dispatch_time_t(DISPATCH_TIME_NOW),
-        Int64(delay * Double(NSEC_PER_SEC))
-        ).after(
-            when: dispatch_get_main_queue(), execute: closure)
+    DispatchQueue.main.after(
+        when: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
 public func imageFromURL(Url: String) -> UIImage {
     let url = URL(string: Url)
     do {
-    let data = try Data(contentsOf: url!)
-    return UIImage(data: data)!
+        let data = try Data(contentsOf: url!)
+        return UIImage(data: data)!
     } catch {
         UIImage(named: "")
     }
@@ -76,7 +73,7 @@ public extension UIColor {
             let index = hex.startIndex.advancedBy(n: 1)
             hex         = hex.substringFromIndex(index)
         }
-
+        
         let scanner = Scanner(string: hex)
         var hexValue: CUnsignedLongLong = 0
         if scanner.scanHexInt64(&hexValue) {

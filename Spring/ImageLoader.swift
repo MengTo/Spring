@@ -26,11 +26,11 @@ import Foundation
 
 public class ImageLoader {
     
-    var cache = Cache()
+    var cache = Cache<NSString, NSData>()
     
     public class var sharedLoader : ImageLoader {
-    struct Static {
-        static let instance : ImageLoader = ImageLoader()
+        struct Static {
+            static let instance : ImageLoader = ImageLoader()
         }
         return Static.instance
     }

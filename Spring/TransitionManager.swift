@@ -40,7 +40,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
             SpringAnimation.springEaseInOut(duration: duration) {
                 fromView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
                 fromView.alpha = 0.5
-                toView.transform = CGAffineTransformIdentity
+                toView.transform = CGAffineTransform.identity
             }
         }
         else {
@@ -51,7 +51,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
             // the same time take consideration of
             // previous transformation when presenting
             let transform = toView.transform
-            toView.transform = CGAffineTransformIdentity
+            toView.transform = CGAffineTransform.identity
             toView.frame = container.bounds
             toView.transform = transform
 
@@ -60,7 +60,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
 
             SpringAnimation.springEaseInOut(duration: duration) {
                 fromView.transform = CGAffineTransform(translationX: 0, y: fromView.frame.size.height)
-                toView.transform = CGAffineTransformIdentity
+                toView.transform = CGAffineTransform.identity
                 toView.alpha = 1
             }
         }

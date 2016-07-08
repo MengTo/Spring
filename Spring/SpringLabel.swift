@@ -58,7 +58,7 @@ public class SpringLabel: UILabel, Springable {
     }
 
     public func animateNext(completion: () -> ()) {
-        self.spring.animateNext(completion)
+        self.spring.animateNext(completion: completion)
     }
 
     public func animateTo() {
@@ -66,7 +66,7 @@ public class SpringLabel: UILabel, Springable {
     }
 
     public func animateToNext(completion: () -> ()) {
-        self.spring.animateToNext(completion)
+        self.spring.animateToNext(completion: completion)
     }
 
 }

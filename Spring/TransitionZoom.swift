@@ -42,7 +42,7 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
             SpringAnimation.springEaseInOut(duration: duration) {
                 fromView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                 fromView.alpha = 0
-                toView.transform = CGAffineTransformIdentity
+                toView.transform = CGAffineTransform.Identity
                 toView.alpha = 1
             }
         }
