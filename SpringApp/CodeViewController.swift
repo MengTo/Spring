@@ -62,8 +62,8 @@ class CodeViewController: UIViewController {
         
         modalView.animation = "slideRight"
         modalView.animateFrom = false
-        modalView.animateToNext({
-            self.dismissViewControllerAnimated(false, completion: nil)
+        modalView.animateToNext(completion: {
+            self.dismiss(animated: false, completion: nil)
         })
     }
     

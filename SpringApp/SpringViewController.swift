@@ -103,14 +103,14 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func minimizeView(_ sender: AnyObject) {
-        SpringAnimation.spring(0.7, animations: {
+        SpringAnimation.spring(duration: 0.7, animations: {
             self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
         })
         UIApplication.shared().setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
     }
     
     func maximizeView(_ sender: AnyObject) {
-        SpringAnimation.spring(0.7, animations: {
+        SpringAnimation.spring(duration: 0.7, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
         UIApplication.shared().setStatusBarStyle(UIStatusBarStyle.default, animated: true)
@@ -187,10 +187,10 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func ballButtonPressed(_ sender: AnyObject) {
         
-        UIView.animateWithDuration(0.1, animations: {
+        UIView.animate(withDuration: 0.1, animations: {
             self.ballView.backgroundColor = UIColor(hex: "69DBFF")
         }, completion: { finished in
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.ballView.backgroundColor = UIColor(hex: "#279CEB")
             })
         })
@@ -209,7 +209,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         animation.toValue = cornerRadius
         animation.duration = 0.2
         ballView.layer.cornerRadius = cornerRadius
-        ballView.layer.addAnimation(animation, forKey: "radius")
+        ballView.layer.add(animation, forKey: "radius")
     }
     
     @IBAction func shapeButtonPressed(_ sender: AnyObject) {
