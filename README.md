@@ -1,6 +1,6 @@
 ![](http://cl.ly/image/012R0D3R3x2g/download/springswift2.jpg)
 
-## Updated for Swift 2
+## Updated for Swift 3.0
 Requires Xcode 7 and Swift 2.
 
 ## Installation
