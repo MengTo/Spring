@@ -148,7 +148,7 @@ public func randomStringWithLength (len : Int) -> NSString {
 }
 
 public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
-    let calendar = Calendar.current()
+    let calendar = Calendar.current
     let unitFlags: Calendar.Unit = [Calendar.Unit.minute, Calendar.Unit.hour, Calendar.Unit.day, Calendar.Unit.weekOfYear, Calendar.Unit.month, Calendar.Unit.year, Calendar.Unit.second]
     let now = NSDate()
     let earliest = now.earlierDate(date as Date)

@@ -27,7 +27,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
     var isPresenting = true
     var duration = 0.3
     
-    public func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView()
         let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!
         let toView = transitionContext.view(forKey: UITransitionContextToViewKey)!
@@ -70,7 +70,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
         })
     }
     
-    public func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
@@ -79,7 +79,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
         return self
     }
     
-    public func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresenting = false
         return self
     }
