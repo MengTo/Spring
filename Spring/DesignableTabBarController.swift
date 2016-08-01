@@ -24,14 +24,14 @@ import UIKit
 
 @IBDesignable class DesignableTabBarController: UITabBarController {
     
-    @IBInspectable var normalTint: UIColor = UIColor.clear() {
+    @IBInspectable var normalTint: UIColor = UIColor.clear {
         didSet {
             UITabBar.appearance().tintColor = normalTint
             UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: normalTint], for: UIControlState())
         }
     }
     
-    @IBInspectable var selectedTint: UIColor = UIColor.clear() {
+    @IBInspectable var selectedTint: UIColor = UIColor.clear {
         didSet {
             UITabBar.appearance().tintColor = selectedTint
             UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedTint], for:UIControlState.selected)
@@ -105,12 +105,12 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         
         let context = UIGraphicsGetCurrentContext()
-        context!.translate(x: 0, y: self.size.height)
-        context!.scale(x: 1.0, y: -1.0);
+        context!.translateBy(x: 0, y: self.size.height)
+        context!.scaleBy(x: 1.0, y: -1.0);
         context!.setBlendMode(CGBlendMode.normal)
         
         let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
-        context!.clipToMask(rect, mask: self.cgImage!)
+        context?.clip(to: rect, mask: self.cgImage!)
         tintColor.setFill()
         context!.fill(rect)
         

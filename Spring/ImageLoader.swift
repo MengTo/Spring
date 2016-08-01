@@ -26,7 +26,7 @@ import Foundation
 
 public class ImageLoader {
     
-    var cache = Cache<NSString, NSData>()
+    var cache = NSCache<NSString, NSData>()
     
     public class var sharedLoader : ImageLoader {
         struct Static {
@@ -36,7 +36,7 @@ public class ImageLoader {
     }
     
     public func imageForUrl(urlString: String, completionHandler:(image: UIImage?, url: String) -> ()) {
-        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosBackground).async(execute: {()in
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { 
             let data: NSData? = self.cache.object(forKey: urlString)! as NSData
             
             if let goodData = data {
@@ -65,7 +65,7 @@ public class ImageLoader {
             })
             downloadTask.resume()
             
-        })
+        }
         
     }
 }

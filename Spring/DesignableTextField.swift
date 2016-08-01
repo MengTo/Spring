@@ -24,9 +24,9 @@ import UIKit
 
 @IBDesignable public class DesignableTextField: SpringTextField {
     
-    @IBInspectable public var placeholderColor: UIColor = UIColor.clear() {
+    @IBInspectable public var placeholderColor: UIColor = UIColor.clear {
         didSet {
-            attributedPlaceholder = AttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
+            attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
             layoutSubviews()
             
         }
@@ -62,7 +62,7 @@ import UIKit
         }
     }
     
-    @IBInspectable public var borderColor: UIColor = UIColor.clear() {
+    @IBInspectable public var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = borderColor.cgColor
         }

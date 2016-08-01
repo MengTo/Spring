@@ -106,14 +106,14 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         SpringAnimation.spring(duration: 0.7, animations: {
             self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
         })
-        UIApplication.shared().setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
     }
     
     func maximizeView(_ sender: AnyObject) {
         SpringAnimation.spring(duration: 0.7, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
-        UIApplication.shared().setStatusBarStyle(UIStatusBarStyle.default, animated: true)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
     }
 
     let animations: [Spring.AnimationPreset] = [
@@ -261,12 +261,12 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let optionsViewController = segue.destinationViewController as? OptionsViewController {
+        if let optionsViewController = segue.destination as? OptionsViewController {
             optionsViewController.delegate = self
             setOptions()
             optionsViewController.data = ballView
         }
-        else if let codeViewController = segue.destinationViewController as? CodeViewController {
+        else if let codeViewController = segue.destination as? CodeViewController {
             setOptions()
             codeViewController.data = ballView
         }

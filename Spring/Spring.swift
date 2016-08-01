@@ -451,7 +451,7 @@ public class Spring : NSObject {
         if shouldAnimateInLayoutSubviews {
             shouldAnimateInLayoutSubviews = false
             if autostart {
-                if UIApplication.shared().applicationState != .active {
+                if UIApplication.shared.applicationState != .active {
                     shouldAnimateAfterActive = true
                     return
                 }
@@ -466,8 +466,8 @@ public class Spring : NSObject {
             let translate = CGAffineTransform(translationX: self.x, y: self.y)
             let scale = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
             let rotate = CGAffineTransform(rotationAngle: self.rotate)
-            let translateAndScale = translate.concat(scale)
-            self.transform = rotate.concat(translateAndScale)
+            let translateAndScale = translate.concatenating(scale)
+            self.transform = rotate.concatenating(translateAndScale)
             
             self.alpha = self.opacity
         }
@@ -488,8 +488,8 @@ public class Spring : NSObject {
                                     let translate = CGAffineTransform(translationX: _self.x, y: _self.y)
                                     let scale = CGAffineTransform(scaleX: _self.scaleX, y: _self.scaleY)
                                     let rotate = CGAffineTransform(rotationAngle: _self.rotate)
-                                    let translateAndScale = translate.concat(scale)
-                                    _self.transform = rotate.concat(translateAndScale)
+                                    let translateAndScale = translate.concatenating(scale)
+                                    _self.transform = rotate.concatenating(translateAndScale)
                                     
                                     _self.alpha = _self.opacity
                                 }

@@ -24,7 +24,7 @@ import UIKit
 
 @IBDesignable public class DesignableTextView: SpringTextView {
     
-    @IBInspectable public var borderColor: UIColor = UIColor.clear() {
+    @IBInspectable public var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = borderColor.cgColor
         }

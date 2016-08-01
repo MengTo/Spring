@@ -30,11 +30,11 @@ public extension String {
     }
 }
 
-public func htmlToAttributedString(text: String) -> AttributedString! {
+public func htmlToAttributedString(text: String) -> NSAttributedString! {
     let htmlData = text.data(using: String.Encoding.utf8, allowLossyConversion: false)
-    let htmlString: AttributedString?
+    let htmlString: NSAttributedString?
     do {
-        htmlString = try AttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        htmlString = try NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
     } catch _ {
         htmlString = nil
     }
@@ -47,8 +47,7 @@ public func degreesToRadians(degrees: CGFloat) -> CGFloat {
 }
 
 public func delay(delay:Double, closure:()->()) {
-    DispatchQueue.main.after(
-        when: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
 public func imageFromURL(_ Url: String) -> UIImage {
@@ -147,14 +146,14 @@ public func randomStringWithLength (len : Int) -> NSString {
     return randomString
 }
 
-public func timeAgoSinceDate(date:NSDate, numericDates:Bool) -> String {
+public func timeAgoSinceDate(date: Date, numericDates:Bool) -> String {
     let calendar = Calendar.current
-    let unitFlags: Calendar.Unit = [Calendar.Unit.minute, Calendar.Unit.hour, Calendar.Unit.day, Calendar.Unit.weekOfYear, Calendar.Unit.month, Calendar.Unit.year, Calendar.Unit.second]
+    let unitFlags = Set<Calendar.Component>(arrayLiteral: Calendar.Component.minute, Calendar.Component.hour, Calendar.Component.day, Calendar.Component.weekOfYear, Calendar.Component.month, Calendar.Component.year, Calendar.Component.second)
     let now = NSDate()
-    let earliest = now.earlierDate(date as Date)
+    let earliest = now.earlierDate(date)
     let latest = (earliest == now) ? date : now
-    let components: DateComponents = calendar.components(unitFlags, from: earliest, to: latest as Date, options: [])
-    
+    let components: DateComponents = calendar.dateComponents(unitFlags, from: earliest, to: latest as Date)
+
     if (components.year >= 2) {
         return "\(components.year)y"
     } else if (components.year >= 1){

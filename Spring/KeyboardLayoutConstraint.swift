@@ -45,7 +45,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     func keyboardWillShowNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             if let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-                let frame = frameValue.cgRectValue()
+                let frame = frameValue.cgRectValue
                 keyboardVisibleHeight = frame.size.height
             }
             
@@ -60,7 +60,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     delay: 0,
                     options: options,
                     animations: {
-                        UIApplication.shared().keyWindow?.layoutIfNeeded()
+                        UIApplication.shared.keyWindow?.layoutIfNeeded()
                         return
                     }, completion: { finished in
                 })
@@ -89,7 +89,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     delay: 0,
                     options: options,
                     animations: {
-                        UIApplication.shared().keyWindow?.layoutIfNeeded()
+                        UIApplication.shared.keyWindow?.layoutIfNeeded()
                         return
                     }, completion: { finished in
                 })
