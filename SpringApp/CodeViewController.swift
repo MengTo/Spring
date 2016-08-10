@@ -58,7 +58,7 @@ class CodeViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
-        UIApplication.shared().sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
         
         modalView.animation = "slideRight"
         modalView.animateFrom = false
@@ -72,6 +72,6 @@ class CodeViewController: UIViewController {
         
         modalView.animate()
         
-        UIApplication.shared().sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, for: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, for: nil)
     }
 }

@@ -27,8 +27,8 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
     var isPresenting = true
     var duration = 0.4
     
-    public func animateTransition(_ transitionContext: UIViewControllerContextTransitioning) {
-        let container = transitionContext.containerView()
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let container = transitionContext.containerView
         let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!
         let toView = transitionContext.view(forKey: UITransitionContextToViewKey)!
         
@@ -63,7 +63,7 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
         })
     }
     
-    public func transitionDuration(_ transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
@@ -72,7 +72,7 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
         return self
     }
     
-    public func animationController(forDismissedController dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresenting = false
         return self
     }
