@@ -47,9 +47,9 @@ import UIKit
     var alpha : CGFloat { get set }
     
     func animate()
-    func animateNext(completion: () -> ())
+    func animateNext(completion: @escaping () -> ())
     func animateTo()
-    func animateToNext(completion: () -> ())
+    func animateToNext(completion: @escaping () -> ())
 }
 
 public class Spring : NSObject {
@@ -419,7 +419,7 @@ public class Spring : NSObject {
         setView {}
     }
     
-    public func animateNext(completion: () -> ()) {
+    public func animateNext(completion: @escaping () -> ()) {
         animateFrom = true
         animatePreset()
         setView {
@@ -433,7 +433,7 @@ public class Spring : NSObject {
         setView {}
     }
     
-    public func animateToNext(completion: () -> ()) {
+    public func animateToNext(completion: @escaping () -> ()) {
         animateFrom = false
         animatePreset()
         setView {
@@ -461,7 +461,7 @@ public class Spring : NSObject {
         }
     }
     
-    func setView(completion: () -> ()) {
+    func setView(completion: @escaping () -> ()) {
         if animateFrom {
             let translate = CGAffineTransform(translationX: self.x, y: self.y)
             let scale = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
