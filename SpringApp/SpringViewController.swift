@@ -260,7 +260,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if let optionsViewController = segue.destination as? OptionsViewController {
             optionsViewController.delegate = self
             setOptions()

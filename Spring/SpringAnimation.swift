@@ -23,7 +23,7 @@
 import UIKit
 
 @objc public class SpringAnimation: NSObject {
-    public class func spring(duration: TimeInterval, animations: () -> Void) {
+    public class func spring(duration: TimeInterval, animations: @escaping () -> Void) {
         UIView.animate(
             withDuration: duration,
             delay: 0,

@@ -29,8 +29,8 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView
-        let fromView = transitionContext.view(forKey: UITransitionContextFromViewKey)!
-        let toView = transitionContext.view(forKey: UITransitionContextToViewKey)!
+        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
         
         if isPresenting {
             container.addSubview(fromView)
