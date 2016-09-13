@@ -28,7 +28,7 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
     var duration = 0.3
     
     public func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let container = transitionContext.containerView()!
+        let container = transitionContext.containerView()
         let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)!
         let toView = transitionContext.viewForKey(UITransitionContextToViewKey)!
         
