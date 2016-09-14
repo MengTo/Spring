@@ -57,16 +57,16 @@ public class SpringImageView: UIImageView, Springable {
         self.spring.animate()
     }
 
-    public func animateNext(completion: () -> ()) {
-        self.spring.animateNext(completion)
+    public func animateNext(completion: @escaping () -> ()) {
+        self.spring.animateNext(completion: completion)
     }
 
     public func animateTo() {
         self.spring.animateTo()
     }
 
-    public func animateToNext(completion: () -> ()) {
-        self.spring.animateToNext(completion)
+    public func animateToNext(completion: @escaping () -> ()) {
+        self.spring.animateToNext(completion: completion)
     }
 
 }

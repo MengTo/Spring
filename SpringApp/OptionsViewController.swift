@@ -10,13 +10,13 @@ import UIKit
 import Spring
 
 protocol OptionsViewControllerDelegate: class {
-    func dampingSliderChanged(sender: AnyObject)
-    func velocitySliderChanged(sender: AnyObject)
-    func scaleSliderChanged(sender: AnyObject)
-    func xSliderChanged(sender: AnyObject)
-    func ySliderChanged(sender: AnyObject)
-    func rotateSliderChanged(sender: AnyObject)
-    func resetButtonPressed(sender: AnyObject)
+    func dampingSliderChanged(_ sender: AnyObject)
+    func velocitySliderChanged(_ sender: AnyObject)
+    func scaleSliderChanged(_ sender: AnyObject)
+    func xSliderChanged(_ sender: AnyObject)
+    func ySliderChanged(_ sender: AnyObject)
+    func rotateSliderChanged(_ sender: AnyObject)
+    func resetButtonPressed(_ sender: AnyObject)
 }
 
 class OptionsViewController: UIViewController {
@@ -50,7 +50,7 @@ class OptionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        modalView.transform = CGAffineTransformMakeTranslation(0, 300)
+        modalView.transform = CGAffineTransform(translationX: 0, y: 300)
         
         dampingSlider.setValue(Float(data.damping), animated: true)
         velocitySlider.setValue(Float(data.velocity), animated: true)
@@ -67,64 +67,64 @@ class OptionsViewController: UIViewController {
         rotateLabel.text = getString("Rotate", value: data.rotate)
     }
 
-    @IBAction func dampingSliderChanged(sender: AnyObject) {
-        selectedDamping = sender.valueForKey("value") as! CGFloat
+    @IBAction func dampingSliderChanged(_ sender: AnyObject) {
+        selectedDamping = sender.value(forKey: "value") as! CGFloat
         delegate?.dampingSliderChanged(sender)
         dampingLabel.text = getString("Damping", value: selectedDamping)
     }
     
-    @IBAction func velocitySliderChanged(sender: AnyObject) {
-        selectedVelocity = sender.valueForKey("value") as! CGFloat
+    @IBAction func velocitySliderChanged(_ sender: AnyObject) {
+        selectedVelocity = sender.value(forKey: "value") as! CGFloat
         delegate?.velocitySliderChanged(sender)
         velocityLabel.text = getString("Velocity", value: selectedVelocity)
     }
     
-    @IBAction func scaleSliderChanged(sender: AnyObject) {
-        selectedScale = sender.valueForKey("value") as! CGFloat
+    @IBAction func scaleSliderChanged(_ sender: AnyObject) {
+        selectedScale = sender.value(forKey: "value") as! CGFloat
         delegate?.scaleSliderChanged(sender)
         scaleLabel.text = getString("Scale", value: selectedScale)
     }
     
-    @IBAction func xSliderChanged(sender: AnyObject) {
-        selectedX = sender.valueForKey("value") as! CGFloat
+    @IBAction func xSliderChanged(_ sender: AnyObject) {
+        selectedX = sender.value(forKey: "value") as! CGFloat
         delegate?.xSliderChanged(sender)
         xLabel.text = getString("X", value: selectedX)
     }
     
-    @IBAction func ySliderChanged(sender: AnyObject) {
-        selectedY = sender.valueForKey("value") as! CGFloat
+    @IBAction func ySliderChanged(_ sender: AnyObject) {
+        selectedY = sender.value(forKey: "value") as! CGFloat
         delegate?.ySliderChanged(sender)
         yLabel.text = getString("Y", value: selectedY)
     }
     
-    @IBAction func rotateSliderChanged(sender: AnyObject) {
-        selectedRotate = sender.valueForKey("value") as! CGFloat
+    @IBAction func rotateSliderChanged(_ sender: AnyObject) {
+        selectedRotate = sender.value(forKey: "value") as! CGFloat
         delegate?.rotateSliderChanged(sender)
         rotateLabel.text = getString("Rotate", value: selectedRotate)
     }
     
-    @IBAction func resetButtonPressed(sender: AnyObject) {
+    @IBAction func resetButtonPressed(_ sender: AnyObject) {
         delegate?.resetButtonPressed(sender)
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         
-        UIApplication.sharedApplication().sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, forEvent: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
     }
     
-    @IBAction func closeButtonPressed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeButtonPressed(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
         
-        UIApplication.sharedApplication().sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, forEvent: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        UIApplication.sharedApplication().sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, forEvent: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, for: nil)
         
         modalView.animate()
     }
     
-    func getString(name: String, value: CGFloat) -> String {
+    func getString(_ name: String, value: CGFloat) -> String {
         return String(format: "\(name): %.1f", Double(value))
     }
 }

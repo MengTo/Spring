@@ -24,9 +24,9 @@ import UIKit
 
 @IBDesignable public class DesignableButton: SpringButton {
 
-    @IBInspectable public var borderColor: UIColor = UIColor.clearColor() {
+    @IBInspectable public var borderColor: UIColor = UIColor.clear {
         didSet {
-            layer.borderColor = borderColor.CGColor
+            layer.borderColor = borderColor.cgColor
         }
     }
     
@@ -42,9 +42,9 @@ import UIKit
         }
     }
     
-    @IBInspectable public var shadowColor: UIColor = UIColor.clearColor() {
+    @IBInspectable public var shadowColor: UIColor = UIColor.clear {
         didSet {
-            layer.shadowColor = shadowColor.CGColor
+            layer.shadowColor = shadowColor.cgColor
         }
     }
     
