@@ -29,7 +29,7 @@ struct SoundPlayer {
     static var enabled : Bool = true
     
     private struct Internal {
-        static var cache = [NSURL:SystemSoundID]()
+        static var cache = [URL:SystemSoundID]()
     }
     
     static func playSound(soundFile: String) {
@@ -43,7 +43,7 @@ struct SoundPlayer {
             var soundID : SystemSoundID = Internal.cache[url] ?? 0
             
             if soundID == 0 {
-                AudioServicesCreateSystemSoundID(url, &soundID)
+                AudioServicesCreateSystemSoundID(url as CFURL, &soundID)
                 Internal.cache[url] = soundID
             }
             

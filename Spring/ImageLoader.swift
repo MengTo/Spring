@@ -35,14 +35,14 @@ public class ImageLoader {
         return Static.instance
     }
     
-    public func imageForUrl(urlString: String, completionHandler:(image: UIImage?, url: String) -> ()) {
+    public func imageForUrl(urlString: String, completionHandler: @escaping(_ image: UIImage?, _ url: String) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { 
-            let data: NSData? = self.cache.object(forKey: urlString)! as NSData
+            let data: NSData? = self.cache.object(forKey: urlString as NSString)! as NSData
             
             if let goodData = data {
                 let image = UIImage(data: goodData as Data)
                 DispatchQueue.main.async(execute: {() in
-                    completionHandler(image: image, url: urlString)
+                    completionHandler(image, urlString)
                 })
                 return
             }
@@ -50,15 +50,15 @@ public class ImageLoader {
             let downloadTask: URLSessionDataTask = URLSession.shared.dataTask(with: URL(string: urlString)!, completionHandler: { (data, response, error) -> Void in
                 
                 if (error != nil) {
-                    completionHandler(image: nil, url: urlString)
+                    completionHandler(nil, urlString)
                     return
                 }
                 
                 if data != nil {
                     let image = UIImage(data: data!)
-                    self.cache.setObject(data!, forKey: urlString)
+                    self.cache.setObject(data! as NSData, forKey: urlString as NSString)
                     DispatchQueue.main.async(execute: {() in
-                        completionHandler(image: image, url: urlString)
+                        completionHandler(image, urlString)
                     })
                     return
                 }
