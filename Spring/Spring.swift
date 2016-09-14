@@ -65,7 +65,7 @@ public class Spring : NSObject {
     }
 
     func commonInit() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActiveNotification:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
 
     func didBecomeActiveNotification(notification: NSNotification) {
