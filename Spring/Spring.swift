@@ -58,7 +58,7 @@ public class Spring : NSObject {
     private var shouldAnimateAfterActive = false
     private var shouldAnimateInLayoutSubviews = true
     
-    init(_ view: Springable) {
+    public init(_ view: Springable) {
         self.view = view
         super.init()
         commonInit()
