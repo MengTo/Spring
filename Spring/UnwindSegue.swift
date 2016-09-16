@@ -23,5 +23,5 @@
 import UIKit
 
 public extension UIViewController {
-    @IBAction public func unwindToViewController (sender: UIStoryboardSegue){}
+    @IBAction public func unwindToViewController (_ segue: UIStoryboardSegue){}
 }
