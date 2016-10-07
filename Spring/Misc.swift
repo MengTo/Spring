@@ -232,3 +232,31 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
     }
     
 }
+
+extension UIImageView {
+    func setImage(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else {
+                    self.image = placeholderImage
+                    return
+            }
+            DispatchQueue.main.async() { () -> Void in
+                self.image = image
+                
+            }
+            }.resume()
+    }
+    func setImage(urlString: String, contentMode mode: UIViewContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
+        guard let url = URL(string: urlString) else {
+            image = placeholderImage
+            return
+        }
+        setImage(url: url, contentMode: mode, placeholderImage: placeholderImage)
+    }
+}
