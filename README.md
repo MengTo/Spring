@@ -1,3 +1,5 @@
+![](https://dl.dropboxusercontent.com/u/7990919/Crawler/SpringSwift3.jpg)
+
 ## Updated for Swift 3.0
 Requires Xcode 8 and Swift 3.
 
