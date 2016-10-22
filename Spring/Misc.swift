@@ -57,12 +57,12 @@ public func imageFromURL(_ Url: String) -> UIImage {
 }
 
 public extension UIColor {
-    convenience init(hex: String) {
+    convenience init(withHexString hexString: String) {
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
         var blue:  CGFloat = 0.0
         var alpha: CGFloat = 1.0
-        var hex:   String = hex
+        var hex:   String = hexString
         
         if hex.hasPrefix("#") {
             let index = hex.index(hex.startIndex, offsetBy: 1)

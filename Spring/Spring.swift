@@ -48,8 +48,10 @@ import UIKit
     
     func animate()
     func animateNext(completion: @escaping () -> ())
+    func animateNext(success: @escaping (Bool) -> ())
     func animateTo()
     func animateToNext(completion: @escaping () -> ())
+    func animateToNext(success: @escaping (Bool) -> ())
 }
 
 public class Spring : NSObject {
@@ -427,6 +429,14 @@ public class Spring : NSObject {
         }
     }
     
+    public func animateNext(success: @escaping (Bool) -> ()) {
+        animateFrom = false
+        animatePreset()
+        setView {
+            success(true)
+        }
+    }
+    
     public func animateTo() {
         animateFrom = false
         animatePreset()
@@ -438,6 +448,14 @@ public class Spring : NSObject {
         animatePreset()
         setView {
             completion()
+        }
+    }
+    
+    public func animateToNext(success: @escaping (Bool) -> ()) {
+        animateFrom = false
+        animatePreset()
+        setView {
+            success(true)
         }
     }
     
