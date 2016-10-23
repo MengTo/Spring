@@ -60,10 +60,6 @@ open class SpringTextView: UITextView, Springable {
     public func animateNext(completion: @escaping () -> ()) {
         self.spring.animateNext(completion: completion)
     }
-    
-    public func animateNext(success: @escaping (Bool) -> ()) {
-        self.spring.animateNext(success: success)
-    }
 
     public func animateTo() {
         self.spring.animateTo()
@@ -71,10 +67,6 @@ open class SpringTextView: UITextView, Springable {
 
     public func animateToNext(completion: @escaping () -> ()) {
         self.spring.animateToNext(completion: completion)
-    }
-    
-    public func animateToNext(success: @escaping (Bool) -> ()) {
-        self.spring.animateToNext(success: success)
     }
 
 }

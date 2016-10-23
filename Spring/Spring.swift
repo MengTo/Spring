@@ -48,10 +48,8 @@ import UIKit
     
     func animate()
     func animateNext(completion: @escaping () -> ())
-    func animateNext(success: @escaping (Bool) -> ())
     func animateTo()
     func animateToNext(completion: @escaping () -> ())
-    func animateToNext(success: @escaping (Bool) -> ())
 }
 
 public class Spring : NSObject {
@@ -124,7 +122,8 @@ public class Spring : NSObject {
         case ZoomIn = "zoomIn"
         case ZoomOut = "zoomOut"
         case Fall = "fall"
-        case Shake = "shake"
+        case ShakeLeft = "shakeLeft"
+        case ShakeRight = "shakeRight"
         case Pop = "pop"
         case FlipX = "flipX"
         case FlipY = "flipY"
@@ -133,6 +132,10 @@ public class Spring : NSObject {
         case Flash = "flash"
         case Wobble = "wobble"
         case Swing = "swing"
+        case ScaleX = "scaleX"
+        case ScaleY = "scaleY"
+        case ScaleToX = "scaleToX"
+        case ScaleToY = "scaleToY"
     }
     
     public enum AnimationCurve: String {
@@ -231,7 +234,7 @@ public class Spring : NSObject {
                 animateFrom = false
                 rotate = 15 * CGFloat(M_PI/180)
                 y = 600*force
-            case .Shake:
+            case .ShakeLeft:
                 let animation = CAKeyframeAnimation()
                 animation.keyPath = "position.x"
                 animation.values = [0, 30*force, -30*force, 30*force, 0]
@@ -241,7 +244,18 @@ public class Spring : NSObject {
                 animation.isAdditive = true
                 animation.repeatCount = repeatCount
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
-                layer.add(animation, forKey: "shake")
+                layer.add(animation, forKey: "shakeLeft")
+            case .ShakeRight:
+                let animation = CAKeyframeAnimation()
+                animation.keyPath = "position.x"
+                animation.values = [0, -30*force, 30*force, -30*force, 0]
+                animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+                animation.timingFunction = getTimingFunction(curve: curve)
+                animation.duration = CFTimeInterval(duration)
+                animation.isAdditive = true
+                animation.repeatCount = repeatCount
+                animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+                layer.add(animation, forKey: "shakeRight")
             case .Pop:
                 let animation = CAKeyframeAnimation()
                 animation.keyPath = "transform.scale"
@@ -362,6 +376,46 @@ public class Spring : NSObject {
                 animation.isAdditive = true
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(animation, forKey: "swing")
+            case .ScaleX:
+                let scaleX = CAKeyframeAnimation()
+                scaleX.keyPath = "transform.scale.x"
+                scaleX.values = [1, 0.5, 1, 0.5, 1]
+                scaleX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+                scaleX.timingFunction = getTimingFunction(curve: curve)
+                scaleX.duration = CFTimeInterval(duration)
+                scaleX.repeatCount = repeatCount
+                scaleX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+                layer.add(scaleX, forKey: "scaleX")
+            case .ScaleY:
+                let scaleY = CAKeyframeAnimation()
+                scaleY.keyPath = "transform.scale.y"
+                scaleY.values = [1, 1.3*force, 0.7, 1.3*force, 1]
+                scaleY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+                scaleY.timingFunction = getTimingFunction(curve: curve)
+                scaleY.duration = CFTimeInterval(duration)
+                scaleY.repeatCount = repeatCount
+                scaleY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+                layer.add(scaleY, forKey: "scaleY")
+            case .ScaleToX:
+                let scaleToX = CAKeyframeAnimation()
+                scaleToX.keyPath = "transform.scale.x"
+                scaleToX.values = [0, 1.3*force, 0.7, 1.3*force, 1]
+                scaleToX.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+                scaleToX.timingFunction = getTimingFunction(curve: curve)
+                scaleToX.duration = CFTimeInterval(duration)
+                scaleToX.repeatCount = repeatCount
+                scaleToX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+                layer.add(scaleToX, forKey: "scaleToX")
+            case .ScaleToY:
+                let scaleToY = CAKeyframeAnimation()
+                scaleToY.keyPath = "transform.scale.y"
+                scaleToY.values = [0, 1.3*force, 0.7, 1.3*force, 1]
+                scaleToY.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
+                scaleToY.timingFunction = getTimingFunction(curve: curve)
+                scaleToY.duration = CFTimeInterval(duration)
+                scaleToY.repeatCount = repeatCount
+                scaleToY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
+                layer.add(scaleToY, forKey: "scaleToY")
             }
         }
     }
@@ -429,14 +483,6 @@ public class Spring : NSObject {
         }
     }
     
-    public func animateNext(success: @escaping (Bool) -> ()) {
-        animateFrom = false
-        animatePreset()
-        setView {
-            success(true)
-        }
-    }
-    
     public func animateTo() {
         animateFrom = false
         animatePreset()
@@ -448,14 +494,6 @@ public class Spring : NSObject {
         animatePreset()
         setView {
             completion()
-        }
-    }
-    
-    public func animateToNext(success: @escaping (Bool) -> ()) {
-        animateFrom = false
-        animatePreset()
-        setView {
-            success(true)
         }
     }
     

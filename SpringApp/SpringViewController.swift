@@ -117,7 +117,8 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
 
     let animations: [Spring.AnimationPreset] = [
-        .Shake,
+        .ShakeLeft,
+        .ShakeRight,
         .Pop,
         .Morph,
         .Squeeze,
@@ -142,7 +143,11 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         .FadeInUp,
         .ZoomIn,
         .ZoomOut,
-        .Flash
+        .Flash,
+        .ScaleX,
+        .ScaleY,
+        .ScaleToX,
+        .ScaleToY
     ]
 
     var animationCurves: [Spring.AnimationCurve] = [
@@ -188,10 +193,10 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func ballButtonPressed(_ sender: AnyObject) {
         
         UIView.animate(withDuration: 0.1, animations: {
-            self.ballView.backgroundColor = UIColor(hex: "69DBFF")
+            self.ballView.backgroundColor = UIColor(withHexString: "69DBFF")
         }, completion: { finished in
             UIView.animate(withDuration: 0.5, animations: {
-                self.ballView.backgroundColor = UIColor(hex: "#279CEB")
+                self.ballView.backgroundColor = UIColor(withHexString: "#279CEB")
             })
         })
         

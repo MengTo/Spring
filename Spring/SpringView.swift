@@ -61,19 +61,11 @@ open class SpringView: UIView, Springable {
         self.spring.animateNext(completion: completion)
     }
     
-    public func animateNext(success: @escaping (Bool) -> ()) {
-        self.spring.animateNext(success: success)
-    }
-
     public func animateTo() {
         self.spring.animateTo()
     }
 
     public func animateToNext(completion: @escaping () -> ()) {
         self.spring.animateToNext(completion: completion)
-    }
-    
-    public func animateToNext(success: @escaping (Bool) -> ()) {
-        self.spring.animateToNext(success: success)
     }
 }
