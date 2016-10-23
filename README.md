@@ -38,7 +38,8 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
     animateToNext { ... }
 
 ## Animation
-    shake
+    shakeLeft
+    shakeRight
     pop
     morph
     squeeze
@@ -64,6 +65,10 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
     zoomIn
     zoomOut
     flash
+    scaleX
+    scaleY
+    scaleToX
+    scaleToY
 
 ## Curve
     spring
