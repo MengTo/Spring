@@ -104,97 +104,97 @@ public class Spring : NSObject {
     private var alpha: CGFloat { get { return view.alpha } set { view.alpha = newValue } }
     
     public enum AnimationPreset: String {
-        case SlideLeft = "slideLeft"
-        case SlideRight = "slideRight"
-        case SlideDown = "slideDown"
-        case SlideUp = "slideUp"
-        case SqueezeLeft = "squeezeLeft"
-        case SqueezeRight = "squeezeRight"
-        case SqueezeDown = "squeezeDown"
-        case SqueezeUp = "squeezeUp"
-        case FadeIn = "fadeIn"
-        case FadeOut = "fadeOut"
-        case FadeOutIn = "fadeOutIn"
-        case FadeInLeft = "fadeInLeft"
-        case FadeInRight = "fadeInRight"
-        case FadeInDown = "fadeInDown"
-        case FadeInUp = "fadeInUp"
-        case ZoomIn = "zoomIn"
-        case ZoomOut = "zoomOut"
-        case Fall = "fall"
-        case Shake = "shake"
-        case Pop = "pop"
-        case FlipX = "flipX"
-        case FlipY = "flipY"
-        case Morph = "morph"
-        case Squeeze = "squeeze"
-        case Flash = "flash"
-        case Wobble = "wobble"
-        case Swing = "swing"
+        case slideLeft = "slideLeft"
+        case slideRight = "slideRight"
+        case slideDown = "slideDown"
+        case slideUp = "slideUp"
+        case squeezeLeft = "squeezeLeft"
+        case squeezeRight = "squeezeRight"
+        case squeezeDown = "squeezeDown"
+        case squeezeUp = "squeezeUp"
+        case fadeIn = "fadeIn"
+        case fadeOut = "fadeOut"
+        case fadeOutIn = "fadeOutIn"
+        case fadeInLeft = "fadeInLeft"
+        case fadeInRight = "fadeInRight"
+        case fadeInDown = "fadeInDown"
+        case fadeInUp = "fadeInUp"
+        case zoomIn = "zoomIn"
+        case zoomOut = "zoomOut"
+        case fall = "fall"
+        case shake = "shake"
+        case pop = "pop"
+        case flipX = "flipX"
+        case flipY = "flipY"
+        case morph = "morph"
+        case squeeze = "squeeze"
+        case flash = "flash"
+        case wobble = "wobble"
+        case swing = "swing"
     }
     
     public enum AnimationCurve: String {
-        case EaseIn = "easeIn"
-        case EaseOut = "easeOut"
-        case EaseInOut = "easeInOut"
-        case Linear = "linear"
-        case Spring = "spring"
-        case EaseInSine = "easeInSine"
-        case EaseOutSine = "easeOutSine"
-        case EaseInOutSine = "easeInOutSine"
-        case EaseInQuad = "easeInQuad"
-        case EaseOutQuad = "easeOutQuad"
-        case EaseInOutQuad = "easeInOutQuad"
-        case EaseInCubic = "easeInCubic"
-        case EaseOutCubic = "easeOutCubic"
-        case EaseInOutCubic = "easeInOutCubic"
-        case EaseInQuart = "easeInQuart"
-        case EaseOutQuart = "easeOutQuart"
-        case EaseInOutQuart = "easeInOutQuart"
-        case EaseInQuint = "easeInQuint"
-        case EaseOutQuint = "easeOutQuint"
-        case EaseInOutQuint = "easeInOutQuint"
-        case EaseInExpo = "easeInExpo"
-        case EaseOutExpo = "easeOutExpo"
-        case EaseInOutExpo = "easeInOutExpo"
-        case EaseInCirc = "easeInCirc"
-        case EaseOutCirc = "easeOutCirc"
-        case EaseInOutCirc = "easeInOutCirc"
-        case EaseInBack = "easeInBack"
-        case EaseOutBack = "easeOutBack"
-        case EaseInOutBack = "easeInOutBack"
+        case easeIn = "easeIn"
+        case easeOut = "easeOut"
+        case easeInOut = "easeInOut"
+        case linear = "linear"
+        case spring = "spring"
+        case easeInSine = "easeInSine"
+        case easeOutSine = "easeOutSine"
+        case easeInOutSine = "easeInOutSine"
+        case easeInQuad = "easeInQuad"
+        case easeOutQuad = "easeOutQuad"
+        case easeInOutQuad = "easeInOutQuad"
+        case easeInCubic = "easeInCubic"
+        case easeOutCubic = "easeOutCubic"
+        case easeInOutCubic = "easeInOutCubic"
+        case easeInQuart = "easeInQuart"
+        case easeOutQuart = "easeOutQuart"
+        case easeInOutQuart = "easeInOutQuart"
+        case easeInQuint = "easeInQuint"
+        case easeOutQuint = "easeOutQuint"
+        case easeInOutQuint = "easeInOutQuint"
+        case easeInExpo = "easeInExpo"
+        case easeOutExpo = "easeOutExpo"
+        case easeInOutExpo = "easeInOutExpo"
+        case easeInCirc = "easeInCirc"
+        case easeOutCirc = "easeOutCirc"
+        case easeInOutCirc = "easeInOutCirc"
+        case easeInBack = "easeInBack"
+        case easeOutBack = "easeOutBack"
+        case easeInOutBack = "easeInOutBack"
     }
     
     func animatePreset() {
         alpha = 0.99
         if let animation = AnimationPreset(rawValue: animation) {
             switch animation {
-            case .SlideLeft:
+            case .slideLeft:
                 x = 300*force
-            case .SlideRight:
+            case .slideRight:
                 x = -300*force
-            case .SlideDown:
+            case .slideDown:
                 y = -300*force
-            case .SlideUp:
+            case .slideUp:
                 y = 300*force
-            case .SqueezeLeft:
+            case .squeezeLeft:
                 x = 300
                 scaleX = 3*force
-            case .SqueezeRight:
+            case .squeezeRight:
                 x = -300
                 scaleX = 3*force
-            case .SqueezeDown:
+            case .squeezeDown:
                 y = -300
                 scaleY = 3*force
-            case .SqueezeUp:
+            case .squeezeUp:
                 y = 300
                 scaleY = 3*force
-            case .FadeIn:
+            case .fadeIn:
                 opacity = 0
-            case .FadeOut:
+            case .fadeOut:
                 animateFrom = false
                 opacity = 0
-            case .FadeOutIn:
+            case .fadeOutIn:
                 let animation = CABasicAnimation()
                 animation.keyPath = "opacity"
                 animation.fromValue = 1
@@ -204,32 +204,32 @@ public class Spring : NSObject {
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.autoreverses = true
                 layer.add(animation, forKey: "fade")
-            case .FadeInLeft:
+            case .fadeInLeft:
                 opacity = 0
                 x = 300*force
-            case .FadeInRight:
+            case .fadeInRight:
                 x = -300*force
                 opacity = 0
-            case .FadeInDown:
+            case .fadeInDown:
                 y = -300*force
                 opacity = 0
-            case .FadeInUp:
+            case .fadeInUp:
                 y = 300*force
                 opacity = 0
-            case .ZoomIn:
+            case .zoomIn:
                 opacity = 0
                 scaleX = 2*force
                 scaleY = 2*force
-            case .ZoomOut:
+            case .zoomOut:
                 animateFrom = false
                 opacity = 0
                 scaleX = 2*force
                 scaleY = 2*force
-            case .Fall:
+            case .fall:
                 animateFrom = false
                 rotate = 15 * CGFloat(M_PI/180)
                 y = 600*force
-            case .Shake:
+            case .shake:
                 let animation = CAKeyframeAnimation()
                 animation.keyPath = "position.x"
                 animation.values = [0, 30*force, -30*force, 30*force, 0]
@@ -240,7 +240,7 @@ public class Spring : NSObject {
                 animation.repeatCount = repeatCount
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(animation, forKey: "shake")
-            case .Pop:
+            case .pop:
                 let animation = CAKeyframeAnimation()
                 animation.keyPath = "transform.scale"
                 animation.values = [0, 0.2*force, -0.2*force, 0.2*force, 0]
@@ -251,7 +251,7 @@ public class Spring : NSObject {
                 animation.repeatCount = repeatCount
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(animation, forKey: "pop")
-            case .FlipX:
+            case .flipX:
                 rotate = 0
                 scaleX = 1
                 scaleY = 1
@@ -267,7 +267,7 @@ public class Spring : NSObject {
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)
                 layer.add(animation, forKey: "3d")
-            case .FlipY:
+            case .flipY:
                 var perspective = CATransform3DIdentity
                 perspective.m34 = -1.0 / layer.frame.size.width/2
                 
@@ -281,7 +281,7 @@ public class Spring : NSObject {
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)
                 layer.add(animation, forKey: "3d")
-            case .Morph:
+            case .morph:
                 let morphX = CAKeyframeAnimation()
                 morphX.keyPath = "transform.scale.x"
                 morphX.values = [1, 1.3*force, 0.7, 1.3*force, 1]
@@ -301,7 +301,7 @@ public class Spring : NSObject {
                 morphY.repeatCount = repeatCount
                 morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(morphY, forKey: "morphY")
-            case .Squeeze:
+            case .squeeze:
                 let morphX = CAKeyframeAnimation()
                 morphX.keyPath = "transform.scale.x"
                 morphX.values = [1, 1.5*force, 0.5, 1.5*force, 1]
@@ -321,7 +321,7 @@ public class Spring : NSObject {
                 morphY.repeatCount = repeatCount
                 morphY.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(morphY, forKey: "morphY")
-            case .Flash:
+            case .flash:
                 let animation = CABasicAnimation()
                 animation.keyPath = "opacity"
                 animation.fromValue = 1
@@ -331,7 +331,7 @@ public class Spring : NSObject {
                 animation.autoreverses = true
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(animation, forKey: "flash")
-            case .Wobble:
+            case .wobble:
                 let animation = CAKeyframeAnimation()
                 animation.keyPath = "transform.rotation"
                 animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
@@ -351,7 +351,7 @@ public class Spring : NSObject {
                 x.repeatCount = repeatCount
                 x.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(x, forKey: "x")
-            case .Swing:
+            case .swing:
                 let animation = CAKeyframeAnimation()
                 animation.keyPath = "transform.rotation"
                 animation.values = [0, 0.3*force, -0.3*force, 0.3*force, 0]
@@ -367,35 +367,35 @@ public class Spring : NSObject {
     func getTimingFunction(curve: String) -> CAMediaTimingFunction {
         if let curve = AnimationCurve(rawValue: curve) {
             switch curve {
-            case .EaseIn: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-            case .EaseOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-            case .EaseInOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            case .Linear: return CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-            case .Spring: return CAMediaTimingFunction(controlPoints: 0.5, 1.1+Float(force/3), 1, 1)
-            case .EaseInSine: return CAMediaTimingFunction(controlPoints: 0.47, 0, 0.745, 0.715)
-            case .EaseOutSine: return CAMediaTimingFunction(controlPoints: 0.39, 0.575, 0.565, 1)
-            case .EaseInOutSine: return CAMediaTimingFunction(controlPoints: 0.445, 0.05, 0.55, 0.95)
-            case .EaseInQuad: return CAMediaTimingFunction(controlPoints: 0.55, 0.085, 0.68, 0.53)
-            case .EaseOutQuad: return CAMediaTimingFunction(controlPoints: 0.25, 0.46, 0.45, 0.94)
-            case .EaseInOutQuad: return CAMediaTimingFunction(controlPoints: 0.455, 0.03, 0.515, 0.955)
-            case .EaseInCubic: return CAMediaTimingFunction(controlPoints: 0.55, 0.055, 0.675, 0.19)
-            case .EaseOutCubic: return CAMediaTimingFunction(controlPoints: 0.215, 0.61, 0.355, 1)
-            case .EaseInOutCubic: return CAMediaTimingFunction(controlPoints: 0.645, 0.045, 0.355, 1)
-            case .EaseInQuart: return CAMediaTimingFunction(controlPoints: 0.895, 0.03, 0.685, 0.22)
-            case .EaseOutQuart: return CAMediaTimingFunction(controlPoints: 0.165, 0.84, 0.44, 1)
-            case .EaseInOutQuart: return CAMediaTimingFunction(controlPoints: 0.77, 0, 0.175, 1)
-            case .EaseInQuint: return CAMediaTimingFunction(controlPoints: 0.755, 0.05, 0.855, 0.06)
-            case .EaseOutQuint: return CAMediaTimingFunction(controlPoints: 0.23, 1, 0.32, 1)
-            case .EaseInOutQuint: return CAMediaTimingFunction(controlPoints: 0.86, 0, 0.07, 1)
-            case .EaseInExpo: return CAMediaTimingFunction(controlPoints: 0.95, 0.05, 0.795, 0.035)
-            case .EaseOutExpo: return CAMediaTimingFunction(controlPoints: 0.19, 1, 0.22, 1)
-            case .EaseInOutExpo: return CAMediaTimingFunction(controlPoints: 1, 0, 0, 1)
-            case .EaseInCirc: return CAMediaTimingFunction(controlPoints: 0.6, 0.04, 0.98, 0.335)
-            case .EaseOutCirc: return CAMediaTimingFunction(controlPoints: 0.075, 0.82, 0.165, 1)
-            case .EaseInOutCirc: return CAMediaTimingFunction(controlPoints: 0.785, 0.135, 0.15, 0.86)
-            case .EaseInBack: return CAMediaTimingFunction(controlPoints: 0.6, -0.28, 0.735, 0.045)
-            case .EaseOutBack: return CAMediaTimingFunction(controlPoints: 0.175, 0.885, 0.32, 1.275)
-            case .EaseInOutBack: return CAMediaTimingFunction(controlPoints: 0.68, -0.55, 0.265, 1.55)
+            case .easeIn: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            case .easeOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            case .easeInOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            case .linear: return CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            case .spring: return CAMediaTimingFunction(controlPoints: 0.5, 1.1+Float(force/3), 1, 1)
+            case .easeInSine: return CAMediaTimingFunction(controlPoints: 0.47, 0, 0.745, 0.715)
+            case .easeOutSine: return CAMediaTimingFunction(controlPoints: 0.39, 0.575, 0.565, 1)
+            case .easeInOutSine: return CAMediaTimingFunction(controlPoints: 0.445, 0.05, 0.55, 0.95)
+            case .easeInQuad: return CAMediaTimingFunction(controlPoints: 0.55, 0.085, 0.68, 0.53)
+            case .easeOutQuad: return CAMediaTimingFunction(controlPoints: 0.25, 0.46, 0.45, 0.94)
+            case .easeInOutQuad: return CAMediaTimingFunction(controlPoints: 0.455, 0.03, 0.515, 0.955)
+            case .easeInCubic: return CAMediaTimingFunction(controlPoints: 0.55, 0.055, 0.675, 0.19)
+            case .easeOutCubic: return CAMediaTimingFunction(controlPoints: 0.215, 0.61, 0.355, 1)
+            case .easeInOutCubic: return CAMediaTimingFunction(controlPoints: 0.645, 0.045, 0.355, 1)
+            case .easeInQuart: return CAMediaTimingFunction(controlPoints: 0.895, 0.03, 0.685, 0.22)
+            case .easeOutQuart: return CAMediaTimingFunction(controlPoints: 0.165, 0.84, 0.44, 1)
+            case .easeInOutQuart: return CAMediaTimingFunction(controlPoints: 0.77, 0, 0.175, 1)
+            case .easeInQuint: return CAMediaTimingFunction(controlPoints: 0.755, 0.05, 0.855, 0.06)
+            case .easeOutQuint: return CAMediaTimingFunction(controlPoints: 0.23, 1, 0.32, 1)
+            case .easeInOutQuint: return CAMediaTimingFunction(controlPoints: 0.86, 0, 0.07, 1)
+            case .easeInExpo: return CAMediaTimingFunction(controlPoints: 0.95, 0.05, 0.795, 0.035)
+            case .easeOutExpo: return CAMediaTimingFunction(controlPoints: 0.19, 1, 0.22, 1)
+            case .easeInOutExpo: return CAMediaTimingFunction(controlPoints: 1, 0, 0, 1)
+            case .easeInCirc: return CAMediaTimingFunction(controlPoints: 0.6, 0.04, 0.98, 0.335)
+            case .easeOutCirc: return CAMediaTimingFunction(controlPoints: 0.075, 0.82, 0.165, 1)
+            case .easeInOutCirc: return CAMediaTimingFunction(controlPoints: 0.785, 0.135, 0.15, 0.86)
+            case .easeInBack: return CAMediaTimingFunction(controlPoints: 0.6, -0.28, 0.735, 0.045)
+            case .easeOutBack: return CAMediaTimingFunction(controlPoints: 0.175, 0.885, 0.32, 1.275)
+            case .easeInOutBack: return CAMediaTimingFunction(controlPoints: 0.68, -0.55, 0.265, 1.55)
             }
         }
         return CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
@@ -404,9 +404,9 @@ public class Spring : NSObject {
     func getAnimationOptions(curve: String) -> UIViewAnimationOptions {
         if let curve = AnimationCurve(rawValue: curve) {
             switch curve {
-            case .EaseIn: return UIViewAnimationOptions.curveEaseIn
-            case .EaseOut: return UIViewAnimationOptions.curveEaseOut
-            case .EaseInOut: return UIViewAnimationOptions()
+            case .easeIn: return UIViewAnimationOptions.curveEaseIn
+            case .easeOut: return UIViewAnimationOptions.curveEaseOut
+            case .easeInOut: return UIViewAnimationOptions()
             default: break
             }
         }
