@@ -43,7 +43,7 @@ public func htmlToAttributedString(text: String) -> NSAttributedString! {
 }
 
 public func degreesToRadians(degrees: CGFloat) -> CGFloat {
-    return degrees * CGFloat(M_PI / 180)
+    return degrees * CGFloat(CGFloat.pi / 180)
 }
 
 public func delay(delay:Double, closure: @escaping ()->()) {
@@ -202,7 +202,7 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
             return "1w"
         }
     } else if (day >= 2) {
-        return "\(components.day)d"
+        return "\(components.day ?? 2)d"
     } else if (day >= 1){
         if (numericDates){
             return "1d"
