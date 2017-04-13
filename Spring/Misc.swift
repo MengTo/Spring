@@ -125,7 +125,7 @@ public func dateFromString(date: String, format: String) -> Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
     if let date = dateFormatter.date(from: date) {
-        return date as NSDate
+        return date
     } else {
         return Date(timeIntervalSince1970: 0)
     }
@@ -149,16 +149,6 @@ public func randomStringWithLength (len : Int) -> NSString {
 public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
     let calendar = Calendar.current
     let unitFlags = Set<Calendar.Component>(arrayLiteral: Calendar.Component.minute, Calendar.Component.hour, Calendar.Component.day, Calendar.Component.weekOfYear, Calendar.Component.month, Calendar.Component.year, Calendar.Component.second)
-<<<<<<< HEAD
-    let now = NSDate()
-    let earliest = now.earlierDate(date)
-    let latest = (earliest == now as Date) ? date : now as Date
-    let components: DateComponents = calendar.dateComponents(unitFlags, from: earliest, to: latest as Date)
-
-    if (components.year! >= 2) {
-        return "\(components.year)y"
-    } else if (components.year! >= 1){
-=======
     let now = Date()
     let dateComparison = now.compare(date)
     var earliest: Date
@@ -190,89 +180,53 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
     if (year >= 2) {
         return "\(year)y"
     } else if (year >= 1) {
->>>>>>> MengTo/master
         if (numericDates){
             return "1y"
         } else {
             return "1y"
         }
-<<<<<<< HEAD
-    } else if (components.month! >= 2) {
-        return "\(components.month! * 4)w"
-    } else if (components.month! >= 1){
-=======
     } else if (month >= 2) {
         return "\(month * 4)w"
     } else if (month >= 1) {
->>>>>>> MengTo/master
         if (numericDates){
             return "4w"
         } else {
             return "4w"
         }
-<<<<<<< HEAD
-    } else if (components.weekOfYear! >= 2) {
-        return "\(components.weekOfYear)w"
-    } else if (components.weekOfYear! >= 1){
-=======
     } else if (weekOfYear >= 2) {
         return "\(weekOfYear)w"
     } else if (weekOfYear >= 1){
->>>>>>> MengTo/master
         if (numericDates){
             return "1w"
         } else {
             return "1w"
         }
-<<<<<<< HEAD
-    } else if (components.day! >= 2) {
-        return "\(components.day)d"
-    } else if (components.day! >= 1){
-=======
     } else if (day >= 2) {
         return "\(components.day ?? 2)d"
     } else if (day >= 1){
->>>>>>> MengTo/master
         if (numericDates){
             return "1d"
         } else {
             return "1d"
         }
-<<<<<<< HEAD
-    } else if (components.hour! >= 2) {
-        return "\(components.hour)h"
-    } else if (components.hour! >= 1){
-=======
     } else if (hour >= 2) {
         return "\(hour)h"
     } else if (hour >= 1){
->>>>>>> MengTo/master
         if (numericDates){
             return "1h"
         } else {
             return "1h"
         }
-<<<<<<< HEAD
-    } else if (components.minute! >= 2) {
-        return "\(components.minute)m"
-    } else if (components.minute! >= 1){
-=======
     } else if (minute >= 2) {
         return "\(minute)m"
     } else if (minute >= 1){
->>>>>>> MengTo/master
         if (numericDates){
             return "1m"
         } else {
             return "1m"
         }
-<<<<<<< HEAD
-    } else if (components.second! >= 3) {
-        return "\(components.second)s"
-=======
     } else if (second >= 3) {
         return "\(second)s"
->>>>>>> MengTo/master
     } else {
         return "now"
     }
