@@ -23,7 +23,7 @@
 import UIKit
 
 public func insertBlurView (view: UIView, style: UIBlurEffectStyle) -> UIVisualEffectView {
-    view.backgroundColor = UIColor.clear()
+    view.backgroundColor = UIColor.clear
     
     let blurEffect = UIBlurEffect(style: style)
     let blurEffectView = UIVisualEffectView(effect: blurEffect)

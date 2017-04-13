@@ -32,12 +32,12 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
         
         offset = constant
         
-        NotificationCenter.default().addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default().addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     deinit {
-        NotificationCenter.default().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: Notification
@@ -45,7 +45,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     func keyboardWillShowNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             if let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-                let frame = frameValue.cgRectValue()
+                let frame = frameValue.cgRectValue
                 keyboardVisibleHeight = frame.size.height
             }
             
@@ -60,7 +60,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     delay: 0,
                     options: options,
                     animations: {
-                        UIApplication.shared().keyWindow?.layoutIfNeeded()
+                        UIApplication.shared.keyWindow?.layoutIfNeeded()
                         return
                     }, completion: { finished in
                 })
@@ -89,7 +89,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     delay: 0,
                     options: options,
                     animations: {
-                        UIApplication.shared().keyWindow?.layoutIfNeeded()
+                        UIApplication.shared.keyWindow?.layoutIfNeeded()
                         return
                     }, completion: { finished in
                 })

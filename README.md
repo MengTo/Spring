@@ -1,5 +1,3 @@
-![](http://cl.ly/image/012R0D3R3x2g/download/springswift2.jpg)
-
 ## Updated for Swift 3.0
 Requires Xcode 8 and Swift 3.
 
