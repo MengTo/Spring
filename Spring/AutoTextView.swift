@@ -18,7 +18,7 @@ public class AutoTextView: UITextView {
                 size.height = 0
             }
             
-            contentInset = UIEdgeInsetsMake(-4, -4, -4, -4)
+            contentInset = UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4)
             layoutIfNeeded()
             
             return size

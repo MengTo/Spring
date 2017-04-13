@@ -43,10 +43,10 @@ public func htmlToAttributedString(text: String) -> NSAttributedString! {
 }
 
 public func degreesToRadians(degrees: CGFloat) -> CGFloat {
-    return degrees * CGFloat(M_PI / 180)
+    return degrees * CGFloat(CGFloat.pi / 180)
 }
 
-public func delay(delay:Double, closure:@escaping ()->()) {
+public func delay(delay:Double, closure: @escaping ()->()) {
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
@@ -121,13 +121,13 @@ public func stringFromDate(date: NSDate, format: String) -> String {
     return dateFormatter.string(from: date as Date)
 }
 
-public func dateFromString(date: String, format: String) -> NSDate {
+public func dateFromString(date: String, format: String) -> Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format
     if let date = dateFormatter.date(from: date) {
         return date as NSDate
     } else {
-        return NSDate(timeIntervalSince1970: 0)
+        return Date(timeIntervalSince1970: 0)
     }
 }
 
@@ -146,9 +146,10 @@ public func randomStringWithLength (len : Int) -> NSString {
     return randomString
 }
 
-public func timeAgoSinceDate(date: Date, numericDates:Bool) -> String {
+public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
     let calendar = Calendar.current
     let unitFlags = Set<Calendar.Component>(arrayLiteral: Calendar.Component.minute, Calendar.Component.hour, Calendar.Component.day, Calendar.Component.weekOfYear, Calendar.Component.month, Calendar.Component.year, Calendar.Component.second)
+<<<<<<< HEAD
     let now = NSDate()
     let earliest = now.earlierDate(date)
     let latest = (earliest == now as Date) ? date : now as Date
@@ -157,55 +158,151 @@ public func timeAgoSinceDate(date: Date, numericDates:Bool) -> String {
     if (components.year! >= 2) {
         return "\(components.year)y"
     } else if (components.year! >= 1){
+=======
+    let now = Date()
+    let dateComparison = now.compare(date)
+    var earliest: Date
+    var latest: Date
+    
+    switch dateComparison {
+    case .orderedAscending:
+        earliest = now
+        latest = date
+    default:
+        earliest = date
+        latest = now
+    }
+    
+    let components: DateComponents = calendar.dateComponents(unitFlags, from: earliest, to: latest)
+    
+    guard
+        let year = components.year,
+        let month = components.month,
+        let weekOfYear = components.weekOfYear,
+        let day = components.day,
+        let hour = components.hour,
+        let minute = components.minute,
+        let second = components.second
+        else {
+        fatalError()
+    }
+    
+    if (year >= 2) {
+        return "\(year)y"
+    } else if (year >= 1) {
+>>>>>>> MengTo/master
         if (numericDates){
             return "1y"
         } else {
             return "1y"
         }
+<<<<<<< HEAD
     } else if (components.month! >= 2) {
         return "\(components.month! * 4)w"
     } else if (components.month! >= 1){
+=======
+    } else if (month >= 2) {
+        return "\(month * 4)w"
+    } else if (month >= 1) {
+>>>>>>> MengTo/master
         if (numericDates){
             return "4w"
         } else {
             return "4w"
         }
+<<<<<<< HEAD
     } else if (components.weekOfYear! >= 2) {
         return "\(components.weekOfYear)w"
     } else if (components.weekOfYear! >= 1){
+=======
+    } else if (weekOfYear >= 2) {
+        return "\(weekOfYear)w"
+    } else if (weekOfYear >= 1){
+>>>>>>> MengTo/master
         if (numericDates){
             return "1w"
         } else {
             return "1w"
         }
+<<<<<<< HEAD
     } else if (components.day! >= 2) {
         return "\(components.day)d"
     } else if (components.day! >= 1){
+=======
+    } else if (day >= 2) {
+        return "\(components.day ?? 2)d"
+    } else if (day >= 1){
+>>>>>>> MengTo/master
         if (numericDates){
             return "1d"
         } else {
             return "1d"
         }
+<<<<<<< HEAD
     } else if (components.hour! >= 2) {
         return "\(components.hour)h"
     } else if (components.hour! >= 1){
+=======
+    } else if (hour >= 2) {
+        return "\(hour)h"
+    } else if (hour >= 1){
+>>>>>>> MengTo/master
         if (numericDates){
             return "1h"
         } else {
             return "1h"
         }
+<<<<<<< HEAD
     } else if (components.minute! >= 2) {
         return "\(components.minute)m"
     } else if (components.minute! >= 1){
+=======
+    } else if (minute >= 2) {
+        return "\(minute)m"
+    } else if (minute >= 1){
+>>>>>>> MengTo/master
         if (numericDates){
             return "1m"
         } else {
             return "1m"
         }
+<<<<<<< HEAD
     } else if (components.second! >= 3) {
         return "\(components.second)s"
+=======
+    } else if (second >= 3) {
+        return "\(second)s"
+>>>>>>> MengTo/master
     } else {
         return "now"
     }
     
+}
+
+extension UIImageView {
+    func setImage(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else {
+                    self.image = placeholderImage
+                    return
+            }
+            DispatchQueue.main.async() { () -> Void in
+                self.image = image
+                
+            }
+            }.resume()
+    }
+    func setImage(urlString: String, contentMode mode: UIViewContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
+        guard let url = URL(string: urlString) else {
+            image = placeholderImage
+            return
+        }
+        setImage(url: url, contentMode: mode, placeholderImage: placeholderImage)
+    }
 }

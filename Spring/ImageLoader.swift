@@ -35,9 +35,24 @@ public class ImageLoader {
         return Static.instance
     }
     
-    public func imageForUrl(urlString: String, completionHandler:@escaping (_ image: UIImage?, _ url: String) -> ()) {
+    public func imageForUrl(urlString: String, completionHandler: @escaping(_ image: UIImage?, _ url: String) -> ()) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { 
-            let data: NSData? = self.cache.object(forKey: urlString as NSString)! as NSData
+            var data: NSData?
+            
+            if let dataCache = self.cache.object(forKey: urlString as NSString){
+                data = (dataCache) as NSData
+                
+            }else{
+                if (URL(string: urlString) != nil)
+                {
+                    data = NSData(contentsOf: URL(string: urlString)!)
+                    if data != nil {
+                        self.cache.setObject(data!, forKey: urlString as NSString)
+                    }
+                }else{
+                    return
+                }
+            }
             
             if let goodData = data {
                 let image = UIImage(data: goodData as Data)
