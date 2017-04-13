@@ -468,39 +468,42 @@ public class Spring : NSObject {
             let rotate = CGAffineTransform(rotationAngle: self.rotate)
             let translateAndScale = translate.concatenating(scale)
             self.transform = rotate.concatenating(translateAndScale)
-            
+
             self.alpha = self.opacity
         }
-        
+
         UIView.animate( withDuration: TimeInterval(duration),
                         delay: TimeInterval(delay),
                         usingSpringWithDamping: damping,
                         initialSpringVelocity: velocity,
                         options: [getAnimationOptions(curve: curve), UIViewAnimationOptions.allowUserInteraction],
                         animations: { [weak self] in
-                            if let _self = self
-                            {
-                                if !_self.animateFrom {
+                            if let _self = self {
+                                if _self.animateFrom {
+                                    _self.transform = CGAffineTransform.identity
+                                    _self.alpha = 1
+                                } else {
                                     let translate = CGAffineTransform(translationX: _self.x, y: _self.y)
                                     let scale = CGAffineTransform(scaleX: _self.scaleX, y: _self.scaleY)
                                     let rotate = CGAffineTransform(rotationAngle: _self.rotate)
                                     let translateAndScale = translate.concatenating(scale)
                                     _self.transform = rotate.concatenating(translateAndScale)
-                                    
+
                                     _self.alpha = _self.opacity
                                 }
-                                _self.transform = CGAffineTransform.identity
-                                _self.alpha = 1
-                                
                             }
-                            
             }, completion: { [weak self] finished in
-                
+
+                if let _self = self {
+                    UIView.animate(withDuration: TimeInterval(_self.duration), animations: {
+                        _self.transform = CGAffineTransform.identity
+                        _self.alpha = 1
+                    })
+                }
+
                 completion()
                 self?.resetAll()
-                
-            })
-        
+        })
     }
     
     func reset() {
