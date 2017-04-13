@@ -480,11 +480,7 @@ public class Spring : NSObject {
                         animations: { [weak self] in
                             if let _self = self
                             {
-                                if _self.animateFrom {
-                                    _self.transform = CGAffineTransform.identity
-                                    _self.alpha = 1
-                                }
-                                else {
+                                if !_self.animateFrom {
                                     let translate = CGAffineTransform(translationX: _self.x, y: _self.y)
                                     let scale = CGAffineTransform(scaleX: _self.scaleX, y: _self.scaleY)
                                     let rotate = CGAffineTransform(rotationAngle: _self.rotate)
@@ -493,6 +489,8 @@ public class Spring : NSObject {
                                     
                                     _self.alpha = _self.opacity
                                 }
+                                _self.transform = CGAffineTransform.identity
+                                _self.alpha = 1
                                 
                             }
                             
