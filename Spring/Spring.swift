@@ -452,7 +452,8 @@ public class Spring : NSObject {
         if shouldAnimateInLayoutSubviews {
             shouldAnimateInLayoutSubviews = false
             if autostart {
-                if UIApplication.shared.applicationState != .active {
+                let application = UIApplication.value(forKey: "sharedApplication") as! UIApplication
+                if application.applicationState != .active {
                     shouldAnimateAfterActive = true
                     return
                 }
