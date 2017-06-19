@@ -51,8 +51,8 @@ import UIKit
             paragraphStyle.lineSpacing = lineHeight
 
             let attributedString = NSMutableAttributedString(string: text!)
-            attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSFontAttributeName, value: font!, range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(NSAttributedStringKey.font, value: font!, range: NSRange(location: 0, length: attributedString.length))
             
             self.attributedText = attributedString
         }
