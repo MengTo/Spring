@@ -26,7 +26,8 @@ import UIKit
     
     @IBInspectable public var placeholderColor: UIColor = UIColor.clear {
         didSet {
-            attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSAttributedStringKey.foregroundColor: placeholderColor])
+            guard let placeholder = placeholder else { return }
+            attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: placeholderColor])
             layoutSubviews()
             
         }
@@ -83,12 +84,12 @@ import UIKit
     @IBInspectable public var lineHeight: CGFloat = 1.5 {
         didSet {
             let font = UIFont(name: self.font!.fontName, size: self.font!.pointSize)
-            let text = self.text
+            guard let text = self.text else { return }
             
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = lineHeight
             
-            let attributedString = NSMutableAttributedString(string: text!)
+            let attributedString = NSMutableAttributedString(string: text)
             attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
             attributedString.addAttribute(NSAttributedStringKey.font, value: font!, range: NSRange(location: 0, length: attributedString.length))
             
