@@ -31,10 +31,11 @@ public extension String {
 }
 
 public func htmlToAttributedString(text: String) -> NSAttributedString! {
-    let htmlData = text.data(using: String.Encoding.utf8, allowLossyConversion: false)
+    guard let htmlData = text.data(using: String.Encoding.utf8, allowLossyConversion: false) else {
+        return NSAttributedString() }
     let htmlString: NSAttributedString?
     do {
-        htmlString = try NSAttributedString(data: htmlData!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        htmlString = try NSAttributedString(data: htmlData, options: [NSAttributedString.DocumentReadingOptionKey.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)
     } catch _ {
         htmlString = nil
     }

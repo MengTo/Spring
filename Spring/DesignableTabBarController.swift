@@ -27,20 +27,20 @@ import UIKit
     @IBInspectable var normalTint: UIColor = UIColor.clear {
         didSet {
             UITabBar.appearance().tintColor = normalTint
-            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: normalTint], for: UIControlState())
+            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: normalTint], for: UIControlState())
         }
     }
     
     @IBInspectable var selectedTint: UIColor = UIColor.clear {
         didSet {
             UITabBar.appearance().tintColor = selectedTint
-            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedTint], for:UIControlState.selected)
+            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: selectedTint], for:UIControlState.selected)
         }
     }
     
     @IBInspectable var fontName: String = "" {
         didSet {
-            UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: normalTint, NSFontAttributeName: UIFont(name: fontName, size: 11)!], for: UIControlState())
+            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: normalTint, NSAttributedStringKey.font: UIFont(name: fontName, size: 11)!], for: UIControlState())
         }
     }
     

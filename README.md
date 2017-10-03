@@ -1,7 +1,5 @@
-![](https://dl.dropboxusercontent.com/u/7990919/Crawler/SpringSwift3.jpg)
-
-## Updated for Swift 3.0
-Requires Xcode 8 and Swift 3.
+## Updated for Swift 4
+Requires Xcode 9 and Swift 4.
 
 ## Installation
 Drop in the Spring folder to your Xcode project (make sure to enable "Copy items if needed" and "Create groups").
@@ -9,7 +7,7 @@ Drop in the Spring folder to your Xcode project (make sure to enable "Copy items
 Or via CocoaPods:
 ```
 use_frameworks!
-pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift4'
 ```
 
 ## Usage with Storyboard
