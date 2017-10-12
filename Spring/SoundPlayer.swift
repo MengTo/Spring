@@ -29,7 +29,7 @@ public struct SoundPlayer {
     static var enabled : Bool = true
 
     private struct Internal {
-        static var cache = [URL:SystemSoundID]()
+        static var cache : [URL:SystemSoundID] = [:]
     }
 
     public static func playSound(soundFile: String) {

@@ -29,8 +29,8 @@ public class TransitionManager: NSObject, UIViewControllerTransitioningDelegate,
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView
-        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
-        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        let fromView = transitionContext.view(forKey: .from)!
+        let toView = transitionContext.view(forKey: .to)!
 
         if isPresenting {
             toView.frame = container.bounds

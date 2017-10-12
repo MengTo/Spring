@@ -43,59 +43,54 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     // MARK: Notification
 
     @objc func keyboardWillShowNotification(_ notification: Notification) {
-        if let userInfo = notification.userInfo {
-            if let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-                let frame = frameValue.cgRectValue
-                keyboardVisibleHeight = frame.size.height
-            }
-
-            self.updateConstant()
-            switch (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber) {
-            case let (.some(duration), .some(curve)):
-
-                let options = UIViewAnimationOptions(rawValue: curve.uintValue)
-
-                UIView.animate(
-                    withDuration: TimeInterval(duration.doubleValue),
-                    delay: 0,
-                    options: options,
-                    animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
-                        return
-                }, completion: { finished in
-                })
-            default:
-
-                break
-            }
-
+        guard let userInfo = notification.userInfo else { return }
+        if let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let frame = frameValue.cgRectValue
+            keyboardVisibleHeight = frame.size.height
         }
 
+        self.updateConstant()
+        switch (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber) {
+        case let (.some(duration), .some(curve)):
+
+            let options = UIViewAnimationOptions(rawValue: curve.uintValue)
+
+            UIView.animate(
+                withDuration: TimeInterval(duration.doubleValue),
+                delay: 0,
+                options: options,
+                animations: {
+                    UIApplication.shared.keyWindow?.layoutIfNeeded()
+                    return
+            }, completion: { finished in
+            })
+        default:
+            break
+        }
     }
 
     @objc func keyboardWillHideNotification(_ notification: NSNotification) {
         keyboardVisibleHeight = 0
         self.updateConstant()
 
-        if let userInfo = notification.userInfo {
+        guard let userInfo = notification.userInfo else { return }
 
-            switch (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber) {
-            case let (.some(duration), .some(curve)):
+        switch (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber, userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber) {
+        case let (.some(duration), .some(curve)):
 
-                let options = UIViewAnimationOptions(rawValue: curve.uintValue)
+            let options = UIViewAnimationOptions(rawValue: curve.uintValue)
 
-                UIView.animate(
-                    withDuration: TimeInterval(duration.doubleValue),
-                    delay: 0,
-                    options: options,
-                    animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
-                        return
-                }, completion: { finished in
-                })
-            default:
-                break
-            }
+            UIView.animate(
+                withDuration: TimeInterval(duration.doubleValue),
+                delay: 0,
+                options: options,
+                animations: {
+                    UIApplication.shared.keyWindow?.layoutIfNeeded()
+                    return
+            }, completion: { finished in
+            })
+        default:
+            break
         }
     }
 
