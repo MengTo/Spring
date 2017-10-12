@@ -65,7 +65,7 @@ public class Spring : NSObject {
     }
 
     func commonInit() {
-        NotificationCenter.default.addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActiveNotification), name: .UIApplicationDidBecomeActive, object: nil)
     }
 
     @objc func didBecomeActiveNotification(_ notification: NSNotification) {
@@ -77,7 +77,7 @@ public class Spring : NSObject {
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIApplicationDidBecomeActive, object: nil)
     }
 
     private var autostart: Bool { set { self.view.autostart = newValue } get { return self.view.autostart }}
@@ -227,7 +227,7 @@ public class Spring : NSObject {
                 scaleY = 2*force
             case .Fall:
                 animateFrom = false
-                rotate = 15 * CGFloat(CGFloat.pi/180)
+                rotate = 15 * .pi/180
                 y = 600*force
             case .Shake:
                 let animation = CAKeyframeAnimation()
