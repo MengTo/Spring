@@ -31,7 +31,7 @@ public extension String {
 }
 
 public func htmlToAttributedString(text: String) -> NSAttributedString! {
-    guard let htmlData = text.data(using: String.Encoding.utf8, allowLossyConversion: false) else {
+    guard let htmlData = text.data(using: .utf8, allowLossyConversion: false) else {
         return NSAttributedString() }
     let htmlString: NSAttributedString?
     do {
@@ -44,11 +44,11 @@ public func htmlToAttributedString(text: String) -> NSAttributedString! {
 }
 
 public func degreesToRadians(degrees: CGFloat) -> CGFloat {
-    return degrees * CGFloat(CGFloat.pi / 180)
+    return degrees * .pi / 180
 }
 
 public func delay(delay:Double, closure: @escaping ()->()) {
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+    DispatchQueue.main.asyncAfter(deadline: .now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
 public func imageFromURL(_ Url: String) -> UIImage {
@@ -149,7 +149,7 @@ public func randomStringWithLength (len : Int) -> NSString {
 
 public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
     let calendar = Calendar.current
-    let unitFlags = Set<Calendar.Component>(arrayLiteral: Calendar.Component.minute, Calendar.Component.hour, Calendar.Component.day, Calendar.Component.weekOfYear, Calendar.Component.month, Calendar.Component.year, Calendar.Component.second)
+    let unitFlags : Set<Calendar.Component> = [.minute, .hour, .day, .weekOfYear, .month, .year, .second]
     let now = Date()
     let dateComparison = now.compare(date)
     var earliest: Date
@@ -247,7 +247,7 @@ extension UIImageView {
                     self.image = placeholderImage
                     return
             }
-            DispatchQueue.main.async() { () -> Void in
+            DispatchQueue.main.async() {
                 self.image = image
 
             }

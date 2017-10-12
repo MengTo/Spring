@@ -36,7 +36,7 @@ public class ImageLoader {
     }
 
     public func imageForUrl(urlString: String, completionHandler: @escaping(_ image: UIImage?, _ url: String) -> ()) {
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
+        DispatchQueue.global(qos: .background).async {
             var data: NSData?
 
             if let dataCache = self.cache.object(forKey: urlString as NSString){
