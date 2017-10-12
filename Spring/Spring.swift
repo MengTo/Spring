@@ -262,7 +262,7 @@ public class Spring : NSObject {
                 animation.keyPath = "transform"
                 animation.fromValue = NSValue(caTransform3D: CATransform3DMakeRotation(0, 0, 0, 0))
                 animation.toValue = NSValue(caTransform3D:
-                    CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(CGFloat.pi), 0, 1, 0)))
+                    CATransform3DConcat(perspective, CATransform3DMakeRotation(.pi, 0, 1, 0)))
                 animation.duration = CFTimeInterval(duration)
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)
@@ -276,7 +276,7 @@ public class Spring : NSObject {
                 animation.fromValue = NSValue(caTransform3D:
                     CATransform3DMakeRotation(0, 0, 0, 0))
                 animation.toValue = NSValue(caTransform3D:
-                    CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(CGFloat.pi), 1, 0, 0)))
+                    CATransform3DConcat(perspective,CATransform3DMakeRotation(.pi, 1, 0, 0)))
                 animation.duration = CFTimeInterval(duration)
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)
@@ -404,13 +404,13 @@ public class Spring : NSObject {
     func getAnimationOptions(curve: String) -> UIViewAnimationOptions {
         if let curve = AnimationCurve(rawValue: curve) {
             switch curve {
-            case .EaseIn: return UIViewAnimationOptions.curveEaseIn
-            case .EaseOut: return UIViewAnimationOptions.curveEaseOut
-            case .EaseInOut: return UIViewAnimationOptions()
+            case .EaseIn: return .curveEaseIn
+            case .EaseOut: return .curveEaseOut
+            case .EaseInOut: return []
             default: break
             }
         }
-        return UIViewAnimationOptions.curveLinear
+        return .curveLinear
     }
     
     public func animate() {
@@ -481,7 +481,7 @@ public class Spring : NSObject {
                             if let _self = self
                             {
                                 if _self.animateFrom {
-                                    _self.transform = CGAffineTransform.identity
+                                    _self.transform = .identity
                                     _self.alpha = 1
                                 }
                                 else {
