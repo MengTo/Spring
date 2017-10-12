@@ -52,7 +52,7 @@ open class SpringView: UIView, Springable {
         super.layoutSubviews()
         spring.customLayoutSubviews()
     }
-    
+
     public func animate() {
         self.spring.animate()
     }
@@ -69,3 +69,4 @@ open class SpringView: UIView, Springable {
         self.spring.animateToNext(completion: completion)
     }
 }
+

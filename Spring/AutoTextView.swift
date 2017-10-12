@@ -17,11 +17,12 @@ public class AutoTextView: UITextView {
             if text.length == 0 {
                 size.height = 0
             }
-            
+
             contentInset = UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4)
             layoutIfNeeded()
-            
+
             return size
         }
     }
 }
+

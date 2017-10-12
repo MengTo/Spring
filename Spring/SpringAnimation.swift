@@ -32,7 +32,7 @@ import UIKit
             options: [],
             animations: {
                 animations()
-            },
+        },
             completion: nil
         )
     }
@@ -44,7 +44,7 @@ import UIKit
             options: .curveEaseIn,
             animations: {
                 animations()
-            },
+        },
             completion: nil
         )
     }
@@ -56,7 +56,7 @@ import UIKit
             options: .curveEaseOut,
             animations: {
                 animations()
-            }, completion: nil
+        }, completion: nil
         )
     }
 
@@ -67,7 +67,7 @@ import UIKit
             options: UIViewAnimationOptions(),
             animations: {
                 animations()
-            }, completion: nil
+        }, completion: nil
         )
     }
 
@@ -78,7 +78,7 @@ import UIKit
             options: .curveLinear,
             animations: {
                 animations()
-            }, completion: nil
+        }, completion: nil
         )
     }
 
@@ -91,7 +91,7 @@ import UIKit
             options: [],
             animations: {
                 animations()
-            }, completion: nil
+        }, completion: nil
         )
     }
 
@@ -104,9 +104,10 @@ import UIKit
             options: [],
             animations: {
                 animations()
-            }, completion: { finished in
-                completion(finished)
-            }
+        }, completion: { finished in
+            completion(finished)
+        }
         )
     }
 }
+

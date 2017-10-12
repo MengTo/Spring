@@ -40,12 +40,12 @@ import UIKit
     var opacity: CGFloat { get set }
     var animateFrom: Bool { get set }
     var curve: String { get set }
-    
+
     // UIView
     var layer : CALayer { get }
     var transform : CGAffineTransform { get set }
     var alpha : CGFloat { get set }
-    
+
     func animate()
     func animateNext(completion: @escaping () -> ())
     func animateTo()
@@ -53,21 +53,21 @@ import UIKit
 }
 
 public class Spring : NSObject {
-    
+
     private unowned var view : Springable
     private var shouldAnimateAfterActive = false
     private var shouldAnimateInLayoutSubviews = true
-    
+
     init(_ view: Springable) {
         self.view = view
         super.init()
         commonInit()
     }
-    
+
     func commonInit() {
         NotificationCenter.default.addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
-    
+
     @objc func didBecomeActiveNotification(_ notification: NSNotification) {
         if shouldAnimateAfterActive {
             alpha = 0
@@ -75,11 +75,11 @@ public class Spring : NSObject {
             shouldAnimateAfterActive = false
         }
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
-    
+
     private var autostart: Bool { set { self.view.autostart = newValue } get { return self.view.autostart }}
     private var autohide: Bool { set { self.view.autohide = newValue } get { return self.view.autohide }}
     private var animation: String { set { self.view.animation = newValue } get { return self.view.animation }}
@@ -97,12 +97,12 @@ public class Spring : NSObject {
     private var opacity: CGFloat { set { self.view.opacity = newValue } get { return self.view.opacity }}
     private var animateFrom: Bool { set { self.view.animateFrom = newValue } get { return self.view.animateFrom }}
     private var curve: String { set { self.view.curve = newValue } get { return self.view.curve }}
-    
+
     // UIView
     private var layer : CALayer { return view.layer }
     private var transform : CGAffineTransform { get { return view.transform } set { view.transform = newValue }}
     private var alpha: CGFloat { get { return view.alpha } set { view.alpha = newValue } }
-    
+
     public enum AnimationPreset: String {
         case SlideLeft = "slideLeft"
         case SlideRight = "slideRight"
@@ -132,7 +132,7 @@ public class Spring : NSObject {
         case Wobble = "wobble"
         case Swing = "swing"
     }
-    
+
     public enum AnimationCurve: String {
         case EaseIn = "easeIn"
         case EaseOut = "easeOut"
@@ -164,7 +164,7 @@ public class Spring : NSObject {
         case EaseOutBack = "easeOutBack"
         case EaseInOutBack = "easeInOutBack"
     }
-    
+
     func animatePreset() {
         alpha = 0.99
         if let animation = AnimationPreset(rawValue: animation) {
@@ -257,7 +257,7 @@ public class Spring : NSObject {
                 scaleY = 1
                 var perspective = CATransform3DIdentity
                 perspective.m34 = -1.0 / layer.frame.size.width/2
-                
+
                 let animation = CABasicAnimation()
                 animation.keyPath = "transform"
                 animation.fromValue = NSValue(caTransform3D: CATransform3DMakeRotation(0, 0, 0, 0))
@@ -270,7 +270,7 @@ public class Spring : NSObject {
             case .FlipY:
                 var perspective = CATransform3DIdentity
                 perspective.m34 = -1.0 / layer.frame.size.width/2
-                
+
                 let animation = CABasicAnimation()
                 animation.keyPath = "transform"
                 animation.fromValue = NSValue(caTransform3D:
@@ -291,7 +291,7 @@ public class Spring : NSObject {
                 morphX.repeatCount = repeatCount
                 morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(morphX, forKey: "morphX")
-                
+
                 let morphY = CAKeyframeAnimation()
                 morphY.keyPath = "transform.scale.y"
                 morphY.values = [1, 0.7, 1.3*force, 0.7, 1]
@@ -311,7 +311,7 @@ public class Spring : NSObject {
                 morphX.repeatCount = repeatCount
                 morphX.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(morphX, forKey: "morphX")
-                
+
                 let morphY = CAKeyframeAnimation()
                 morphY.keyPath = "transform.scale.y"
                 morphY.values = [1, 0.5, 1, 0.5, 1]
@@ -340,7 +340,7 @@ public class Spring : NSObject {
                 animation.isAdditive = true
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(animation, forKey: "wobble")
-                
+
                 let x = CAKeyframeAnimation()
                 x.keyPath = "position.x"
                 x.values = [0, 30*force, -30*force, 30*force, 0]
@@ -363,7 +363,7 @@ public class Spring : NSObject {
             }
         }
     }
-    
+
     func getTimingFunction(curve: String) -> CAMediaTimingFunction {
         if let curve = AnimationCurve(rawValue: curve) {
             switch curve {
@@ -400,7 +400,7 @@ public class Spring : NSObject {
         }
         return CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
     }
-    
+
     func getAnimationOptions(curve: String) -> UIViewAnimationOptions {
         if let curve = AnimationCurve(rawValue: curve) {
             switch curve {
@@ -412,13 +412,13 @@ public class Spring : NSObject {
         }
         return .curveLinear
     }
-    
+
     public func animate() {
         animateFrom = true
         animatePreset()
         setView {}
     }
-    
+
     public func animateNext(completion: @escaping () -> ()) {
         animateFrom = true
         animatePreset()
@@ -426,13 +426,13 @@ public class Spring : NSObject {
             completion()
         }
     }
-    
+
     public func animateTo() {
         animateFrom = false
         animatePreset()
         setView {}
     }
-    
+
     public func animateToNext(completion: @escaping () -> ()) {
         animateFrom = false
         animatePreset()
@@ -440,13 +440,13 @@ public class Spring : NSObject {
             completion()
         }
     }
-    
+
     public func customAwakeFromNib() {
         if autohide {
             alpha = 0
         }
     }
-    
+
     public func customLayoutSubviews() {
         if shouldAnimateInLayoutSubviews {
             shouldAnimateInLayoutSubviews = false
@@ -460,7 +460,7 @@ public class Spring : NSObject {
             }
         }
     }
-    
+
     func setView(completion: @escaping () -> ()) {
         if animateFrom {
             let translate = CGAffineTransform(translationX: self.x, y: self.y)
@@ -468,10 +468,10 @@ public class Spring : NSObject {
             let rotate = CGAffineTransform(rotationAngle: self.rotate)
             let translateAndScale = translate.concatenating(scale)
             self.transform = rotate.concatenating(translateAndScale)
-            
+
             self.alpha = self.opacity
         }
-        
+
         UIView.animate( withDuration: TimeInterval(duration),
                         delay: TimeInterval(delay),
                         usingSpringWithDamping: damping,
@@ -490,27 +490,27 @@ public class Spring : NSObject {
                                     let rotate = CGAffineTransform(rotationAngle: _self.rotate)
                                     let translateAndScale = translate.concatenating(scale)
                                     _self.transform = rotate.concatenating(translateAndScale)
-                                    
+
                                     _self.alpha = _self.opacity
                                 }
-                                
+
                             }
-                            
+
             }, completion: { [weak self] finished in
-                
+
                 completion()
                 self?.resetAll()
-                
-            })
-        
+
+        })
+
     }
-    
+
     func reset() {
         x = 0
         y = 0
         opacity = 1
     }
-    
+
     func resetAll() {
         x = 0
         y = 0
@@ -525,5 +525,6 @@ public class Spring : NSObject {
         delay = 0
         duration = 0.7
     }
-    
+
 }
+

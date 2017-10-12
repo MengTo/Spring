@@ -24,7 +24,7 @@ import UIKit
 
 public extension String {
     public var length: Int { return self.characters.count }
-    
+
     public func toURL() -> NSURL? {
         return NSURL(string: self)
     }
@@ -39,7 +39,7 @@ public func htmlToAttributedString(text: String) -> NSAttributedString! {
     } catch _ {
         htmlString = nil
     }
-    
+
     return htmlString
 }
 
@@ -64,12 +64,12 @@ public extension UIColor {
         var blue:  CGFloat = 0.0
         var alpha: CGFloat = 1.0
         var hex:   String = hex
-        
+
         if hex.hasPrefix("#") {
             let index = hex.index(hex.startIndex, offsetBy: 1)
             hex         = hex.substring(from: index)
         }
-        
+
         let scanner = Scanner(string: hex)
         var hexValue: CUnsignedLongLong = 0
         if scanner.scanHexInt64(&hexValue) {
@@ -103,7 +103,7 @@ public extension UIColor {
 }
 
 public func rgbaToUIColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-    
+
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
 }
 
@@ -133,17 +133,17 @@ public func dateFromString(date: String, format: String) -> Date {
 }
 
 public func randomStringWithLength (len : Int) -> NSString {
-    
+
     let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    
+
     let randomString : NSMutableString = NSMutableString(capacity: len)
-    
+
     for _ in 0 ..< len {
         let length = UInt32 (letters.length)
         let rand = arc4random_uniform(length)
         randomString.appendFormat("%C", letters.character(at: Int(rand)))
     }
-    
+
     return randomString
 }
 
@@ -154,7 +154,7 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
     let dateComparison = now.compare(date)
     var earliest: Date
     var latest: Date
-    
+
     switch dateComparison {
     case .orderedAscending:
         earliest = now
@@ -163,9 +163,9 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
         earliest = date
         latest = now
     }
-    
+
     let components: DateComponents = calendar.dateComponents(unitFlags, from: earliest, to: latest)
-    
+
     guard
         let year = components.year,
         let month = components.month,
@@ -175,9 +175,9 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
         let minute = components.minute,
         let second = components.second
         else {
-        fatalError()
+            fatalError()
     }
-    
+
     if (year >= 2) {
         return "\(year)y"
     } else if (year >= 1) {
@@ -231,7 +231,7 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
     } else {
         return "now"
     }
-    
+
 }
 
 extension UIImageView {
@@ -249,7 +249,7 @@ extension UIImageView {
             }
             DispatchQueue.main.async() { () -> Void in
                 self.image = image
-                
+
             }
             }.resume()
     }
@@ -261,3 +261,4 @@ extension UIImageView {
         setImage(url: url, contentMode: mode, placeholderImage: placeholderImage)
     }
 }
+
