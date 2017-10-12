@@ -27,20 +27,20 @@ import UIKit
     @IBInspectable var normalTint: UIColor = .clear {
         didSet {
             UITabBar.appearance().tintColor = normalTint
-            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: normalTint], for: UIControlState())
+            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: normalTint], for: [])
         }
     }
 
     @IBInspectable var selectedTint: UIColor = .clear {
         didSet {
             UITabBar.appearance().tintColor = selectedTint
-            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: selectedTint], for:UIControlState.selected)
+            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: selectedTint], for: .selected)
         }
     }
 
     @IBInspectable var fontName: String = "" {
         didSet {
-            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: normalTint, NSAttributedStringKey.font: UIFont(name: fontName, size: 11)!], for: UIControlState())
+            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: normalTint, .font: UIFont(name: fontName, size: 11)!], for: [])
         }
     }
 
@@ -109,7 +109,7 @@ extension UIImage {
         context!.scaleBy(x: 1.0, y: -1.0);
         context!.setBlendMode(.normal)
 
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        let rect = CGRect(origin: .zero, size: self.size)
         context?.clip(to: rect, mask: self.cgImage!)
         tintColor.setFill()
         context!.fill(rect)
