@@ -476,7 +476,7 @@ public class Spring : NSObject {
                         delay: TimeInterval(delay),
                         usingSpringWithDamping: damping,
                         initialSpringVelocity: velocity,
-                        options: [getAnimationOptions(curve: curve), UIViewAnimationOptions.allowUserInteraction],
+                        options: [getAnimationOptions(curve: curve), .allowUserInteraction],
                         animations: { [weak self] in
                             if let _self = self
                             {
