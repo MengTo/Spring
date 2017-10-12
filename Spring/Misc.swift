@@ -30,6 +30,13 @@ public extension String {
     }
 }
 
+extension NSMutableAttributedString {
+    func add<T>(attribute :  NSAttributedStringKey, value : T) {
+        let range = NSRange(location: 0, length: length)
+        addAttribute(attribute, value: value, range: range)
+    }
+}
+
 public func htmlToAttributedString(text: String) -> NSAttributedString! {
     guard let htmlData = text.data(using: .utf8, allowLossyConversion: false) else {
         return NSAttributedString() }
