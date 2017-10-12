@@ -29,8 +29,8 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
 
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView
-        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
-        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        let fromView = transitionContext.view(forKey: .from)!
+        let toView = transitionContext.view(forKey: .to)!
 
         if isPresenting {
             container.addSubview(fromView)
@@ -42,7 +42,7 @@ public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UI
             SpringAnimation.springEaseInOut(duration: duration) {
                 fromView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
                 fromView.alpha = 0
-                toView.transform = CGAffineTransform.identity
+                toView.transform = .identity
                 toView.alpha = 1
             }
         }
