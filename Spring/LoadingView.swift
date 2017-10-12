@@ -37,7 +37,7 @@ public class LoadingView: UIView {
     }
 
     class func designCodeLoadingView() -> UIView {
-        return NSBundle(forClass: self).loadNibNamed("LoadingView", owner: self, options: nil)[0] as! UIView
+        return NSBundle(forClass: self).loadNibNamed("LoadingView", owner: self, options: nil)![0] as! UIView
     }
 }
 
