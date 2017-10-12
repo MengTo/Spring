@@ -35,7 +35,7 @@ public class ImageLoader {
         return Static.instance
     }
 
-    public func imageForUrl(urlString: String, completionHandler: @escaping(_ image: UIImage?, _ url: String) -> ()) {
+    public func image(for urlString: String, completionHandler: @escaping(_ image: UIImage?, _ url: String) -> ()) {
         DispatchQueue.global(qos: .background).async {
             var data: NSData?
 
