@@ -26,7 +26,8 @@ import UIKit
     
     @IBInspectable public var placeholderColor: UIColor = UIColor.clearColor() {
         didSet {
-            attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: placeholderColor])
+            guard let placeholder = placeholder else { return }
+            attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName: placeholderColor])
             layoutSubviews()
             
         }
