@@ -358,6 +358,7 @@ public class Spring : NSObject {
                 animation.keyTimes = [0, 0.2, 0.4, 0.6, 0.8, 1]
                 animation.duration = CFTimeInterval(duration)
                 animation.isAdditive = true
+                animation.repeatCount = repeatCount
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 layer.add(animation, forKey: "swing")
             }
