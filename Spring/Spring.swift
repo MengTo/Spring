@@ -264,6 +264,7 @@ public class Spring : NSObject {
                 animation.toValue = NSValue(caTransform3D:
                     CATransform3DConcat(perspective, CATransform3DMakeRotation(CGFloat(CGFloat.pi), 0, 1, 0)))
                 animation.duration = CFTimeInterval(duration)
+                animation.repeatCount = repeatCount
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)
                 layer.add(animation, forKey: "3d")
@@ -278,6 +279,7 @@ public class Spring : NSObject {
                 animation.toValue = NSValue(caTransform3D:
                     CATransform3DConcat(perspective,CATransform3DMakeRotation(CGFloat(CGFloat.pi), 1, 0, 0)))
                 animation.duration = CFTimeInterval(duration)
+                animation.repeatCount = repeatCount
                 animation.beginTime = CACurrentMediaTime() + CFTimeInterval(delay)
                 animation.timingFunction = getTimingFunction(curve: curve)
                 layer.add(animation, forKey: "3d")
