@@ -34,6 +34,7 @@ In Identity Inspector, connect the UIView to SpringView Class and set the animat
     animateNext { ... }
     animateTo()
     animateToNext { ... }
+第三个讽德诵功打算放过 
 
 ## Animation
     shake
