@@ -27,6 +27,8 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     private var offset : CGFloat = 0
     private var keyboardVisibleHeight : CGFloat = 0
     
+   @IBInspectable var inTabViewController: Bool = false
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
         
@@ -101,6 +103,9 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     
     func updateConstant() {
         self.constant = offset + keyboardVisibleHeight
+        if inTabViewController && keyboardVisibleHeight != 0 { // if typing in tab view controller
+            constant -= 49
+        }
     }
     
 }
