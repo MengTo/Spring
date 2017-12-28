@@ -23,78 +23,78 @@
 import UIKit
 
 @IBDesignable class DesignableTabBarController: UITabBarController {
-    
-    @IBInspectable var normalTint: UIColor = UIColor.clear {
+
+    @IBInspectable var normalTint: UIColor = .clear {
         didSet {
             UITabBar.appearance().tintColor = normalTint
-            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: normalTint], for: UIControlState())
+            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: normalTint], for: [])
         }
     }
-    
-    @IBInspectable var selectedTint: UIColor = UIColor.clear {
+
+    @IBInspectable var selectedTint: UIColor = .clear {
         didSet {
             UITabBar.appearance().tintColor = selectedTint
-            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: selectedTint], for:UIControlState.selected)
+            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: selectedTint], for: .selected)
         }
     }
-    
+
     @IBInspectable var fontName: String = "" {
         didSet {
-            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: normalTint, NSAttributedStringKey.font: UIFont(name: fontName, size: 11)!], for: UIControlState())
+            UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: normalTint, .font: UIFont(name: fontName, size: 11)!], for: [])
         }
     }
-    
+
     @IBInspectable var firstSelectedImage: UIImage? {
         didSet {
             if let image = firstSelectedImage {
                 var tabBarItems = self.tabBar.items as [UITabBarItem]!
-                tabBarItems?[0].selectedImage = image.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                tabBarItems?[0].selectedImage = image.withRenderingMode(.alwaysTemplate)
             }
         }
     }
-    
+
     @IBInspectable var secondSelectedImage: UIImage? {
         didSet {
             if let image = secondSelectedImage {
                 var tabBarItems = self.tabBar.items as [UITabBarItem]!
-                tabBarItems?[1].selectedImage = image.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                tabBarItems?[1].selectedImage = image.withRenderingMode(.alwaysTemplate)
             }
         }
     }
-    
+
     @IBInspectable var thirdSelectedImage: UIImage? {
         didSet {
             if let image = thirdSelectedImage {
                 var tabBarItems = self.tabBar.items as [UITabBarItem]!
-                tabBarItems?[2].selectedImage = image.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                tabBarItems?[2].selectedImage = image.withRenderingMode(.alwaysTemplate)
             }
         }
     }
-    
+
     @IBInspectable var fourthSelectedImage: UIImage? {
         didSet {
             if let image = fourthSelectedImage {
                 var tabBarItems = self.tabBar.items as [UITabBarItem]!
-                tabBarItems?[3].selectedImage = image.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                tabBarItems?[3].selectedImage = image.withRenderingMode(.alwaysTemplate)
             }
         }
     }
-    
+
     @IBInspectable var fifthSelectedImage: UIImage? {
         didSet {
             if let image = fifthSelectedImage {
                 var tabBarItems = self.tabBar.items as [UITabBarItem]!
-                tabBarItems?[4].selectedImage = image.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+                tabBarItems?[4].selectedImage = image.withRenderingMode(.alwaysTemplate)
             }
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         for item in self.tabBar.items as [UITabBarItem]! {
             if let image = item.image {
-                item.image = image.imageWithColor(tintColor: self.normalTint).withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+                item.image = image.imageWithColor(tintColor: self.normalTint).withRenderingMode(.alwaysOriginal)
             }
         }
     }
@@ -103,20 +103,21 @@ import UIKit
 extension UIImage {
     func imageWithColor(tintColor: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        
+
         let context = UIGraphicsGetCurrentContext()
         context!.translateBy(x: 0, y: self.size.height)
         context!.scaleBy(x: 1.0, y: -1.0);
-        context!.setBlendMode(CGBlendMode.normal)
-        
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        context!.setBlendMode(.normal)
+
+        let rect = CGRect(origin: .zero, size: self.size)
         context?.clip(to: rect, mask: self.cgImage!)
         tintColor.setFill()
         context!.fill(rect)
-        
+
         let newImage = UIGraphicsGetImageFromCurrentImageContext()! as UIImage
         UIGraphicsEndImageContext()
-        
+
         return newImage
     }
 }
+

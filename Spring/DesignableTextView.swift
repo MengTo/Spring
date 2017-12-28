@@ -23,19 +23,19 @@
 import UIKit
 
 @IBDesignable public class DesignableTextView: SpringTextView {
-    
-    @IBInspectable public var borderColor: UIColor = UIColor.clear {
+
+    @IBInspectable public var borderColor: UIColor = .clear {
         didSet {
             layer.borderColor = borderColor.cgColor
         }
     }
-    
+
     @IBInspectable public var borderWidth: CGFloat = 0 {
         didSet {
             layer.borderWidth = borderWidth
         }
     }
-    
+
     @IBInspectable public var cornerRadius: CGFloat = 0 {
         didSet {
             layer.cornerRadius = cornerRadius
@@ -46,16 +46,17 @@ import UIKit
         didSet {
             let font = UIFont(name: self.font!.fontName, size: self.font!.pointSize)
             guard let text = self.text else { return }
-            
+
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = lineHeight
 
             let attributedString = NSMutableAttributedString(string: text)
-            attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
-            attributedString.addAttribute(NSAttributedStringKey.font, value: font!, range: NSRange(location: 0, length: attributedString.length))
-            
+            attributedString.add(attribute: .paragraphStyle, value: paragraphStyle)
+            attributedString.add(attribute: .font, value: font!)
+
             self.attributedText = attributedString
         }
     }
 
 }
+
