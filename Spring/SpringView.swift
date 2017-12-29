@@ -38,10 +38,11 @@ open class SpringView: UIView, Springable {
     @IBInspectable public var scaleY: CGFloat = 1
     @IBInspectable public var rotate: CGFloat = 0
     @IBInspectable public var curve: String = ""
-    public var opacity: CGFloat = 1
-    public var animateFrom: Bool = false
+    @IBInspectable public var animateFrom: Bool = false
 
-    lazy private var spring : Spring = Spring(self)
+    public var opacity: CGFloat = 1
+
+    lazy public var spring : Spring = Spring(self)
 
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -51,21 +52,5 @@ open class SpringView: UIView, Springable {
     open override func layoutSubviews() {
         super.layoutSubviews()
         spring.customLayoutSubviews()
-    }
-    
-    public func animate() {
-        self.spring.animate()
-    }
-
-    public func animateNext(completion: @escaping () -> ()) {
-        self.spring.animateNext(completion: completion)
-    }
-
-    public func animateTo() {
-        self.spring.animateTo()
-    }
-
-    public func animateToNext(completion: @escaping () -> ()) {
-        self.spring.animateToNext(completion: completion)
     }
 }

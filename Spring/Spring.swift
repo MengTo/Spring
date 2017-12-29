@@ -22,39 +22,9 @@
 
 import UIKit
 
-@objc public protocol Springable {
-    var autostart: Bool  { get set }
-    var autohide: Bool  { get set }
-    var animation: String  { get set }
-    var force: CGFloat  { get set }
-    var delay: CGFloat { get set }
-    var duration: CGFloat { get set }
-    var damping: CGFloat { get set }
-    var velocity: CGFloat { get set }
-    var repeatCount: Float { get set }
-    var x: CGFloat { get set }
-    var y: CGFloat { get set }
-    var scaleX: CGFloat { get set }
-    var scaleY: CGFloat { get set }
-    var rotate: CGFloat { get set }
-    var opacity: CGFloat { get set }
-    var animateFrom: Bool { get set }
-    var curve: String { get set }
-    
-    // UIView
-    var layer : CALayer { get }
-    var transform : CGAffineTransform { get set }
-    var alpha : CGFloat { get set }
-    
-    func animate()
-    func animateNext(completion: @escaping () -> ())
-    func animateTo()
-    func animateToNext(completion: @escaping () -> ())
-}
-
 public class Spring : NSObject {
     
-    private unowned var view : Springable
+    private weak var view : Springable!
     private var shouldAnimateAfterActive = false
     private var shouldAnimateInLayoutSubviews = true
     
