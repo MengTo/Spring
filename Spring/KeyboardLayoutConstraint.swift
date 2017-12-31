@@ -22,11 +22,14 @@
 
 import UIKit
 
+#if !os(tvOS)
+@available(tvOS, unavailable)
 public class KeyboardLayoutConstraint: NSLayoutConstraint {
     
     private var offset : CGFloat = 0
     private var keyboardVisibleHeight : CGFloat = 0
     
+    @available(tvOS, unavailable)
     override public func awakeFromNib() {
         super.awakeFromNib()
         
@@ -104,3 +107,4 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     }
     
 }
+#endif

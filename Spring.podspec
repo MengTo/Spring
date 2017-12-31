@@ -8,6 +8,8 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/MengTo/Spring.git', :tag => s.version.to_s }
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
+  s.tvos.deployment_target = '11.0'
   s.source_files = 'Spring/*.swift'
-  s.resources = ['Spring/*.xib', 'SpringApp/*.xcassets']
+  s.ios.resources = ['Spring/*.xib', 'SpringApp/*.xcassets']
+  s.tvos.resources = ['SpringApp/*.xcassets']
 end
