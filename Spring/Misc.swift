@@ -101,18 +101,15 @@ public extension UIColor {
     }
 }
 
-public func rgbaToUIColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-    
-    return UIColor(red: red, green: green, blue: blue, alpha: alpha)
-}
-
-public func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-    return UIColor(
-        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-        alpha: CGFloat(1.0)
-    )
+extension UIColor {
+    convenience public init(rgbValue : UInt) {
+        self.init(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
 }
 
 public func stringFromDate(date: NSDate, format: String) -> String {
@@ -146,7 +143,7 @@ public func randomStringWithLength (len : Int) -> NSString {
     return randomString
 }
 
-public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
+public func timeAgoSince(_ date: Date, numericDates: Bool) -> String {
     let calendar = Calendar.current
     let unitFlags = Set<Calendar.Component>(arrayLiteral: Calendar.Component.minute, Calendar.Component.hour, Calendar.Component.day, Calendar.Component.weekOfYear, Calendar.Component.month, Calendar.Component.year, Calendar.Component.second)
     let now = Date()
