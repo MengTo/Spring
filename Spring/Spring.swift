@@ -65,7 +65,7 @@ public class Spring : NSObject {
     }
     
     func commonInit() {
-        NotificationCenter.default.addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     @objc func didBecomeActiveNotification(_ notification: NSNotification) {
@@ -77,7 +77,7 @@ public class Spring : NSObject {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     private var autostart: Bool { set { self.view.autostart = newValue } get { return self.view.autostart }}
@@ -370,10 +370,10 @@ public class Spring : NSObject {
     func getTimingFunction(curve: String) -> CAMediaTimingFunction {
         if let curve = AnimationCurve(rawValue: curve) {
             switch curve {
-            case .EaseIn: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-            case .EaseOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-            case .EaseInOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            case .Linear: return CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            case .EaseIn: return CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+            case .EaseOut: return CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            case .EaseInOut: return CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            case .Linear: return CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
             case .Spring: return CAMediaTimingFunction(controlPoints: 0.5, 1.1+Float(force/3), 1, 1)
             case .EaseInSine: return CAMediaTimingFunction(controlPoints: 0.47, 0, 0.745, 0.715)
             case .EaseOutSine: return CAMediaTimingFunction(controlPoints: 0.39, 0.575, 0.565, 1)
@@ -401,19 +401,19 @@ public class Spring : NSObject {
             case .EaseInOutBack: return CAMediaTimingFunction(controlPoints: 0.68, -0.55, 0.265, 1.55)
             }
         }
-        return CAMediaTimingFunction(name: kCAMediaTimingFunctionDefault)
+        return CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
     }
     
-    func getAnimationOptions(curve: String) -> UIViewAnimationOptions {
+    func getAnimationOptions(curve: String) -> UIView.AnimationOptions {
         if let curve = AnimationCurve(rawValue: curve) {
             switch curve {
-            case .EaseIn: return UIViewAnimationOptions.curveEaseIn
-            case .EaseOut: return UIViewAnimationOptions.curveEaseOut
-            case .EaseInOut: return UIViewAnimationOptions()
+            case .EaseIn: return UIView.AnimationOptions.curveEaseIn
+            case .EaseOut: return UIView.AnimationOptions.curveEaseOut
+            case .EaseInOut: return UIView.AnimationOptions()
             default: break
             }
         }
-        return UIViewAnimationOptions.curveLinear
+        return UIView.AnimationOptions.curveLinear
     }
     
     public func animate() {
@@ -479,7 +479,7 @@ public class Spring : NSObject {
                         delay: TimeInterval(delay),
                         usingSpringWithDamping: damping,
                         initialSpringVelocity: velocity,
-                        options: [getAnimationOptions(curve: curve), UIViewAnimationOptions.allowUserInteraction],
+                        options: [getAnimationOptions(curve: curve), UIView.AnimationOptions.allowUserInteraction],
                         animations: { [weak self] in
                             if let _self = self
                             {
