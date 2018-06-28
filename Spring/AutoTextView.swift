@@ -14,7 +14,7 @@ public class AutoTextView: UITextView {
         get {
             var size = self.sizeThatFits(CGSize(width: self.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
             size.width = self.frame.size.width
-            if text.length == 0 {
+            if text.count == 0 {
                 size.height = 0
             }
             
