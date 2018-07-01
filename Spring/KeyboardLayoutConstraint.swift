@@ -81,7 +81,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
         UIView.animate(
             withDuration: duration,
             delay: 0,
-            options: UIView.AnimationOptions(rawValue: options),
+            options: UIViewAnimationOptions(rawValue: options),
             animations: UIApplication.shared.keyWindow!.layoutIfNeeded
         )
     }
