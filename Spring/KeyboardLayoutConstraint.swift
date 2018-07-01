@@ -55,20 +55,6 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
         NotificationCenter.default.removeObserver(self)
     }
     
-    private func animateChanges(accordingTo userInfo: [AnyHashable: Any]) {
-        guard
-            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
-            let options = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt
-            else { return }
-        
-        UIView.animate(
-            withDuration: duration,
-            delay: 0,
-            options: UIView.AnimationOptions(rawValue: options),
-            animations: UIApplication.shared.keyWindow!.layoutIfNeeded
-        )
-    }
-    
     @objc func keyboardWillShowNotification(_ notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         
@@ -84,6 +70,20 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
         visibleKeyboardHeight = 0
         
         animateChanges(accordingTo: userInfo)
+    }
+    
+    private func animateChanges(accordingTo userInfo: [AnyHashable: Any]) {
+        guard
+            let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval,
+            let options = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? UInt
+            else { return }
+        
+        UIView.animate(
+            withDuration: duration,
+            delay: 0,
+            options: UIView.AnimationOptions(rawValue: options),
+            animations: UIApplication.shared.keyWindow!.layoutIfNeeded
+        )
     }
 }
 #endif
