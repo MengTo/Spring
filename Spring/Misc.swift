@@ -235,7 +235,7 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
 }
 
 extension UIImageView {
-    func setImage(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
+    func setImage(url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard
@@ -253,7 +253,7 @@ extension UIImageView {
             }
             }.resume()
     }
-    func setImage(urlString: String, contentMode mode: UIViewContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
+    func setImage(urlString: String, contentMode mode: UIView.ContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
         guard let url = URL(string: urlString) else {
             image = placeholderImage
             return

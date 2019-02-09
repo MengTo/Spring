@@ -64,7 +64,7 @@ import UIKit
         UIView.animate(
             withDuration: duration,
             delay: 0,
-            options: UIViewAnimationOptions(),
+            options: UIView.AnimationOptions(),
             animations: {
                 animations()
             }, completion: nil
