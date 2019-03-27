@@ -41,31 +41,31 @@ open class SpringView: UIView, Springable {
     public var opacity: CGFloat = 1
     public var animateFrom: Bool = false
 
-    lazy private var spring : Spring = Spring(self)
+    private lazy var spring: Spring = Spring(self)
 
-    override open func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
-        self.spring.customAwakeFromNib()
+        spring.customAwakeFromNib()
     }
 
     open override func layoutSubviews() {
         super.layoutSubviews()
         spring.customLayoutSubviews()
     }
-    
+
     public func animate() {
-        self.spring.animate()
+        spring.animate()
     }
 
-    public func animateNext(completion: @escaping () -> ()) {
-        self.spring.animateNext(completion: completion)
+    public func animateNext(completion: @escaping () -> Void) {
+        spring.animateNext(completion: completion)
     }
 
     public func animateTo() {
-        self.spring.animateTo()
+        spring.animateTo()
     }
 
-    public func animateToNext(completion: @escaping () -> ()) {
-        self.spring.animateToNext(completion: completion)
+    public func animateToNext(completion: @escaping () -> Void) {
+        spring.animateToNext(completion: completion)
     }
 }

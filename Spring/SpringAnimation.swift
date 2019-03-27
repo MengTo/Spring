@@ -37,7 +37,7 @@ import UIKit
         )
     }
 
-    public class func springEaseIn(duration: TimeInterval, animations: (() -> Void)!) {
+    public class func springEaseIn(duration: TimeInterval, animations: @escaping () -> Void) {
         UIView.animate(
             withDuration: duration,
             delay: 0,
@@ -49,7 +49,7 @@ import UIKit
         )
     }
 
-    public class func springEaseOut(duration: TimeInterval, animations: (() -> Void)!) {
+    public class func springEaseOut(duration: TimeInterval, animations: @escaping () -> Void) {
         UIView.animate(
             withDuration: duration,
             delay: 0,
@@ -60,7 +60,7 @@ import UIKit
         )
     }
 
-    public class func springEaseInOut(duration: TimeInterval, animations: (() -> Void)!) {
+    public class func springEaseInOut(duration: TimeInterval, animations: @escaping () -> Void) {
         UIView.animate(
             withDuration: duration,
             delay: 0,
@@ -71,7 +71,7 @@ import UIKit
         )
     }
 
-    public class func springLinear(duration: TimeInterval, animations: (() -> Void)!) {
+    public class func springLinear(duration: TimeInterval, animations: @escaping () -> Void) {
         UIView.animate(
             withDuration: duration,
             delay: 0,
@@ -82,7 +82,7 @@ import UIKit
         )
     }
 
-    public class func springWithDelay(duration: TimeInterval, delay: TimeInterval, animations: (() -> Void)!) {
+    public class func springWithDelay(duration: TimeInterval, delay: TimeInterval, animations: @escaping () -> Void) {
         UIView.animate(
             withDuration: duration,
             delay: delay,
@@ -95,7 +95,7 @@ import UIKit
         )
     }
 
-    public class func springWithCompletion(duration: TimeInterval, animations: (() -> Void)!, completion: ((Bool) -> Void)!) {
+    public class func springWithCompletion(duration: TimeInterval, animations: @escaping () -> Void, completion: @escaping (Bool) -> Void) {
         UIView.animate(
             withDuration: duration,
             delay: 0,

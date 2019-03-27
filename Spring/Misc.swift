@@ -23,23 +23,23 @@
 import UIKit
 
 public extension String {
-    public var length: Int { return self.characters.count }
-    
-    public func toURL() -> NSURL? {
+    var length: Int { return count }
+
+    func toURL() -> NSURL? {
         return NSURL(string: self)
     }
 }
 
 public func htmlToAttributedString(text: String) -> NSAttributedString! {
-    guard let htmlData = text.data(using: String.Encoding.utf8, allowLossyConversion: false) else {
+    guard let htmlData = text.data(using: .utf8, allowLossyConversion: false) else {
         return NSAttributedString() }
     let htmlString: NSAttributedString?
     do {
-        htmlString = try NSAttributedString(data: htmlData, options: [NSAttributedString.DocumentReadingOptionKey.documentType:NSAttributedString.DocumentType.html], documentAttributes: nil)
+        htmlString = try NSAttributedString(data: htmlData, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
     } catch _ {
         htmlString = nil
     }
-    
+
     return htmlString
 }
 
@@ -47,7 +47,7 @@ public func degreesToRadians(degrees: CGFloat) -> CGFloat {
     return degrees * CGFloat(CGFloat.pi / 180)
 }
 
-public func delay(delay:Double, closure: @escaping ()->()) {
+public func delay(delay: Double, closure: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
@@ -59,51 +59,51 @@ public func imageFromURL(_ Url: String) -> UIImage {
 
 public extension UIColor {
     convenience init(hex: String) {
-        var red:   CGFloat = 0.0
+        var red: CGFloat = 0.0
         var green: CGFloat = 0.0
-        var blue:  CGFloat = 0.0
+        var blue: CGFloat = 0.0
         var alpha: CGFloat = 1.0
-        var hex:   String = hex
-        
+        var hex: String = hex
+
         if hex.hasPrefix("#") {
             let index = hex.index(hex.startIndex, offsetBy: 1)
             hex = String(hex[index...])
         }
-        
+
         let scanner = Scanner(string: hex)
         var hexValue: CUnsignedLongLong = 0
         if scanner.scanHexInt64(&hexValue) {
-            switch (hex.characters.count) {
+            switch hex.count {
             case 3:
-                red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
-                green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0
-                blue  = CGFloat(hexValue & 0x00F)              / 15.0
+                red = CGFloat((hexValue & 0xF00) >> 8) / 15.0
+                green = CGFloat((hexValue & 0x0F0) >> 4) / 15.0
+                blue = CGFloat(hexValue & 0x00F) / 15.0
             case 4:
-                red   = CGFloat((hexValue & 0xF000) >> 12)     / 15.0
-                green = CGFloat((hexValue & 0x0F00) >> 8)      / 15.0
-                blue  = CGFloat((hexValue & 0x00F0) >> 4)      / 15.0
-                alpha = CGFloat(hexValue & 0x000F)             / 15.0
+                red = CGFloat((hexValue & 0xF000) >> 12) / 15.0
+                green = CGFloat((hexValue & 0x0F00) >> 8) / 15.0
+                blue = CGFloat((hexValue & 0x00F0) >> 4) / 15.0
+                alpha = CGFloat(hexValue & 0x000F) / 15.0
             case 6:
-                red   = CGFloat((hexValue & 0xFF0000) >> 16)   / 255.0
-                green = CGFloat((hexValue & 0x00FF00) >> 8)    / 255.0
-                blue  = CGFloat(hexValue & 0x0000FF)           / 255.0
+                red = CGFloat((hexValue & 0xFF0000) >> 16) / 255.0
+                green = CGFloat((hexValue & 0x00FF00) >> 8) / 255.0
+                blue = CGFloat(hexValue & 0x0000FF) / 255.0
             case 8:
-                red   = CGFloat((hexValue & 0xFF000000) >> 24) / 255.0
-                green = CGFloat((hexValue & 0x00FF0000) >> 16) / 255.0
-                blue  = CGFloat((hexValue & 0x0000FF00) >> 8)  / 255.0
-                alpha = CGFloat(hexValue & 0x000000FF)         / 255.0
+                red = CGFloat((hexValue & 0xFF00_0000) >> 24) / 255.0
+                green = CGFloat((hexValue & 0x00FF_0000) >> 16) / 255.0
+                blue = CGFloat((hexValue & 0x0000_FF00) >> 8) / 255.0
+                alpha = CGFloat(hexValue & 0x0000_00FF) / 255.0
             default:
                 print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8", terminator: "")
             }
         } else {
             print("Scan hex error")
         }
-        self.init(red:red, green:green, blue:blue, alpha:alpha)
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
 
 public func rgbaToUIColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-    
+
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
 }
 
@@ -132,29 +132,29 @@ public func dateFromString(date: String, format: String) -> Date {
     }
 }
 
-public func randomStringWithLength (len : Int) -> NSString {
-    
-    let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    
-    let randomString : NSMutableString = NSMutableString(capacity: len)
-    
+public func randomStringWithLength(len: Int) -> NSString {
+
+    let letters: NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+    let randomString: NSMutableString = NSMutableString(capacity: len)
+
     for _ in 0 ..< len {
-        let length = UInt32 (letters.length)
+        let length = UInt32(letters.length)
         let rand = arc4random_uniform(length)
         randomString.appendFormat("%C", letters.character(at: Int(rand)))
     }
-    
+
     return randomString
 }
 
 public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
-    let calendar = Calendar.current
-    let unitFlags = Set<Calendar.Component>(arrayLiteral: Calendar.Component.minute, Calendar.Component.hour, Calendar.Component.day, Calendar.Component.weekOfYear, Calendar.Component.month, Calendar.Component.year, Calendar.Component.second)
+    let calendar: Calendar = .current
+    let unitFlags = Set<Calendar.Component>(arrayLiteral: .minute, .hour, .day, .weekOfYear, .month, .year, .second)
     let now = Date()
     let dateComparison = now.compare(date)
     var earliest: Date
     var latest: Date
-    
+
     switch dateComparison {
     case .orderedAscending:
         earliest = now
@@ -163,9 +163,9 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
         earliest = date
         latest = now
     }
-    
+
     let components: DateComponents = calendar.dateComponents(unitFlags, from: earliest, to: latest)
-    
+
     guard
         let year = components.year,
         let month = components.month,
@@ -174,85 +174,84 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
         let hour = components.hour,
         let minute = components.minute,
         let second = components.second
-        else {
+    else {
         fatalError()
     }
-    
-    if (year >= 2) {
+
+    if year >= 2 {
         return "\(year)y"
-    } else if (year >= 1) {
-        if (numericDates){
+    } else if year >= 1 {
+        if numericDates {
             return "1y"
         } else {
             return "1y"
         }
-    } else if (month >= 2) {
+    } else if month >= 2 {
         return "\(month * 4)w"
-    } else if (month >= 1) {
-        if (numericDates){
+    } else if month >= 1 {
+        if numericDates {
             return "4w"
         } else {
             return "4w"
         }
-    } else if (weekOfYear >= 2) {
+    } else if weekOfYear >= 2 {
         return "\(weekOfYear)w"
-    } else if (weekOfYear >= 1){
-        if (numericDates){
+    } else if weekOfYear >= 1 {
+        if numericDates {
             return "1w"
         } else {
             return "1w"
         }
-    } else if (day >= 2) {
+    } else if day >= 2 {
         return "\(components.day ?? 2)d"
-    } else if (day >= 1){
-        if (numericDates){
+    } else if day >= 1 {
+        if numericDates {
             return "1d"
         } else {
             return "1d"
         }
-    } else if (hour >= 2) {
+    } else if hour >= 2 {
         return "\(hour)h"
-    } else if (hour >= 1){
-        if (numericDates){
+    } else if hour >= 1 {
+        if numericDates {
             return "1h"
         } else {
             return "1h"
         }
-    } else if (minute >= 2) {
+    } else if minute >= 2 {
         return "\(minute)m"
-    } else if (minute >= 1){
-        if (numericDates){
+    } else if minute >= 1 {
+        if numericDates {
             return "1m"
         } else {
             return "1m"
         }
-    } else if (second >= 3) {
+    } else if second >= 3 {
         return "\(second)s"
     } else {
         return "now"
     }
-    
 }
 
 extension UIImageView {
     func setImage(url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
         contentMode = mode
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        URLSession.shared.dataTask(with: url) { data, response, error in
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil,
                 let image = UIImage(data: data)
-                else {
-                    self.image = placeholderImage
-                    return
+            else {
+                self.image = placeholderImage
+                return
             }
-            DispatchQueue.main.async() { () -> Void in
+            DispatchQueue.main.async { () -> Void in
                 self.image = image
-                
             }
-            }.resume()
+        }.resume()
     }
+
     func setImage(urlString: String, contentMode mode: UIView.ContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
         guard let url = URL(string: urlString) else {
             image = placeholderImage

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Meng To. All rights reserved.
 //
 
-import UIKit
 import Spring
+import UIKit
 
 class CodeViewController: UIViewController {
 
@@ -16,12 +16,12 @@ class CodeViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     var codeText: String = ""
     var data: SpringView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         modalView.transform = CGAffineTransform(translationX: -300, y: 0)
-        
+
         if data.animation != "" {
             codeText += "layer.animation = \"\(data.animation)\"\n"
         }
@@ -53,27 +53,25 @@ class CodeViewController: UIViewController {
             codeText += String(format: "layer.velocity =  %.1f\n", Double(data.velocity))
         }
         codeText += "layer.animate()"
-        
+
         codeTextView.text = codeText
     }
-    
+
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
-        
+
         modalView.animation = "slideRight"
         modalView.animateFrom = false
         modalView.animateToNext(completion: {
             self.dismiss(animated: false, completion: nil)
         })
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
+
         modalView.animate()
-        
+
         UIApplication.shared.sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, for: nil)
     }
 }
-
-
