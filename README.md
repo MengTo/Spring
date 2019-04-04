@@ -10,6 +10,11 @@ use_frameworks!
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 ```
 
+Or via [Accio](https://github.com/JamitLabs/Accio):
+```swift
+.package(url: "https://github.com/MengTo/Spring.git", .upToNextMajor(from: "1.0.5")),
+```
+
 ## Usage with Storyboard
 In Identity Inspector, connect the UIView to SpringView Class and set the animation properties in Attribute Inspector.
 
