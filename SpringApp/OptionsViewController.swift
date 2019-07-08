@@ -17,6 +17,7 @@ protocol OptionsViewControllerDelegate: class {
     func ySliderChanged(_ sender: AnyObject)
     func rotateSliderChanged(_ sender: AnyObject)
     func resetButtonPressed(_ sender: AnyObject)
+    
 }
 
 class OptionsViewController: UIViewController {
