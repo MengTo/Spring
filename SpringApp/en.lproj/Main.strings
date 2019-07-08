@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "x: 0"; ObjectID = "8i2-8d-Gyo"; */
+"8i2-8d-Gyo.text" = "x: 0";
+
+/* Class = "UILabel"; text = "y: 0"; ObjectID = "8kG-Ub-7Gx"; */
+"8kG-Ub-7Gx.text" = "y: 0";
+
+/* Class = "UILabel"; text = "Scale: 1"; ObjectID = "PFw-Jb-2Xm"; */
+"PFw-Jb-2Xm.text" = "Scale: 1";
+
+/* Class = "UITextView"; text = "layer.animation = \"shake\""; ObjectID = "QYe-M8-GcU"; */
+"QYe-M8-GcU.text" = "layer.animation = \"shake\"";
+
+/* Class = "UILabel"; text = "Rotate: 0"; ObjectID = "Sss-g7-hcA"; */
+"Sss-g7-hcA.text" = "Rotate: 0";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "WbE-Ar-bLf"; */
+"WbE-Ar-bLf.normalTitle" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Code"; ObjectID = "XZL-Vb-0wq"; */
+"XZL-Vb-0wq.normalTitle" = "Code";
+
+/* Class = "UIButton"; normalTitle = "Options"; ObjectID = "hQw-No-MzG"; */
+"hQw-No-MzG.normalTitle" = "Options";
+
+/* Class = "UILabel"; text = "Force: 1"; ObjectID = "hZO-3H-UCU"; */
+"hZO-3H-UCU.text" = "Force: 1";
+
+/* Class = "UILabel"; text = "Code"; ObjectID = "jUx-Gp-qoT"; */
+"jUx-Gp-qoT.text" = "Code";
+
+/* Class = "UILabel"; text = "Velocity: 0.7"; ObjectID = "kqf-ZO-435"; */
+"kqf-ZO-435.text" = "Velocity: 0.7";
+
+/* Class = "UILabel"; text = "Delay: 0"; ObjectID = "nfx-rk-xQP"; */
+"nfx-rk-xQP.text" = "Delay: 0";
+
+/* Class = "UILabel"; text = "Damping: 0.7"; ObjectID = "rM7-dW-gD1"; */
+"rM7-dW-gD1.text" = "Damping: 0.7";
+
+/* Class = "UILabel"; text = "Duration: 1"; ObjectID = "xk2-sC-g25"; */
+"xk2-sC-g25.text" = "Duration: 1";
