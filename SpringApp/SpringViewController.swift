@@ -106,6 +106,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         SpringAnimation.spring(duration: 0.7, animations: {
             self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
         })
+    
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
     }
     
