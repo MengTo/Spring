@@ -52,9 +52,9 @@ public func delay(delay:Double, closure: @escaping ()->()) {
 }
 
 public func imageFromURL(_ Url: String) -> UIImage {
-    let url = Foundation.URL(string: Url)
-    let data = try? Data(contentsOf: url!)
-    return UIImage(data: data!)!
+    guard let url = Foundation.URL(string: Url) else { return UIImage() }
+    guard let data = try? Data(contentsOf: url) else { return UIImage() }
+    return UIImage(data: data)!
 }
 
 public extension UIColor {
