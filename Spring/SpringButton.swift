@@ -26,6 +26,7 @@ open class SpringButton: UIButton, Springable {
     @IBInspectable public var autostart: Bool = false
     @IBInspectable public var autohide: Bool = false
     @IBInspectable public var animation: String = ""
+    @IBInspectable public var animations: [String] = []
     @IBInspectable public var force: CGFloat = 1
     @IBInspectable public var delay: CGFloat = 0
     @IBInspectable public var duration: CGFloat = 0.7
@@ -67,5 +68,9 @@ open class SpringButton: UIButton, Springable {
 
     public func animateToNext(completion: @escaping () -> ()) {
         self.spring.animateToNext(completion: completion)
+    }
+    
+    public func clearAllAnimations() {
+        self.spring.resetAll()
     }
 }
