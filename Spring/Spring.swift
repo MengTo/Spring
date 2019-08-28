@@ -26,6 +26,7 @@ import UIKit
     var autostart: Bool  { get set }
     var autohide: Bool  { get set }
     var animation: String  { get set }
+    var animations: [String] { get set }
     var force: CGFloat  { get set }
     var delay: CGFloat { get set }
     var duration: CGFloat { get set }
@@ -83,6 +84,7 @@ public class Spring : NSObject {
     private var autostart: Bool { set { self.view.autostart = newValue } get { return self.view.autostart }}
     private var autohide: Bool { set { self.view.autohide = newValue } get { return self.view.autohide }}
     private var animation: String { set { self.view.animation = newValue } get { return self.view.animation }}
+    private var animations: [String] { set { self.view.animations = newValue} get { return self.view.animations }}
     private var force: CGFloat { set { self.view.force = newValue } get { return self.view.force }}
     private var delay: CGFloat { set { self.view.delay = newValue } get { return self.view.delay }}
     private var duration: CGFloat { set { self.view.duration = newValue } get { return self.view.duration }}
@@ -166,6 +168,16 @@ public class Spring : NSObject {
     }
     
     func animatePreset() {
+        if animations.count == 0 {
+            animatePresetSingle(animation: self.animation)
+        } else {
+            for animation in self.animations {
+                animatePresetSingle(animation: animation)
+            }
+        }
+    }
+    
+    func animatePresetSingle(animation: String) {
         alpha = 0.99
         if let animation = AnimationPreset(rawValue: animation) {
             switch animation {
@@ -514,7 +526,7 @@ public class Spring : NSObject {
         opacity = 1
     }
     
-    func resetAll() {
+    public func resetAll() {
         x = 0
         y = 0
         animation = ""
