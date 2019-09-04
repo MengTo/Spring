@@ -60,7 +60,7 @@ open class SpringView: UIView, Springable {
     public func animateNext(completion: @escaping () -> ()) {
         self.spring.animateNext(completion: completion)
     }
-
+    
     public func animateTo() {
         self.spring.animateTo()
     }

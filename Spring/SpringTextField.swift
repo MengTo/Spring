@@ -68,4 +68,5 @@ open class SpringTextField: UITextField, Springable {
     public func animateToNext(completion: @escaping () -> ()) {
         self.spring.animateToNext(completion: completion)
     }
+
 }

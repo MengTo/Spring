@@ -68,4 +68,5 @@ open class SpringButton: UIButton, Springable {
     public func animateToNext(completion: @escaping () -> ()) {
         self.spring.animateToNext(completion: completion)
     }
+
 }
