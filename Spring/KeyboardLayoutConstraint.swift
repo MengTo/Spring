@@ -63,7 +63,8 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     delay: 0,
                     options: options,
                     animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
+                        let application = UIApplication.value(forKey: "sharedApplication") as! UIApplication
+                        application.keyWindow?.layoutIfNeeded()
                         return
                     }, completion: { finished in
                 })
@@ -92,7 +93,8 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                     delay: 0,
                     options: options,
                     animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
+                        let application = UIApplication.value(forKey: "sharedApplication") as! UIApplication
+                        application.keyWindow?.layoutIfNeeded()
                         return
                     }, completion: { finished in
                 })

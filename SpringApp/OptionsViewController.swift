@@ -106,20 +106,20 @@ class OptionsViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: AnyObject) {
         delegate?.resetButtonPressed(sender)
         dismiss(animated: true, completion: nil)
-        
-        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
+        let application = UIApplication.value(forKey: "sharedApplication") as! UIApplication
+        application.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
-        
-        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
+        let application = UIApplication.value(forKey: "sharedApplication") as! UIApplication
+        application.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        UIApplication.shared.sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, for: nil)
+        let application = UIApplication.value(forKey: "sharedApplication") as! UIApplication
+        application.sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, for: nil)
         
         modalView.animate()
     }

@@ -106,14 +106,16 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         SpringAnimation.spring(duration: 0.7, animations: {
             self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
         })
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        let application = UIApplication.value(forKey: "sharedApplication") as! UIApplication
+        application.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
     }
     
    @objc func maximizeView(_ sender: AnyObject) {
         SpringAnimation.spring(duration: 0.7, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
+        let application = UIApplication.value(forKey: "sharedApplication") as! UIApplication
+        application.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
     }
 
     let animations: [Spring.AnimationPreset] = [
