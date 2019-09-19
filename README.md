@@ -1,6 +1,8 @@
 ## Updated for Swift 4.2
 Requires Xcode 10 and Swift 4.2.
 
+[![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/spring/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 ## Installation
 Drop in the Spring folder to your Xcode project (make sure to enable "Copy items if needed" and "Create groups").
 
