@@ -2,12 +2,30 @@
 Requires Xcode 10 and Swift 4.2.
 
 ## Installation
+
+Spring can be installed through the following options.
+
+### Manual 
+
 Drop in the Spring folder to your Xcode project (make sure to enable "Copy items if needed" and "Create groups").
 
-Or via CocoaPods:
+### [CocoaPods](https://guides.cocoapods.org/using/using-cocoapods.html)
+
 ```
 use_frameworks!
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+```
+
+### [Swift Package Manager](https://github.com/apple/swift-package-manager)
+
+From inside Xode go to File -> Swift Packages -> Add Package Dependency and paste 'https://github.com/MengTo/Spring.git' into the top field. 
+
+Alternatively you can add the following inside your Package.swift file:
+
+```
+dependencies: [
+    .package(url: "https://github.com/MengTo/Spring.git", from: "1.0.6")
+]
 ```
 
 ## Usage with Storyboard
