@@ -104,3 +104,6 @@ Animations won't autostart when view is reached via performSegueWithIdentifier.
 ## License
 
 Spring is released under the MIT license. See LICENSE for details.
+
+#Contribution
+Contributed by Pasan Yasara
