@@ -10,7 +10,7 @@ import UIKit
 import Spring
 
 class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, OptionsViewControllerDelegate {
-
+    
     @IBOutlet weak var delayLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var forceLabel: UILabel!
@@ -34,6 +34,11 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var selectedY: CGFloat = 0
     var selectedRotate: CGFloat = 0
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        print("preferredStatusBarStyle")
+        return .default
+    }
+    
     @IBAction func forceSliderChanged(_ sender: AnyObject) {
         selectedForce = sender.value(forKey: "value") as! CGFloat
         animateView()
@@ -49,7 +54,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         animateView()
         delayLabel.text = String(format: "Delay: %.1f", Double(selectedDelay))
     }
-
+    
     func dampingSliderChanged(_ sender: AnyObject) {
         selectedDamping = sender.value(forKey: "value") as! CGFloat
         animateView()
@@ -102,20 +107,18 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         ballView.curve = animationCurves[selectedEasing].rawValue
     }
     
-   @objc func minimizeView(_ sender: AnyObject) {
-        SpringAnimation.spring(duration: 0.7, animations: {
+    @objc func minimizeView(_ sender: AnyObject) {
+        SpringAnimation.spring(duration: 0.7) {
             self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
-        })
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        }
     }
     
-   @objc func maximizeView(_ sender: AnyObject) {
-        SpringAnimation.spring(duration: 0.7, animations: {
+    @objc func maximizeView(_ sender: AnyObject) {
+        SpringAnimation.spring(duration: 0.7) {
             self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
-        })
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
+        }
     }
-
+    
     let animations: [Spring.AnimationPreset] = [
         .shake,
         .pop,
@@ -144,7 +147,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         .zoomOut,
         .flash
     ]
-
+    
     var animationCurves: [Spring.AnimationCurve] = [
         .easeIn,
         .easeOut,

@@ -47,6 +47,10 @@ class OptionsViewController: UIViewController {
     weak var delegate: OptionsViewControllerDelegate?
     var data: SpringView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
