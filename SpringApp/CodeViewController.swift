@@ -17,6 +17,10 @@ class CodeViewController: UIViewController {
     var codeText: String = ""
     var data: SpringView!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,13 +62,13 @@ class CodeViewController: UIViewController {
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
-        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView), to: nil, from: self, for: nil)
         
         modalView.animation = "slideRight"
         modalView.animateFrom = false
-        modalView.animateToNext(completion: {
+        modalView.animateToNext {
             self.dismiss(animated: false, completion: nil)
-        })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,7 +76,7 @@ class CodeViewController: UIViewController {
         
         modalView.animate()
         
-        UIApplication.shared.sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, for: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.minimizeView), to: nil, from: self, for: nil)
     }
 }
 
