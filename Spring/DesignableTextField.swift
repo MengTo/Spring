@@ -24,7 +24,7 @@ import UIKit
 
 @IBDesignable public class DesignableTextField: SpringTextField {
     
-    @IBInspectable public var placeholderColor: UIColor = UIColor.clear {
+    @IBInspectable public var placeholderColor: UIColor = .clear {
         didSet {
             guard let placeholder = placeholder else { return }
             attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
@@ -63,7 +63,7 @@ import UIKit
         }
     }
     
-    @IBInspectable public var borderColor: UIColor = UIColor.clear {
+    @IBInspectable public var borderColor: UIColor = .clear {
         didSet {
             layer.borderColor = borderColor.cgColor
         }

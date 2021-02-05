@@ -39,7 +39,7 @@ public class LoadingView: UIView {
     }
     
     class func designCodeLoadingView() -> UIView {
-        return Bundle(for: self).loadNibNamed("LoadingView", owner: self, options: nil)![0] as! UIView
+        return Bundle(for: self).loadNibNamed("LoadingView", owner: self, options: nil)!.first as! UIView
     }
 }
 

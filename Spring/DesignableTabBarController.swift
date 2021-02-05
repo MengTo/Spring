@@ -24,14 +24,14 @@ import UIKit
 
 @IBDesignable class DesignableTabBarController: UITabBarController {
     
-    @IBInspectable var normalTint: UIColor = UIColor.clear {
+    @IBInspectable var normalTint: UIColor = .clear {
         didSet {
             UITabBar.appearance().tintColor = normalTint
             UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: normalTint], for: UIControl.State())
         }
     }
     
-    @IBInspectable var selectedTint: UIColor = UIColor.clear {
+    @IBInspectable var selectedTint: UIColor = .clear {
         didSet {
             UITabBar.appearance().tintColor = selectedTint
             UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedTint], for:UIControl.State.selected)

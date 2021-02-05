@@ -24,7 +24,7 @@ import UIKit
 
 @IBDesignable public class DesignableView: SpringView {
     
-    @IBInspectable public var borderColor: UIColor = UIColor.clear {
+    @IBInspectable public var borderColor: UIColor = .clear {
         didSet {
             layer.borderColor = borderColor.cgColor
         }
@@ -42,7 +42,7 @@ import UIKit
         }
     }
     
-    @IBInspectable public var shadowColor: UIColor = UIColor.clear {
+    @IBInspectable public var shadowColor: UIColor = .clear {
         didSet {
             layer.shadowColor = shadowColor.cgColor
         }
