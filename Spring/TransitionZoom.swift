@@ -24,39 +24,28 @@ import UIKit
 
 public class TransitionZoom: NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     
-    var isPresenting = true
-    var duration = 0.4
+    var isPresenting    = true
+    var duration        = 0.4
     
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let container = transitionContext.containerView
-        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
-        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        let container   = transitionContext.containerView
+        let fromView    = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        let toView      = transitionContext.view(forKey: UITransitionContextViewKey.to)!
         
-        if isPresenting {
             container.addSubview(fromView)
             container.addSubview(toView)
             
-            toView.alpha = 0
-            toView.transform = CGAffineTransform(scaleX: 2, y: 2)
-
-            SpringAnimation.springEaseInOut(duration: duration) {
-                fromView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-                fromView.alpha = 0
-                toView.transform = CGAffineTransform.identity
-                toView.alpha = 1
-            }
-        }
-        else {
-            container.addSubview(toView)
-            container.addSubview(fromView)
+            toView.alpha        = isPresenting ? 0 : 1
+            toView.transform    = CGAffineTransform(scaleX: self.isPresenting ? 2 : 1,
+                                                    y: self.isPresenting ? 2 : 1)
             
             SpringAnimation.springEaseInOut(duration: duration) {
-                fromView.transform = CGAffineTransform(scaleX: 2, y: 2)
-                fromView.alpha = 0
-                toView.transform = CGAffineTransform(scaleX: 1, y: 1)
-                toView.alpha = 1
+                fromView.transform  = CGAffineTransform(scaleX: self.isPresenting ? 0.5 : 2,
+                                                        y: self.isPresenting ? 0.5 : 2)
+                fromView.alpha      = 0
+                toView.transform    = CGAffineTransform.identity
+                toView.alpha        = 1
             }
-        }
         
         delay(delay: duration, closure: {
             transitionContext.completeTransition(true)

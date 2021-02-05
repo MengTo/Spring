@@ -25,11 +25,11 @@ import AudioToolbox
 
 public struct SoundPlayer {
     
-    static var filename : String?
-    static var enabled : Bool = true
+    static var filename: String?
+    static var enabled = true
     
     private struct Internal {
-        static var cache = [URL:SystemSoundID]()
+        static var cache = [URL: SystemSoundID]()
     }
     
     public static func playSound(soundFile: String) {
@@ -40,7 +40,7 @@ public struct SoundPlayer {
         
         if let url = Bundle.main.url(forResource: soundFile, withExtension: nil) {
             
-            var soundID : SystemSoundID = Internal.cache[url] ?? 0
+            var soundID: SystemSoundID = Internal.cache[url] ?? 0
             
             if soundID == 0 {
                 AudioServicesCreateSystemSoundID(url as CFURL, &soundID)
