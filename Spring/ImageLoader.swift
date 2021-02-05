@@ -21,16 +21,14 @@
 // SOFTWARE.
 
 import UIKit
-import Foundation
-
 
 public class ImageLoader {
     
     var cache = NSCache<NSString, NSData>()
     
-    public class var sharedLoader : ImageLoader {
+    public class var sharedLoader: ImageLoader {
         struct Static {
-            static let instance : ImageLoader = ImageLoader()
+            static let instance: ImageLoader = ImageLoader()
         }
         return Static.instance
     }

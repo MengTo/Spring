@@ -9,7 +9,8 @@
 import UIKit
 
 public class AutoTextView: UITextView {
-
+    
+    private let edgeInset: CGFloat = 4
     public override var intrinsicContentSize: CGSize {
         get {
             var size = self.sizeThatFits(CGSize(width: self.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
@@ -18,7 +19,7 @@ public class AutoTextView: UITextView {
                 size.height = 0
             }
             
-            contentInset = UIEdgeInsets(top: -4, left: -4, bottom: -4, right: -4)
+            contentInset = UIEdgeInsets(top: -edgeInset, left: -edgeInset, bottom: -edgeInset, right: -edgeInset)
             layoutIfNeeded()
             
             return size

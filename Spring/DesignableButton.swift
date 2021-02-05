@@ -23,7 +23,7 @@
 import UIKit
 
 @IBDesignable public class DesignableButton: SpringButton {
-
+    
     @IBInspectable public var borderColor: UIColor = UIColor.clear {
         didSet {
             layer.borderColor = borderColor.cgColor
@@ -65,5 +65,5 @@ import UIKit
             layer.shadowOffset.height = shadowOffsetY
         }
     }
-
+    
 }

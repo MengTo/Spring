@@ -24,9 +24,9 @@ import UIKit
 
 public class AsyncImageView: UIImageView {
 
-    public var placeholderImage : UIImage?
+    public var placeholderImage: UIImage?
 
-    public var url : NSURL? {
+    public var url: NSURL? {
         didSet {
             self.image = placeholderImage
             if let urlString = url?.absoluteString {

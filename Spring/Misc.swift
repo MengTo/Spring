@@ -59,11 +59,11 @@ public func imageFromURL(_ Url: String) -> UIImage {
 
 public extension UIColor {
     convenience init(hex: String) {
-        var red:   CGFloat = 0.0
-        var green: CGFloat = 0.0
-        var blue:  CGFloat = 0.0
-        var alpha: CGFloat = 1.0
-        var hex:   String = hex
+        var red: CGFloat    = 0.0
+        var green: CGFloat  = 0.0
+        var blue: CGFloat   = 0.0
+        var alpha: CGFloat  = 1.0
+        var hex: String     = hex
         
         if hex.hasPrefix("#") {
             let index = hex.index(hex.startIndex, offsetBy: 1)
@@ -98,7 +98,7 @@ public extension UIColor {
         } else {
             print("Scan hex error")
         }
-        self.init(red:red, green:green, blue:blue, alpha:alpha)
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
 
@@ -132,11 +132,11 @@ public func dateFromString(date: String, format: String) -> Date {
     }
 }
 
-public func randomStringWithLength (len : Int) -> NSString {
+public func randomStringWithLength(len: Int) -> NSString {
     
-    let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    let letters: NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     
-    let randomString : NSMutableString = NSMutableString(capacity: len)
+    let randomString = NSMutableString(capacity: len)
     
     for _ in 0 ..< len {
         let length = UInt32 (letters.length)
@@ -164,7 +164,7 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
         latest = now
     }
     
-    let components: DateComponents = calendar.dateComponents(unitFlags, from: earliest, to: latest)
+    let components = calendar.dateComponents(unitFlags, from: earliest, to: latest)
     
     guard
         let year = components.year,
@@ -174,7 +174,7 @@ public func timeAgoSinceDate(date: Date, numericDates: Bool) -> String {
         let hour = components.hour,
         let minute = components.minute,
         let second = components.second
-        else {
+    else {
         fatalError()
     }
     
@@ -243,16 +243,17 @@ extension UIImageView {
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil,
                 let image = UIImage(data: data)
-                else {
-                    self.image = placeholderImage
-                    return
+            else {
+                self.image = placeholderImage
+                return
             }
             DispatchQueue.main.async() { () -> Void in
                 self.image = image
                 
             }
-            }.resume()
+        }.resume()
     }
+    
     func setImage(urlString: String, contentMode mode: UIView.ContentMode = .scaleAspectFit, placeholderImage: UIImage?) {
         guard let url = URL(string: urlString) else {
             image = placeholderImage

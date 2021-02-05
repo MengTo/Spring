@@ -26,8 +26,8 @@ import UIKit
 @available(tvOS, unavailable)
 public class KeyboardLayoutConstraint: NSLayoutConstraint {
     
-    private var offset : CGFloat = 0
-    private var keyboardVisibleHeight : CGFloat = 0
+    private var offset: CGFloat = 0
+    private var keyboardVisibleHeight: CGFloat = 0
     
     @available(tvOS, unavailable)
     override public func awakeFromNib() {
@@ -66,14 +66,12 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                         UIApplication.shared.keyWindow?.layoutIfNeeded()
                         return
                     }, completion: { finished in
-                })
+                    })
             default:
                 
                 break
             }
-            
         }
-        
     }
     
     @objc func keyboardWillHideNotification(_ notification: NSNotification) {
@@ -95,7 +93,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                         UIApplication.shared.keyWindow?.layoutIfNeeded()
                         return
                     }, completion: { finished in
-                })
+                    })
             default:
                 break
             }
@@ -107,4 +105,5 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     }
     
 }
+
 #endif
