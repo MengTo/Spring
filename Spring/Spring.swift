@@ -22,7 +22,7 @@
 
 import UIKit
 
-@objc public protocol Springable {
+public protocol Springable: class {
     var autostart: Bool  { get set }
     var autohide: Bool  { get set }
     var animation: String  { get set }
@@ -54,9 +54,136 @@ import UIKit
 
 public class Spring : NSObject {
     
-    private unowned var view : Springable
+    private unowned var view: Springable
     private var shouldAnimateAfterActive = false
     private var shouldAnimateInLayoutSubviews = true
+    
+    private var autostart: Bool {
+        set {
+            view.autostart = newValue
+        } get {
+            view.autostart
+        }
+    }
+    private var autohide: Bool {
+        set {
+            view.autohide = newValue
+        } get {
+            view.autohide
+        }
+    }
+    private var animation: String {
+        set {
+            view.animation = newValue
+        } get {
+            view.animation
+        }
+    }
+    private var force: CGFloat {
+        set {
+            view.force = newValue
+        } get {
+            view.force
+        }
+    }
+    private var delay: CGFloat {
+        set {
+            view.delay = newValue
+        } get {
+            view.delay
+            
+        }
+    }
+    private var duration: CGFloat {
+        set {
+            view.duration = newValue
+        } get {
+            view.duration
+        }
+    }
+    private var damping: CGFloat {
+        set {
+            view.damping = newValue
+        } get {
+            view.damping
+        }
+    }
+    private var velocity: CGFloat {
+        set {
+            view.velocity = newValue
+        } get {
+            view.velocity
+        }
+    }
+    private var repeatCount: Float {
+        set {
+            view.repeatCount = newValue
+        } get {
+            view.repeatCount
+        }
+    }
+    private var x: CGFloat {
+        set {
+            view.x = newValue
+        } get {
+            view.x
+        }
+    }
+    private var y: CGFloat {
+        set {
+            view.y = newValue
+        } get {
+            view.y
+        }
+    }
+    private var scaleX: CGFloat {
+        set {
+            view.scaleX = newValue
+        } get {
+            view.scaleX
+        }
+    }
+    private var scaleY: CGFloat {
+        set {
+            view.scaleY = newValue
+        } get {
+            view.scaleY
+        }
+    }
+        
+    private var rotate: CGFloat {
+        set {
+            view.rotate = newValue
+        } get {
+            view.rotate
+        }
+    }
+    private var opacity: CGFloat {
+        set {
+            view.opacity = newValue
+        } get {
+            view.opacity
+        }
+    }
+    private var animateFrom: Bool {
+        set {
+            view.animateFrom = newValue
+        } get {
+            view.animateFrom
+        }
+    }
+    private var curve: String {
+        set {
+            view.curve = newValue
+        } get {
+            view.curve
+        }
+    }
+    
+    // UIView
+    private var layer : CALayer { return view.layer }
+    private var transform : CGAffineTransform { get { return view.transform } set { view.transform = newValue }}
+    private var alpha: CGFloat { get { return view.alpha } set { view.alpha = newValue } }
     
     init(_ view: Springable) {
         self.view = view
@@ -64,11 +191,16 @@ public class Spring : NSObject {
         commonInit()
     }
     
-    func commonInit() {
-        NotificationCenter.default.addObserver(self, selector: #selector(Spring.didBecomeActiveNotification(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+    private func commonInit() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didBecomeActiveNotification),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
     }
     
-    @objc func didBecomeActiveNotification(_ notification: NSNotification) {
+    @objc private func didBecomeActiveNotification(_ notification: NSNotification) {
         if shouldAnimateAfterActive {
             alpha = 0
             animate()
@@ -78,91 +210,6 @@ public class Spring : NSObject {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
-    private var autostart: Bool { set { self.view.autostart = newValue } get { return self.view.autostart }}
-    private var autohide: Bool { set { self.view.autohide = newValue } get { return self.view.autohide }}
-    private var animation: String { set { self.view.animation = newValue } get { return self.view.animation }}
-    private var force: CGFloat { set { self.view.force = newValue } get { return self.view.force }}
-    private var delay: CGFloat { set { self.view.delay = newValue } get { return self.view.delay }}
-    private var duration: CGFloat { set { self.view.duration = newValue } get { return self.view.duration }}
-    private var damping: CGFloat { set { self.view.damping = newValue } get { return self.view.damping }}
-    private var velocity: CGFloat { set { self.view.velocity = newValue } get { return self.view.velocity }}
-    private var repeatCount: Float { set { self.view.repeatCount = newValue } get { return self.view.repeatCount }}
-    private var x: CGFloat { set { self.view.x = newValue } get { return self.view.x }}
-    private var y: CGFloat { set { self.view.y = newValue } get { return self.view.y }}
-    private var scaleX: CGFloat { set { self.view.scaleX = newValue } get { return self.view.scaleX }}
-    private var scaleY: CGFloat { set { self.view.scaleY = newValue } get { return self.view.scaleY }}
-    private var rotate: CGFloat { set { self.view.rotate = newValue } get { return self.view.rotate }}
-    private var opacity: CGFloat { set { self.view.opacity = newValue } get { return self.view.opacity }}
-    private var animateFrom: Bool { set { self.view.animateFrom = newValue } get { return self.view.animateFrom }}
-    private var curve: String { set { self.view.curve = newValue } get { return self.view.curve }}
-    
-    // UIView
-    private var layer : CALayer { return view.layer }
-    private var transform : CGAffineTransform { get { return view.transform } set { view.transform = newValue }}
-    private var alpha: CGFloat { get { return view.alpha } set { view.alpha = newValue } }
-    
-    public enum AnimationPreset: String, CaseIterable {
-        case slideLeft
-        case slideRight
-        case slideDown
-        case slideUp
-        case squeezeLeft
-        case squeezeRight
-        case squeezeDown
-        case squeezeUp
-        case fadeIn
-        case fadeOut
-        case fadeOutIn
-        case fadeInLeft
-        case fadeInRight
-        case fadeInDown
-        case fadeInUp
-        case zoomIn
-        case zoomOut
-        case fall
-        case shake
-        case pop
-        case flipX
-        case flipY
-        case morph
-        case squeeze
-        case flash
-        case wobble
-        case swing
-    }
-    
-    public enum AnimationCurve: String, CaseIterable {
-        case easeIn
-        case easeOut
-        case easeInOut
-        case linear
-        case spring
-        case easeInSine
-        case easeOutSine
-        case easeInOutSine
-        case easeInQuad
-        case easeOutQuad
-        case easeInOutQuad
-        case easeInCubic
-        case easeOutCubic
-        case easeInOutCubic
-        case easeInQuart
-        case easeOutQuart
-        case easeInOutQuart
-        case easeInQuint
-        case easeOutQuint
-        case easeInOutQuint
-        case easeInExpo
-        case easeOutExpo
-        case easeInOutExpo
-        case easeInCirc
-        case easeOutCirc
-        case easeInOutCirc
-        case easeInBack
-        case easeOutBack
-        case easeInOutBack
     }
     
     func animatePreset() {
@@ -529,4 +576,68 @@ public class Spring : NSObject {
         duration = 0.7
     }
     
+}
+
+extension Spring {
+    public enum AnimationPreset: String, CaseIterable {
+        case slideLeft
+        case slideRight
+        case slideDown
+        case slideUp
+        case squeezeLeft
+        case squeezeRight
+        case squeezeDown
+        case squeezeUp
+        case fadeIn
+        case fadeOut
+        case fadeOutIn
+        case fadeInLeft
+        case fadeInRight
+        case fadeInDown
+        case fadeInUp
+        case zoomIn
+        case zoomOut
+        case fall
+        case shake
+        case pop
+        case flipX
+        case flipY
+        case morph
+        case squeeze
+        case flash
+        case wobble
+        case swing
+    }
+    
+    public enum AnimationCurve: String, CaseIterable {
+        case easeIn
+        case easeOut
+        case easeInOut
+        case linear
+        case spring
+        case easeInSine
+        case easeOutSine
+        case easeInOutSine
+        case easeInQuad
+        case easeOutQuad
+        case easeInOutQuad
+        case easeInCubic
+        case easeOutCubic
+        case easeInOutCubic
+        case easeInQuart
+        case easeOutQuart
+        case easeInOutQuart
+        case easeInQuint
+        case easeOutQuint
+        case easeInOutQuint
+        case easeInExpo
+        case easeOutExpo
+        case easeInOutExpo
+        case easeInCirc
+        case easeOutCirc
+        case easeInOutCirc
+        case easeInBack
+        case easeOutBack
+        case easeInOutBack
+    }
 }
