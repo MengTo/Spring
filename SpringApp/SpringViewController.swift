@@ -118,13 +118,13 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         ballView.curve = animationCurves[selectedEasing].rawValue
     }
     
-    @objc private func minimizeView(_ sender: AnyObject) {
+    @objc func minimizeView(_ sender: AnyObject) {
         SpringAnimation.spring(duration: 0.7) {
             self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
         }
     }
     
-    @objc private func maximizeView(_ sender: AnyObject) {
+    @objc func maximizeView(_ sender: AnyObject) {
         SpringAnimation.spring(duration: 0.7) {
             self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
