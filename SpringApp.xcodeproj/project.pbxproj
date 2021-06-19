@@ -50,6 +50,7 @@
 		9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */; };
 		96C5F4621AC464C800BB8A18 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C5F4611AC464C800BB8A18 /* AutoTextView.swift */; };
 		A4C97FD6267E704900CE4095 /* Springable+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C97FD5267E704900CE4095 /* Springable+Animation.swift */; };
+		A4C97FD8267E70E700CE4095 /* Springable+AnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C97FD7267E70E700CE4095 /* Springable+AnimationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTabBarController.swift; sourceTree = "<group>"; };
 		96C5F4611AC464C800BB8A18 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
 		A4C97FD5267E704900CE4095 /* Springable+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Springable+Animation.swift"; sourceTree = "<group>"; };
+		A4C97FD7267E70E700CE4095 /* Springable+AnimationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Springable+AnimationTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 		1A4FDA431A6E44780099D309 /* SpringTests */ = {
 			isa = PBXGroup;
 			children = (
+				A4C97FD7267E70E700CE4095 /* Springable+AnimationTests.swift */,
 				1A4FDA461A6E44780099D309 /* SpringTests.swift */,
 				1A4FDA441A6E44780099D309 /* Supporting Files */,
 			);
@@ -540,6 +543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A4FDA471A6E44780099D309 /* SpringTests.swift in Sources */,
+				A4C97FD8267E70E700CE4095 /* Springable+AnimationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
