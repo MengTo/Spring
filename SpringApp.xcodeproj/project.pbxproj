@@ -49,6 +49,7 @@
 		9641178C1A5BEC6F000E3A5A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964117891A5BEC6F000E3A5A /* OptionsViewController.swift */; };
 		9641178D1A5BEC6F000E3A5A /* CodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */; };
 		96C5F4621AC464C800BB8A18 /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C5F4611AC464C800BB8A18 /* AutoTextView.swift */; };
+		A4C97FD6267E704900CE4095 /* Springable+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C97FD5267E704900CE4095 /* Springable+Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,7 @@
 		9641178A1A5BEC6F000E3A5A /* CodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTabBarController.swift; sourceTree = "<group>"; };
 		96C5F4611AC464C800BB8A18 /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
+		A4C97FD5267E704900CE4095 /* Springable+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Springable+Animation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 		961888D21A66BF9000295A64 /* Spring */ = {
 			isa = PBXGroup;
 			children = (
+				A4C97FD4267E702800CE4095 /* Extensions */,
 				1AA7E1821AA36EFF00762D75 /* AsyncButton.swift */,
 				1AA7E1811AA36EFF00762D75 /* AsyncImageView.swift */,
 				96C5F4611AC464C800BB8A18 /* AutoTextView.swift */,
@@ -311,6 +314,14 @@
 				964117551A5BE90A000E3A5A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4C97FD4267E702800CE4095 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A4C97FD5267E704900CE4095 /* Springable+Animation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +524,7 @@
 				1A4FDA631A6E44A70099D309 /* SpringButton.swift in Sources */,
 				1A4FDA621A6E44A70099D309 /* SpringAnimation.swift in Sources */,
 				1A585F401A7B9530007EEB7D /* KeyboardLayoutConstraint.swift in Sources */,
+				A4C97FD6267E704900CE4095 /* Springable+Animation.swift in Sources */,
 				1AA7E1831AA36EFF00762D75 /* AsyncImageView.swift in Sources */,
 				1A4FDA6B1A6E44A70099D309 /* UnwindSegue.swift in Sources */,
 				1A4FDA681A6E44A70099D309 /* SpringView.swift in Sources */,
