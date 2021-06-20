@@ -221,25 +221,25 @@
 		961888D21A66BF9000295A64 /* Spring */ = {
 			isa = PBXGroup;
 			children = (
-				A4C97FD4267E702800CE4095 /* Extensions */,
 				1AA7E1821AA36EFF00762D75 /* AsyncButton.swift */,
 				1AA7E1811AA36EFF00762D75 /* AsyncImageView.swift */,
 				96C5F4611AC464C800BB8A18 /* AutoTextView.swift */,
-				1A4FDA2A1A6E44270099D309 /* LoadingView.swift */,
-				1A4FDA2B1A6E44270099D309 /* LoadingView.xib */,
 				961888D31A66BF9000295A64 /* BlurView.swift */,
 				961888D51A66BF9000295A64 /* DesignableButton.swift */,
 				961888D61A66BF9000295A64 /* DesignableImageView.swift */,
 				961888D71A66BF9000295A64 /* DesignableLabel.swift */,
+				969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */,
 				961888D81A66BF9000295A64 /* DesignableTextField.swift */,
 				961888D91A66BF9000295A64 /* DesignableTextView.swift */,
 				961888DA1A66BF9000295A64 /* DesignableView.swift */,
-				969775D31A6AD6AC009B4B79 /* DesignableTabBarController.swift */,
 				961888DB1A66BF9000295A64 /* ImageLoader.swift */,
 				1A585F3F1A7B9530007EEB7D /* KeyboardLayoutConstraint.swift */,
+				1A4FDA2A1A6E44270099D309 /* LoadingView.swift */,
+				1A4FDA2B1A6E44270099D309 /* LoadingView.xib */,
 				961888DF1A66BF9000295A64 /* Misc.swift */,
 				1A9F866C1A83C5640098BE6C /* SoundPlayer.swift */,
 				1AD08AC61A676D5800160D45 /* Spring.swift */,
+				A4C97FD5267E704900CE4095 /* Springable+Animation.swift */,
 				961888E01A66BF9000295A64 /* SpringAnimation.swift */,
 				961888E11A66BF9000295A64 /* SpringButton.swift */,
 				1AF3F11A1A6776760090E8F9 /* SpringImageView.swift */,
@@ -317,14 +317,6 @@
 				964117551A5BE90A000E3A5A /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A4C97FD4267E702800CE4095 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A4C97FD5267E704900CE4095 /* Springable+Animation.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
