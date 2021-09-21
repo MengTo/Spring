@@ -1,5 +1,5 @@
 ## Updated for Swift 5
-Requires Xcode 12 and Swift 5.3
+Requires Xcode 13 and Swift 5.5
 
 ## Installation
 Drop in the Spring folder to your Xcode project (make sure to enable "Copy items if needed" and "Create groups").

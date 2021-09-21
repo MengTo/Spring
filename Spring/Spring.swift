@@ -22,7 +22,7 @@
 
 import UIKit
 
-public protocol Springable: class {
+public protocol Springable: AnyObject {
     var autostart: Bool  { get set }
     var autohide: Bool  { get set }
     var animation: String  { get set }
