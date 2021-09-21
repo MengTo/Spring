@@ -43,7 +43,6 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         super.viewDidLoad()
         animationPicker.delegate = self
         animationPicker.dataSource = self
-        animationPicker.showsSelectionIndicator = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
