@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2ih-bH-VRI" customClass="LoadingView" customModule="Spring" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19J-d9-rcw" customClass="SpringView" customModule="Spring" customModuleProvider="target">
+                    <rect key="frame" x="182" y="423" width="50" height="50"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-jP-Opi">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Dtw-Z1-4UD"/>
+                                <constraint firstAttribute="height" constant="50" id="rHT-mc-g8o"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="e5h-jP-Opi" secondAttribute="centerY" id="094-1B-RGw"/>
+                        <constraint firstAttribute="height" constant="50" id="1hh-Ra-6oa"/>
+                        <constraint firstAttribute="width" constant="50" id="XXZ-SW-6d9"/>
+                        <constraint firstAttribute="centerX" secondItem="e5h-jP-Opi" secondAttribute="centerX" id="aTG-c6-H6d"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="19J-d9-rcw" secondAttribute="centerY" id="DlX-dJ-y4A"/>
+                <constraint firstAttribute="centerX" secondItem="19J-d9-rcw" secondAttribute="centerX" id="iTf-dQ-2Ho"/>
+            </constraints>
+            <connections>
+                <outlet property="indicatorView" destination="19J-d9-rcw" id="WZZ-6H-whz"/>
+            </connections>
+            <point key="canvasLocation" x="92" y="18"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loading" width="40" height="40"/>
+    </resources>
+</document>

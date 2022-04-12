@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.ios.deployment_target = '14.0'
   s.tvos.deployment_target = '11.0'
-  s.source_files = 'Spring/*.swift'
+  s.source_files = 'Sources/Spring/*.swift'
   s.ios.resources = ['Spring/*.xib', 'SpringApp/*.xcassets']
   s.tvos.resources = ['SpringApp/*.xcassets']
 end
