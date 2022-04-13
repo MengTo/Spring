@@ -26,8 +26,8 @@ import UIKit
 @available(tvOS, unavailable)
 public class KeyboardLayoutConstraint: NSLayoutConstraint {
     
-    private var offset : CGFloat = 0
-    private var keyboardVisibleHeight : CGFloat = 0
+    private var offset: CGFloat = 0
+    private var keyboardVisibleHeight: CGFloat = 0
     
     @available(tvOS, unavailable)
     override public func awakeFromNib() {
@@ -35,8 +35,18 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
         
         offset = constant
         
-        NotificationCenter.default.addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification(_:)), name: UIWindow.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillHideNotification(_:)), name: UIWindow.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification),
+            name: UIWindow.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(KeyboardLayoutConstraint.keyboardWillHideNotification),
+            name: UIWindow.keyboardWillHideNotification,
+            object: nil
+        )
     }
     
     deinit {
@@ -44,7 +54,6 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     }
     
     // MARK: Notification
-    
     @objc func keyboardWillShowNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             if let frameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -61,24 +70,19 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                 UIView.animate(
                     withDuration: TimeInterval(duration.doubleValue),
                     delay: 0,
-                    options: options,
-                    animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
+                    options: options) {
+                        UIApplication.shared.windows.first?.layoutIfNeeded()
                         return
-                    }, completion: { finished in
-                })
+                    }
             default:
-                
                 break
             }
-            
         }
-        
     }
     
     @objc func keyboardWillHideNotification(_ notification: NSNotification) {
         keyboardVisibleHeight = 0
-        self.updateConstant()
+        updateConstant()
         
         if let userInfo = notification.userInfo {
             
@@ -90,12 +94,10 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
                 UIView.animate(
                     withDuration: TimeInterval(duration.doubleValue),
                     delay: 0,
-                    options: options,
-                    animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
+                    options: options) {
+                        UIApplication.shared.windows.first?.layoutIfNeeded()
                         return
-                    }, completion: { finished in
-                })
+                    }
             default:
                 break
             }
@@ -103,7 +105,7 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     }
     
     func updateConstant() {
-        self.constant = offset + keyboardVisibleHeight
+        constant = offset + keyboardVisibleHeight
     }
     
 }

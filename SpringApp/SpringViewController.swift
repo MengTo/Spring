@@ -10,7 +10,7 @@ import UIKit
 import Spring
 
 class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, OptionsViewControllerDelegate {
-
+    
     @IBOutlet weak var delayLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var forceLabel: UILabel!
@@ -20,8 +20,8 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var ballView: SpringView!
     @IBOutlet weak var animationPicker: UIPickerView!
     
-    var selectedRow: Int = 0
-    var selectedEasing: Int = 0
+    var selectedRow = 0
+    var selectedEasing = 0
     
     var selectedForce: CGFloat = 1
     var selectedDuration: CGFloat = 1
@@ -33,6 +33,21 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     var selectedX: CGFloat = 0
     var selectedY: CGFloat = 0
     var selectedRotate: CGFloat = 0
+    
+    var isBall = false
+    
+    let animations = Spring.AnimationPreset.allCases
+    let animationCurves = Spring.AnimationCurve.allCases
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        animationPicker.delegate = self
+        animationPicker.dataSource = self
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .default
+    }
     
     @IBAction func forceSliderChanged(_ sender: AnyObject) {
         selectedForce = sender.value(forKey: "value") as! CGFloat
@@ -49,7 +64,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         animateView()
         delayLabel.text = String(format: "Delay: %.1f", Double(selectedDelay))
     }
-
+    
     func dampingSliderChanged(_ sender: AnyObject) {
         selectedDamping = sender.value(forKey: "value") as! CGFloat
         animateView()
@@ -80,12 +95,12 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         animateView()
     }
     
-    func animateView() {
+    private func animateView() {
         setOptions()
         ballView.animate()
     }
     
-    func setOptions() {
+    private func setOptions() {
         ballView.force = selectedForce
         ballView.duration = selectedDuration
         ballView.delay = selectedDelay
@@ -102,87 +117,16 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         ballView.curve = animationCurves[selectedEasing].rawValue
     }
     
-   @objc func minimizeView(_ sender: AnyObject) {
-        SpringAnimation.spring(duration: 0.7, animations: {
+    @objc func minimizeView(_ sender: AnyObject) {
+        SpringAnimation.spring(duration: 0.7) {
             self.view.transform = CGAffineTransform(scaleX: 0.935, y: 0.935)
-        })
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        }
     }
     
-   @objc func maximizeView(_ sender: AnyObject) {
-        SpringAnimation.spring(duration: 0.7, animations: {
+    @objc func maximizeView(_ sender: AnyObject) {
+        SpringAnimation.spring(duration: 0.7) {
             self.view.transform = CGAffineTransform(scaleX: 1, y: 1)
-        })
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
-    }
-
-    let animations: [Spring.AnimationPreset] = [
-        .Shake,
-        .Pop,
-        .Morph,
-        .Squeeze,
-        .Wobble,
-        .Swing,
-        .FlipX,
-        .FlipY,
-        .Fall,
-        .SqueezeLeft,
-        .SqueezeRight,
-        .SqueezeDown,
-        .SqueezeUp,
-        .SlideLeft,
-        .SlideRight,
-        .SlideDown,
-        .SlideUp,
-        .FadeIn,
-        .FadeOut,
-        .FadeInLeft,
-        .FadeInRight,
-        .FadeInDown,
-        .FadeInUp,
-        .ZoomIn,
-        .ZoomOut,
-        .Flash
-    ]
-
-    var animationCurves: [Spring.AnimationCurve] = [
-        .EaseIn,
-        .EaseOut,
-        .EaseInOut,
-        .Linear,
-        .Spring,
-        .EaseInSine,
-        .EaseOutSine,
-        .EaseInOutSine,
-        .EaseInQuad,
-        .EaseOutQuad,
-        .EaseInOutQuad,
-        .EaseInCubic,
-        .EaseOutCubic,
-        .EaseInOutCubic,
-        .EaseInQuart,
-        .EaseOutQuart,
-        .EaseInOutQuart,
-        .EaseInQuint,
-        .EaseOutQuint,
-        .EaseInOutQuint,
-        .EaseInExpo,
-        .EaseOutExpo,
-        .EaseInOutExpo,
-        .EaseInCirc,
-        .EaseOutCirc,
-        .EaseInOutCirc,
-        .EaseInBack,
-        .EaseOutBack,
-        .EaseInOutBack
-    ]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        animationPicker.delegate = self
-        animationPicker.dataSource = self
-        animationPicker.showsSelectionIndicator = true
+        }
     }
     
     @IBAction func ballButtonPressed(_ sender: AnyObject) {
@@ -198,9 +142,8 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         animateView()
     }
     
-    var isBall = false
     func changeBall() {
-        isBall = !isBall
+        isBall.toggle()
         let animation = CABasicAnimation()
         let halfWidth = ballView.frame.width / 2
         let cornerRadius: CGFloat = isBall ? halfWidth : 10
@@ -265,8 +208,7 @@ class SpringViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             optionsViewController.delegate = self
             setOptions()
             optionsViewController.data = ballView
-        }
-        else if let codeViewController = segue.destination as? CodeViewController {
+        } else if let codeViewController = segue.destination as? CodeViewController {
             setOptions()
             codeViewController.data = ballView
         }

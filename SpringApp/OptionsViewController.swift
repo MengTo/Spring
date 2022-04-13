@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 Meng To. All rights reserved.
 //
 
-import UIKit
 import Spring
 
-protocol OptionsViewControllerDelegate: class {
+protocol OptionsViewControllerDelegate: AnyObject {
     func dampingSliderChanged(_ sender: AnyObject)
     func velocitySliderChanged(_ sender: AnyObject)
     func scaleSliderChanged(_ sender: AnyObject)
@@ -46,6 +45,10 @@ class OptionsViewController: UIViewController {
     
     weak var delegate: OptionsViewControllerDelegate?
     var data: SpringView!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,19 +110,19 @@ class OptionsViewController: UIViewController {
         delegate?.resetButtonPressed(sender)
         dismiss(animated: true, completion: nil)
         
-        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView), to: nil, from: self, for: nil)
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
         
-        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView(_:)), to: nil, from: self, for: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.maximizeView), to: nil, from: self, for: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        UIApplication.shared.sendAction(#selector(SpringViewController.minimizeView(_:)), to: nil, from: self, for: nil)
+        UIApplication.shared.sendAction(#selector(SpringViewController.minimizeView), to: nil, from: self, for: nil)
         
         modalView.animate()
     }
