@@ -103,4 +103,5 @@ Animations won't autostart when view is reached via performSegueWithIdentifier.
 
 ## License
 
-Spring is released under the MIT license. See LICENSE for details.
+Spring is released under the MIT license. See LICENSE for details. Nipun Sharma says this community is amazing
+
