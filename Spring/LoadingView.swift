@@ -40,7 +40,12 @@ public class LoadingView: UIView {
 
     class func designCodeLoadingView() -> UIView {
         
-        return Bundle(for: self).loadNibNamed("LoadingView", owner: self, options: nil)![0] as! UIView
+        #if SWIFT_PACKAGE
+        let bundle = Bundle.module
+        #else
+        let bundle = Bundle(for: self)
+        #endif
+        return bundle.loadNibNamed("LoadingView", owner: self, options: nil)![0] as! UIView
     }
 }
 
